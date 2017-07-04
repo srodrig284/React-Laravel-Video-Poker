@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 
 import {Link} from 'react-router';
 
+
 class Dashboard extends Component {
     render() {
         return (
@@ -15,16 +16,10 @@ class Dashboard extends Component {
                             <div className="panel-heading">Video Poker Dashboard</div>
 
                             <div className="panel-body">
-                                <h1>Welcome, { window.name }!</h1>
+                                <h1>Choose your game!</h1>
                                 <p>
                                     <Link to="/Game"><button className="btn btn-primary btn-lg">Play Jacks or Better</button></Link>
                                 </p>
-                            </div>
-                            <div className="row">
-
-                                {/* This code will dump the correct Child Component */}
-                                {this.props.children}
-
                             </div>
                         </div>
                     </div>

@@ -13577,8 +13577,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactDom = __webpack_require__(137);
 
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
 var _routes = __webpack_require__(223);
 
 var _routes2 = _interopRequireDefault(_routes);
@@ -13599,18 +13597,12 @@ __webpack_require__(258);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-/*import Dashboard from './components/Dashboard';*/
+/**
+ * Loading React routes from routes.
+ */
 
-/*const app = new myroutes;*/
 
-// Grabs the Routes
-//var routes = require("./config/routes");
-
-// Include the Main React Dependencies
-console.log('myroutes = ', _routes2.default);
-if (document.getElementById('example')) {
-  _reactDom2.default.render(_routes2.default, document.getElementById('example'));
-}
+(0, _reactDom.render)(_routes2.default, document.getElementById('example'));
 
 /***/ }),
 /* 122 */
@@ -26237,8 +26229,7 @@ var myroutes = _react2.default.createElement(
     _reactRouter.Router,
     { history: _reactRouter.browserHistory },
     _react2.default.createElement(_reactRouter.Route, { path: '/home', component: _Dashboard2.default }),
-    _react2.default.createElement(_reactRouter.Route, { path: '/Game', component: _Game2.default }),
-    _react2.default.createElement(_reactRouter.IndexRoute, { component: _Dashboard2.default })
+    _react2.default.createElement(_reactRouter.Route, { path: '/Game', component: _Game2.default })
 );
 
 exports.default = myroutes;
@@ -28817,9 +28808,7 @@ var Dashboard = function (_Component) {
                                 _react2.default.createElement(
                                     'h1',
                                     null,
-                                    'Welcome, ',
-                                    window.name,
-                                    '!'
+                                    'Choose your game!'
                                 ),
                                 _react2.default.createElement(
                                     'p',
@@ -28834,11 +28823,6 @@ var Dashboard = function (_Component) {
                                         )
                                     )
                                 )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'row' },
-                                this.props.children
                             )
                         )
                     )
@@ -28917,7 +28901,7 @@ var Game = function (_Component) {
                             _react2.default.createElement(
                                 "div",
                                 { className: "panel-heading" },
-                                "Video Poker Dashboard"
+                                "Jacks or better"
                             ),
                             _react2.default.createElement(
                                 "div",

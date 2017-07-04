@@ -14,7 +14,7 @@ class Game extends Component {
                 <div className="row">
                     <div className="col-md-8 col-md-offset-2">
                         <div className="panel panel-default">
-                            <div className="panel-heading">Video Poker Dashboard</div>
+                            <div className="panel-heading">Jacks or better</div>
 
                             <div className="panel-body">
                                 <h1>This is the Game component</h1>

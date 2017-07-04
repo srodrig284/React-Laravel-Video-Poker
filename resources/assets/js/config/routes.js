@@ -5,7 +5,7 @@ import React from 'react'
 import {Router, Route, IndexRoute, browserHistory} from 'react-router'
 
 import Dashboard from "../components/Dashboard";
-import Game from "../components/children/Game";
+import Game from "../components/Game";
 
 /*export the routes*/
 let myroutes = (
