@@ -4,13 +4,25 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+
+
 class Example extends Component {
     render() {
         return (
-        <div>
-        <h1>Cool, it's working</h1>
-        </div>
-    );
+            <div className="container">
+            <div className="row">
+                <div className="col-md-8 col-md-offset-2">
+                    <div className="panel panel-default">
+                        <div className="panel-heading">Video Poker Dashboard</div>
+
+                        <div className="panel-body">
+                            <h1>Cool, it's working</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        );
     }
 }
 

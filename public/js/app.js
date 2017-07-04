@@ -10464,11 +10464,32 @@ var Example = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'container' },
                 _react2.default.createElement(
-                    'h1',
-                    null,
-                    'Cool, it\'s working'
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-md-8 col-md-offset-2' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'panel panel-default' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'panel-heading' },
+                                'Video Poker Dashboard'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'panel-body' },
+                                _react2.default.createElement(
+                                    'h1',
+                                    null,
+                                    'Cool, it\'s working'
+                                )
+                            )
+                        )
+                    )
                 )
             );
         }
