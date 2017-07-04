@@ -18,7 +18,7 @@ class Dashboard extends Component {
                             <div className="panel-body">
                                 <h1>Choose your game!</h1>
                                 <p>
-                                    <Link to="/Game"><button className="btn btn-primary btn-lg">Play Jacks or Better</button></Link>
+                                    <Link to="/Game"><button className="btn btn-primary btn-lg">Jacks or Better</button></Link>
                                 </p>
                             </div>
                         </div>
