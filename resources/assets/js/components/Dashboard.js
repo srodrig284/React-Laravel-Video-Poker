@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react'
 
-var Link = require("react-router-dom").Link;
+import {Link} from 'react-router';
 
 class Dashboard extends Component {
     render() {
@@ -19,6 +19,12 @@ class Dashboard extends Component {
                                 <p>
                                     <Link to="/Game"><button className="btn btn-primary btn-lg">Play Jacks or Better</button></Link>
                                 </p>
+                            </div>
+                            <div className="row">
+
+                                {/* This code will dump the correct Child Component */}
+                                {this.props.children}
+
                             </div>
                         </div>
                     </div>
