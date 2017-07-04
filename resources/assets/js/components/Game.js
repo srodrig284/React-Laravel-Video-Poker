@@ -1,9 +1,6 @@
 /**
  * Created by Sandra on 7/4/17.
  */
-/**
- * Created by Sandra on 7/3/17.
- */
 import React, { Component } from 'react'
 
 
