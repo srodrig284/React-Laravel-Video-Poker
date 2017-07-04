@@ -10396,9 +10396,9 @@ module.exports = __webpack_require__(218);
 "use strict";
 
 
-var _Example = __webpack_require__(90);
+var _Dashboard = __webpack_require__(90);
 
-var _Example2 = _interopRequireDefault(_Example);
+var _Dashboard2 = _interopRequireDefault(_Dashboard);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10416,7 +10416,7 @@ __webpack_require__(193);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new _Example2.default();
+var app = new _Dashboard2.default();
 
 /***/ }),
 /* 90 */
@@ -10450,16 +10450,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 
-var Example = function (_Component) {
-    _inherits(Example, _Component);
+var Dashboard = function (_Component) {
+    _inherits(Dashboard, _Component);
 
-    function Example() {
-        _classCallCheck(this, Example);
+    function Dashboard() {
+        _classCallCheck(this, Dashboard);
 
-        return _possibleConstructorReturn(this, (Example.__proto__ || Object.getPrototypeOf(Example)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
     }
 
-    _createClass(Example, [{
+    _createClass(Dashboard, [{
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -10495,16 +10495,16 @@ var Example = function (_Component) {
         }
     }]);
 
-    return Example;
+    return Dashboard;
 }(_react.Component);
 
-exports.default = Example;
+exports.default = Dashboard;
 
 // We only want to try to render our component on pages that have a div with an ID
 // of "example"; otherwise, we will see an error in our console
 
 if (document.getElementById('example')) {
-    _reactDom2.default.render(_react2.default.createElement(Example, null), document.getElementById('example'));
+    _reactDom2.default.render(_react2.default.createElement(Dashboard, null), document.getElementById('example'));
 }
 
 /***/ }),

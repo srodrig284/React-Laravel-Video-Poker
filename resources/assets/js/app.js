@@ -15,6 +15,6 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Example from './components/Example';
+import Dashboard from './components/Dashboard';
 
-const app = new Example;
+const app = new Dashboard;
