@@ -1,11 +1,13 @@
 /**
+ * Created by Sandra on 7/4/17.
+ */
+/**
  * Created by Sandra on 7/3/17.
  */
 import React, { Component } from 'react'
 
-var Link = require("react-router-dom").Link;
 
-class Dashboard extends Component {
+class Game extends Component {
     render() {
         return (
             <div className="container">
@@ -15,10 +17,7 @@ class Dashboard extends Component {
                             <div className="panel-heading">Video Poker Dashboard</div>
 
                             <div className="panel-body">
-                                <h1>Welcome, { window.name }!</h1>
-                                <p>
-                                    <Link to="/Game"><button className="btn btn-primary btn-lg">Play Jacks or Better</button></Link>
-                                </p>
+                                <h1>This is the Game component</h1>
                             </div>
                         </div>
                     </div>
@@ -28,11 +27,11 @@ class Dashboard extends Component {
     }
 }
 
-export default Dashboard;
+export default Game;
 
 // We only want to try to render our component on pages that have a div with an ID
 // of "example"; otherwise, we will see an error in our console
 /*
-if (document.getElementById('example')) {
-    ReactDOM.render(<Dashboard />, document.getElementById('example'));
-}*/
+ if (document.getElementById('example')) {
+ ReactDOM.render(<Dashboard />, document.getElementById('example'));
+ }*/

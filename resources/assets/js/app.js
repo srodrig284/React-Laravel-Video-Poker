@@ -1,4 +1,11 @@
 
+// Include the Main React Dependencies
+import React from "react";
+import ReactDOM from "react-dom";
+// Grabs the Routes
+//var routes = require("./config/routes");
+import myroutes from "./config/routes";
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -15,6 +22,10 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-import Dashboard from './components/Dashboard';
+/*import Dashboard from './components/Dashboard';*/
 
-const app = new Dashboard;
+/*const app = new myroutes;*/
+console.log('myroutes = ', myroutes);
+if (document.getElementById('example')) {
+    ReactDOM.render(myroutes, document.getElementById('example'));
+}
