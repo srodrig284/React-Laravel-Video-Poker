@@ -1,10 +1,8 @@
 /**
  * Created by Sandra on 7/3/17.
  */
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-
-
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
 class Dashboard extends Component {
     render() {
