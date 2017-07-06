@@ -2,6 +2,7 @@
  * Created by Sandra on 7/4/17.
  */
 import React, { Component } from 'react'
+import marquee from '../../../../public/images/VideoPokerMarquee.jpg'
 
 
 class Game extends Component {
@@ -11,7 +12,7 @@ class Game extends Component {
                 <table>
                     <tr>
                         <td>
-
+                            <img src={marquee} alt='Marquee'/>
                         </td>
                     </tr>
                 </table>
