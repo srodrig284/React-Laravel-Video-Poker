@@ -8,6 +8,7 @@ import twochip from '../../../../public/images/TwoChip.png'
 import threechip from '../../../../public/images/ThreeChip.png'
 import fourchip from '../../../../public/images/FourChip.png'
 import fivechip from '../../../../public/images/FiveChip.png'
+import './Game.css'
 
 
 class Game extends Component {

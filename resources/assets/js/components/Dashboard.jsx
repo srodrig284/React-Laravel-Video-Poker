@@ -16,7 +16,8 @@ class Dashboard extends Component {
                             <div className="panel-heading">Video Poker Dashboard</div>
 
                             <div className="panel-body">
-                                <h1>Choose your game!</h1>
+                                <h1>Welcome, { window.name }</h1>
+                                <h2>Choose your game!</h2>
                                 <p>
                                     <Link to="/Game"><button className="btn btn-primary btn-lg">Jacks or Better</button></Link>
                                 </p>
