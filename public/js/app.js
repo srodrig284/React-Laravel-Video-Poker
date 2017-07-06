@@ -28881,35 +28881,18 @@ var Game = function (_Component) {
     }
 
     _createClass(Game, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { className: "container" },
+                'div',
+                null,
                 _react2.default.createElement(
-                    "div",
-                    { className: "row" },
+                    'table',
+                    null,
                     _react2.default.createElement(
-                        "div",
-                        { className: "col-md-8 col-md-offset-2" },
-                        _react2.default.createElement(
-                            "div",
-                            { className: "panel panel-default" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "panel-heading" },
-                                "Jacks or better"
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "panel-body" },
-                                _react2.default.createElement(
-                                    "h1",
-                                    null,
-                                    "This is the Game component"
-                                )
-                            )
-                        )
+                        'tr',
+                        null,
+                        _react2.default.createElement('td', null)
                     )
                 )
             );
@@ -28927,6 +28910,19 @@ exports.default = Game;
  if (document.getElementById('example')) {
  ReactDOM.render(<Dashboard />, document.getElementById('example'));
  }*/
+
+{/*<div className="container">
+    <div className="row">
+    <div className="col-md-10 col-md-offset-1">
+    <div className="panel panel-default">
+    <div className="panel-heading">Jacks or better</div>
+     <div className="panel-body">
+    <h1>This is the Game component</h1>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>*/}
 
 /***/ }),
 /* 258 */
