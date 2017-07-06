@@ -2,21 +2,239 @@
  * Created by Sandra on 7/4/17.
  */
 import React, { Component } from 'react'
-import marquee from '../../../../public/images/VideoPokerMarquee.jpg'
+import marquee from '../../../../public/images/JacksOrBetterMarguee.jpeg'
+import onechip from '../../../../public/images/OneChip.png'
+import twochip from '../../../../public/images/TwoChip.png'
+import threechip from '../../../../public/images/ThreeChip.png'
+import fourchip from '../../../../public/images/FourChip.png'
+import fivechip from '../../../../public/images/FiveChip.png'
 
 
 class Game extends Component {
     render() {
         return (
-            <div>
-                <table>
-                    <tr>
-                        <td>
-                            <img src={marquee} alt='Marquee'/>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+            <div className="container">
+             <div className="row">
+                <div className="col-md-12">
+                    <div className="panel panel-default">
+                        <div className="panel-heading">
+                            <img src={marquee} alt=""/>
+                        </div>
+
+                            <div className="panel-body">
+                                <div className="table-responsive">
+                                    <table className="table">
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <img alt="Bet 1" src={onechip} />
+                                            </td>
+                                            <td>
+                                                <img alt="Bet 2" src={twochip} />
+                                            </td>
+                                            <td>
+                                                <img alt="Bet 3" src={threechip} />
+                                            </td>
+                                            <td>
+                                                <img alt="Bet 4" src={fourchip} />
+                                            </td>
+                                            <td>
+                                                <img alt="Bet 5" src={fivechip}/>
+                                            </td>
+                                        </tr>
+
+                                        <tr id="row9">
+                                            <td className="PRIZE">
+                                                Royal Flush
+                                            </td>
+                                            <td>
+                                                250
+                                            </td>
+                                            <td>
+                                                500
+                                            </td>
+                                            <td>
+                                                750
+                                            </td>
+                                            <td>
+                                                1000
+                                            </td>
+                                            <td>
+                                                4000
+                                            </td>
+                                        </tr>
+                                        <tr id="row8">
+                                            <td class="PRIZE">
+                                                Straight Flush
+                                            </td>
+                                            <td>
+                                                50
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                            <td>
+                                                150
+                                            </td>
+                                            <td>
+                                                200
+                                            </td>
+                                            <td>
+                                                250
+                                            </td>
+                                        </tr>
+                                        <tr id="row7">
+                                            <td className="PRIZE">
+                                                4 of a Kind
+                                            </td>
+                                            <td>
+                                                25
+                                            </td>
+                                            <td>
+                                                50
+                                            </td>
+                                            <td>
+                                                75
+                                            </td>
+                                            <td>
+                                                100
+                                            </td>
+                                            <td>
+                                                125
+                                            </td>
+                                        </tr>
+                                        <tr id="row6">
+                                            <td className="PRIZE">
+                                                Full House
+                                            </td>
+                                            <td>
+                                                9
+                                            </td>
+                                            <td>
+                                                18
+                                            </td>
+                                            <td>
+                                                27
+                                            </td>
+                                            <td>
+                                                36
+                                            </td>
+                                            <td>
+                                                45
+                                            </td>
+                                        </tr>
+                                        <tr id="row5">
+                                            <td className="PRIZE">
+                                                Flush
+                                            </td>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                12
+                                            </td>
+                                            <td>
+                                                18
+                                            </td>
+                                            <td>
+                                                24
+                                            </td>
+                                            <td>
+                                                30
+                                            </td>
+                                        </tr>
+                                        <tr id="row4">
+                                            <td className="PRIZE">
+                                                Straight
+                                            </td>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                8
+                                            </td>
+                                            <td>
+                                                12
+                                            </td>
+                                            <td>
+                                                16
+                                            </td>
+                                            <td>
+                                                20
+                                            </td>
+                                        </tr>
+                                        <tr id="row3">
+                                            <td className="PRIZE">
+                                                3 of a Kind
+                                            </td>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                9
+                                            </td>
+                                            <td>
+                                                12
+                                            </td>
+                                            <td>
+                                                15
+                                            </td>
+                                        </tr>
+                                        <tr id="row2">
+                                            <td className="PRIZE">
+                                                2 Pair
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                6
+                                            </td>
+                                            <td>
+                                                8
+                                            </td>
+                                            <td>
+                                                10
+                                            </td>
+                                        </tr>
+                                        <tr id="row1">
+                                            <td className="PRIZE">
+                                                Jacks or Better
+                                            </td>
+                                            <td>
+                                                1
+                                            </td>
+                                            <td>
+                                                2
+                                            </td>
+                                            <td>
+                                                3
+                                            </td>
+                                            <td>
+                                                4
+                                            </td>
+                                            <td>
+                                                5
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div className="table-responsive">
+                                    <table className="table">
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             </div>
         );
     }
 }
@@ -29,16 +247,3 @@ export default Game;
  if (document.getElementById('example')) {
  ReactDOM.render(<Dashboard />, document.getElementById('example'));
  }*/
-{/*<div className="container">
- <div className="row">
- <div className="col-md-10 col-md-offset-1">
- <div className="panel panel-default">
- <div className="panel-heading">Jacks or better</div>
-
- <div className="panel-body">
- <h1>This is the Game component</h1>
- </div>
- </div>
- </div>
- </div>
- </div>*/}

@@ -1109,7 +1109,7 @@ module.exports = { debugTool: debugTool };
 
 
 var bind = __webpack_require__(115);
-var isBuffer = __webpack_require__(267);
+var isBuffer = __webpack_require__(272);
 
 /*global toString:true*/
 
@@ -8549,7 +8549,7 @@ function mapAsync(array, work, callback) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(11);
-var normalizeHeaderName = __webpack_require__(269);
+var normalizeHeaderName = __webpack_require__(274);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -13314,12 +13314,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(11);
-var settle = __webpack_require__(270);
-var buildURL = __webpack_require__(272);
-var parseHeaders = __webpack_require__(273);
-var isURLSameOrigin = __webpack_require__(274);
+var settle = __webpack_require__(275);
+var buildURL = __webpack_require__(277);
+var parseHeaders = __webpack_require__(278);
+var isURLSameOrigin = __webpack_require__(279);
 var createError = __webpack_require__(117);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(275);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(280);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13416,7 +13416,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(276);
+      var cookies = __webpack_require__(281);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13500,7 +13500,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(271);
+var enhanceError = __webpack_require__(276);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13561,7 +13561,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(121);
-module.exports = __webpack_require__(284);
+module.exports = __webpack_require__(289);
 
 
 /***/ }),
@@ -13589,7 +13589,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(259);
+__webpack_require__(264);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28860,9 +28860,29 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _VideoPokerMarquee = __webpack_require__(258);
+var _JacksOrBetterMarguee = __webpack_require__(258);
 
-var _VideoPokerMarquee2 = _interopRequireDefault(_VideoPokerMarquee);
+var _JacksOrBetterMarguee2 = _interopRequireDefault(_JacksOrBetterMarguee);
+
+var _OneChip = __webpack_require__(259);
+
+var _OneChip2 = _interopRequireDefault(_OneChip);
+
+var _TwoChip = __webpack_require__(260);
+
+var _TwoChip2 = _interopRequireDefault(_TwoChip);
+
+var _ThreeChip = __webpack_require__(261);
+
+var _ThreeChip2 = _interopRequireDefault(_ThreeChip);
+
+var _FourChip = __webpack_require__(262);
+
+var _FourChip2 = _interopRequireDefault(_FourChip);
+
+var _FiveChip = __webpack_require__(263);
+
+var _FiveChip2 = _interopRequireDefault(_FiveChip);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28889,17 +28909,366 @@ var Game = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'container' },
                 _react2.default.createElement(
-                    'table',
-                    null,
+                    'div',
+                    { className: 'row' },
                     _react2.default.createElement(
-                        'tr',
-                        null,
+                        'div',
+                        { className: 'col-md-12' },
                         _react2.default.createElement(
-                            'td',
-                            null,
-                            _react2.default.createElement('img', { src: _VideoPokerMarquee2.default, alt: 'Marquee' })
+                            'div',
+                            { className: 'panel panel-default' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'panel-heading' },
+                                _react2.default.createElement('img', { src: _JacksOrBetterMarguee2.default, alt: '' })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'panel-body' },
+                                _react2.default.createElement(
+                                    'table',
+                                    { className: 'table' },
+                                    _react2.default.createElement(
+                                        'tr',
+                                        null,
+                                        _react2.default.createElement('td', null),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            _react2.default.createElement('img', { alt: 'Bet 1', src: _OneChip2.default })
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            _react2.default.createElement('img', { alt: 'Bet 2', src: _TwoChip2.default })
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            _react2.default.createElement('img', { alt: 'Bet 3', src: _ThreeChip2.default })
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            _react2.default.createElement('img', { alt: 'Bet 4', src: _FourChip2.default })
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            _react2.default.createElement('img', { alt: 'Bet 5', src: _FiveChip2.default })
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row9' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            'Royal Flush'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '250'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '500'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '750'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '1000'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '4000'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row8' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { 'class': 'PRIZE' },
+                                            'Straight Flush'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '50'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '100'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '150'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '200'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '250'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row7' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            '4 of a Kind'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '25'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '50'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '75'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '100'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '125'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row6' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            'Full House'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '9'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '18'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '27'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '36'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '45'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row5' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            'Flush'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '6'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '12'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '18'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '24'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '30'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row4' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            'Straight'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '4'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '8'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '12'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '16'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '20'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row3' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            '3 of a Kind'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '3'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '6'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '9'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '12'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '15'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row2' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            '2 Pair'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '2'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '4'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '6'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '8'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '10'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tr',
+                                        { id: 'row1' },
+                                        _react2.default.createElement(
+                                            'td',
+                                            { className: 'PRIZE' },
+                                            'Jacks or Better'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '1'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '2'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '3'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '4'
+                                        ),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            '5'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement('table', null)
+                            )
                         )
                     )
                 )
@@ -28919,33 +29288,50 @@ exports.default = Game;
  ReactDOM.render(<Dashboard />, document.getElementById('example'));
  }*/
 
-{/*<div className="container">
-    <div className="row">
-    <div className="col-md-10 col-md-offset-1">
-    <div className="panel panel-default">
-    <div className="panel-heading">Jacks or better</div>
-     <div className="panel-body">
-    <h1>This is the Game component</h1>
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>*/}
-
 /***/ }),
 /* 258 */
 /***/ (function(module, exports) {
 
-module.exports = "/images/VideoPokerMarquee.jpg?34c784947febdcc605345557eee8182f";
+module.exports = "/images/JacksOrBetterMarguee.jpeg?2e590797db75130ca9abf58b4ec245ea";
 
 /***/ }),
 /* 259 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/OneChip.png?4ee0e29189600b29f3de5bb67167cba4";
+
+/***/ }),
+/* 260 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/TwoChip.png?9e25ae4579d8201559143b13eb69dd6c";
+
+/***/ }),
+/* 261 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/ThreeChip.png?c4df0124a629c8dcc364706b61cb8be4";
+
+/***/ }),
+/* 262 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/FourChip.png?8ce9f0a11a0a3786c1575641c67d7fe7";
+
+/***/ }),
+/* 263 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/FiveChip.png?b4ede27ce0307f6a6748c929139ece67";
+
+/***/ }),
+/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-window._ = __webpack_require__(260);
+window._ = __webpack_require__(265);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -28954,9 +29340,9 @@ window._ = __webpack_require__(260);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(263);
+  window.$ = window.jQuery = __webpack_require__(268);
 
-  __webpack_require__(264);
+  __webpack_require__(269);
 } catch (e) {}
 
 /**
@@ -28965,7 +29351,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(265);
+window.axios = __webpack_require__(270);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -28999,7 +29385,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 260 */
+/* 265 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -46088,10 +46474,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(261), __webpack_require__(262)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(266), __webpack_require__(267)(module)))
 
 /***/ }),
-/* 261 */
+/* 266 */
 /***/ (function(module, exports) {
 
 var g;
@@ -46118,7 +46504,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 262 */
+/* 267 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -46146,7 +46532,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 263 */
+/* 268 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -56406,7 +56792,7 @@ return jQuery;
 
 
 /***/ }),
-/* 264 */
+/* 269 */
 /***/ (function(module, exports) {
 
 /*!
@@ -58789,13 +59175,13 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 265 */
+/* 270 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(266);
+module.exports = __webpack_require__(271);
 
 /***/ }),
-/* 266 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58803,7 +59189,7 @@ module.exports = __webpack_require__(266);
 
 var utils = __webpack_require__(11);
 var bind = __webpack_require__(115);
-var Axios = __webpack_require__(268);
+var Axios = __webpack_require__(273);
 var defaults = __webpack_require__(69);
 
 /**
@@ -58838,14 +59224,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(119);
-axios.CancelToken = __webpack_require__(282);
+axios.CancelToken = __webpack_require__(287);
 axios.isCancel = __webpack_require__(118);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(283);
+axios.spread = __webpack_require__(288);
 
 module.exports = axios;
 
@@ -58854,7 +59240,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 267 */
+/* 272 */
 /***/ (function(module, exports) {
 
 /*!
@@ -58881,7 +59267,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 268 */
+/* 273 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58889,10 +59275,10 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(69);
 var utils = __webpack_require__(11);
-var InterceptorManager = __webpack_require__(277);
-var dispatchRequest = __webpack_require__(278);
-var isAbsoluteURL = __webpack_require__(280);
-var combineURLs = __webpack_require__(281);
+var InterceptorManager = __webpack_require__(282);
+var dispatchRequest = __webpack_require__(283);
+var isAbsoluteURL = __webpack_require__(285);
+var combineURLs = __webpack_require__(286);
 
 /**
  * Create a new instance of Axios
@@ -58974,7 +59360,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 269 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -58993,7 +59379,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 270 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59026,7 +59412,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 271 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59054,7 +59440,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 272 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59129,7 +59515,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 273 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59173,7 +59559,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 274 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59248,7 +59634,7 @@ module.exports = (
 
 
 /***/ }),
-/* 275 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59291,7 +59677,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 276 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59351,7 +59737,7 @@ module.exports = (
 
 
 /***/ }),
-/* 277 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59410,14 +59796,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 278 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(11);
-var transformData = __webpack_require__(279);
+var transformData = __webpack_require__(284);
 var isCancel = __webpack_require__(118);
 var defaults = __webpack_require__(69);
 
@@ -59496,7 +59882,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 279 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59523,7 +59909,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 280 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59544,7 +59930,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 281 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59565,7 +59951,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 282 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59629,7 +60015,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 283 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59663,7 +60049,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 284 */
+/* 289 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
