@@ -28851,7 +28851,7 @@ if (document.getElementById('example')) {
 
 
 Object.defineProperty(exports, "__esModule", {
-            value: true
+    value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -28896,382 +28896,408 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
 var Game = function (_Component) {
-            _inherits(Game, _Component);
+    _inherits(Game, _Component);
 
-            function Game() {
-                        _classCallCheck(this, Game);
+    function Game() {
+        _classCallCheck(this, Game);
 
-                        return _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).apply(this, arguments));
-            }
+        return _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).apply(this, arguments));
+    }
 
-            _createClass(Game, [{
-                        key: 'render',
-                        value: function render() {
-                                    return _react2.default.createElement(
-                                                'div',
-                                                { className: 'container' },
-                                                _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'row' },
-                                                            _react2.default.createElement(
-                                                                        'div',
-                                                                        { className: 'col-md-12' },
-                                                                        _react2.default.createElement(
-                                                                                    'div',
-                                                                                    { className: 'panel panel-default' },
-                                                                                    _react2.default.createElement(
-                                                                                                'div',
-                                                                                                { className: 'panel-heading' },
-                                                                                                _react2.default.createElement('img', { src: _JacksOrBetterMarguee2.default, alt: '' })
-                                                                                    ),
-                                                                                    _react2.default.createElement(
-                                                                                                'div',
-                                                                                                { className: 'panel-body' },
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement('div', { className: 'col-sm-2' }),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        _react2.default.createElement('img', { alt: 'Bet 1', src: _OneChip2.default })
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        _react2.default.createElement('img', { alt: 'Bet 2', src: _TwoChip2.default })
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        _react2.default.createElement('img', { alt: 'Bet 3', src: _ThreeChip2.default })
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        _react2.default.createElement('img', { alt: 'Bet 4', src: _FourChip2.default })
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        _react2.default.createElement('img', { alt: 'Bet 5', src: _FiveChip2.default })
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        'Royal Flush'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '250'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '500'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '750'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '1000'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '4000'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        'Straight Flush'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '50'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '100'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '150'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '200'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '250'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '4 of a Kind'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '25'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '50'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '75'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '100'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '125'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        'Full House'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '9'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '18'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '27'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '36'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '45'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        'Flush'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '6'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '12'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '18'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '24'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '30'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        'Straight'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '4'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '8'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '12'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '16'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '20'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '3 of a Kind'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '3'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '6'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '9'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '12'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '15'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '2 Pair'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '2'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '4'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '6'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '8'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '10'
-                                                                                                            )
-                                                                                                ),
-                                                                                                _react2.default.createElement(
-                                                                                                            'div',
-                                                                                                            { className: 'row' },
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        'Jacks or Better'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '1'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '2'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '3'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '4'
-                                                                                                            ),
-                                                                                                            _react2.default.createElement(
-                                                                                                                        'div',
-                                                                                                                        { className: 'col-sm-2' },
-                                                                                                                        '5'
-                                                                                                            )
-                                                                                                )
-                                                                                    )
-                                                                        )
-                                                            )
-                                                )
-                                    );
-                        }
-            }]);
+    _createClass(Game, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'container' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'row' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'col-md-12' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'panel panel-default' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'panel-heading' },
+                                _react2.default.createElement(
+                                    'table',
+                                    { className: 'TITLE' },
+                                    _react2.default.createElement(
+                                        'tr',
+                                        null,
+                                        _react2.default.createElement('td', null),
+                                        _react2.default.createElement(
+                                            'td',
+                                            null,
+                                            _react2.default.createElement('img', { src: _JacksOrBetterMarguee2.default, alt: '' })
+                                        ),
+                                        _react2.default.createElement('td', null)
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'panel-body' },
+                                _react2.default.createElement(
+                                    'table',
+                                    { className: 'MARQUEE' },
+                                    _react2.default.createElement(
+                                        'thead',
+                                        null,
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement('td', null),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                _react2.default.createElement('img', { alt: 'Bet 1', src: _OneChip2.default })
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                _react2.default.createElement('img', { alt: 'Bet 2', src: _TwoChip2.default })
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                _react2.default.createElement('img', { alt: 'Bet 3', src: _ThreeChip2.default })
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                _react2.default.createElement('img', { alt: 'Bet 4', src: _FourChip2.default })
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                _react2.default.createElement('img', { alt: 'Bet 1', src: _FiveChip2.default })
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'tbody',
+                                        null,
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                'Royal Flush'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '250'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '500'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '750'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '1000'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '4000'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                'Straight Flush'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '50'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '100'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '150'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '200'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '250'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                '4 of a Kind'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '25'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '50'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '75'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '100'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '125'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                'Full House'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '9'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '18'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '27'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '36'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '45'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                'Flush'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '6'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '12'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '18'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '24'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '30'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                'Straight'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '4'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '8'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '12'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '16'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '20'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                '3 of a Kind'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '3'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '6'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '9'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '12'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '15'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                '2 Pair'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '2'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '4'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '6'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '8'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '10'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'tr',
+                                            null,
+                                            _react2.default.createElement(
+                                                'td',
+                                                { className: 'PRIZE' },
+                                                'Jacks or Better'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '1'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '2'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '3'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '4'
+                                            ),
+                                            _react2.default.createElement(
+                                                'td',
+                                                null,
+                                                '5'
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
 
-            return Game;
+    return Game;
 }(_react.Component);
 
 exports.default = Game;

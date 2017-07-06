@@ -18,212 +18,231 @@ class Game extends Component {
                 <div className="col-md-12">
                     <div className="panel panel-default">
                         <div className="panel-heading">
-                            <img src={marquee} alt=""/>
+                            <table className="TITLE">
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        <img src={marquee} alt=""/>
+                                    </td>
+                                    <td></td>
+                                </tr>
+                            </table>
                         </div>
 
-                            <div className="panel-body">
-                                <div className="row">
-                                    <div className="col-sm-2"></div>
-                                    <div className="col-sm-2">
+                        <div className="panel-body">
+                            <table className="MARQUEE">
+                              <thead>
+                                <tr>
+                                    <td >
+                                    </td>
+
+                                    <td>
                                                 <img alt="Bet 1" src={onechip} />
-                                    </div>
-                                    <div className="col-sm-2">
+                                    </td>
+
+                                    <td>
                                                 <img alt="Bet 2" src={twochip} />
-                                    </div>
-                                    <div className="col-sm-2">
+                                    </td>
+
+                                    <td>
                                                 <img alt="Bet 3" src={threechip} />
-                                    </div>
-                                    <div className="col-sm-2">
+                                    </td>
+
+                                    <td>
                                                 <img alt="Bet 4" src={fourchip} />
-                                    </div>
-                                    <div className="col-sm-2">
-                                                <img alt="Bet 5" src={fivechip}/>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                                Royal Flush
-                                    </div>
-                                    <div className="col-sm-2">
-                                                250
-                                    </div>
-                                    <div className="col-sm-2">
-                                                500
-                                    </div>
-                                    <div className="col-sm-2">
-                                                750
-                                    </div>
-                                    <div className="col-sm-2">
-                                                1000
-                                    </div>
-                                    <div className="col-sm-2">
-                                                4000
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                                Straight Flush
-                                    </div>
-                                    <div className="col-sm-2">
-                                                50
-                                    </div>
-                                    <div className="col-sm-2">
-                                                100
-                                    </div>
-                                    <div className="col-sm-2">
-                                                150
-                                    </div>
-                                    <div className="col-sm-2">
-                                                200
-                                    </div>
-                                    <div className="col-sm-2">
-                                                250
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                                4 of a Kind
-                                    </div>
-                                    <div className="col-sm-2">
-                                                25
-                                    </div>
-                                    <div className="col-sm-2">
-                                                50
-                                    </div>
-                                    <div className="col-sm-2">
-                                                75
-                                    </div>
-                                    <div className="col-sm-2">
-                                                100
-                                    </div>
-                                    <div className="col-sm-2">
-                                                125
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                                Full House
-                                    </div>
-                                    <div className="col-sm-2">
-                                                9
-                                    </div>
-                                    <div className="col-sm-2">
-                                                18
-                                    </div>
-                                    <div className="col-sm-2">
-                                                27
-                                    </div>
-                                    <div className="col-sm-2">
-                                                36
-                                    </div>
-                                    <div className="col-sm-2">
-                                                45
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                                Flush
-                                    </div>
-                                    <div className="col-sm-2">
-                                                6
-                                    </div>
-                                    <div className="col-sm-2">
-                                                12
-                                    </div>
-                                    <div className="col-sm-2">
-                                                18
-                                    </div>
-                                    <div className="col-sm-2">
-                                                24
-                                    </div>
-                                    <div className="col-sm-2">
-                                                30
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                            Straight
-                                    </div>
-                                    <div className="col-sm-2">
-                                            4
-                                    </div>
-                                    <div className="col-sm-2">
-                                            8
-                                    </div>
-                                    <div className="col-sm-2">
-                                            12
-                                    </div>
-                                    <div className="col-sm-2">
-                                            16
-                                    </div>
-                                    <div className="col-sm-2">
-                                            20
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                            3 of a Kind
-                                    </div>
-                                    <div className="col-sm-2">
-                                            3
-                                    </div>
-                                    <div className="col-sm-2">
-                                            6
-                                    </div>
-                                    <div className="col-sm-2">
-                                            9
-                                    </div>
-                                    <div className="col-sm-2">
-                                            12
-                                    </div>
-                                    <div className="col-sm-2">
-                                            15
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                            2 Pair
-                                    </div>
-                                    <div className="col-sm-2">
-                                            2
-                                    </div>
-                                    <div className="col-sm-2">
-                                            4
-                                    </div>
-                                    <div className="col-sm-2">
-                                            6
-                                    </div>
-                                    <div className="col-sm-2">
-                                            8
-                                    </div>
-                                    <div className="col-sm-2">
-                                            10
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-sm-2">
-                                            Jacks or Better
-                                    </div>
-                                    <div className="col-sm-2">
-                                            1
-                                    </div>
-                                    <div className="col-sm-2">
-                                            2
-                                    </div>
-                                    <div className="col-sm-2">
-                                            3
-                                    </div>
-                                    <div className="col-sm-2">
-                                            4
-                                    </div>
-                                    <div className="col-sm-2">
-                                            5
-                                    </div>
-                                </div>
-                            </div>
+                                    </td>
+                                    <td>
+                                        <img alt="Bet 1" src={fivechip} />
+                                    </td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                    <td className="PRIZE">
+                                        Royal Flush
+                                    </td>
+                                    <td>
+                                        250
+                                    </td>
+                                    <td>
+                                        500
+                                    </td>
+                                    <td>
+                                        750
+                                    </td>
+                                    <td>
+                                        1000
+                                    </td>
+                                    <td>
+                                        4000
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        Straight Flush
+                                    </td>
+                                    <td>
+                                        50
+                                    </td>
+                                    <td>
+                                        100
+                                    </td>
+                                    <td>
+                                        150
+                                    </td>
+                                    <td>
+                                        200
+                                    </td>
+                                    <td>
+                                        250
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        4 of a Kind
+                                    </td>
+                                    <td>
+                                        25
+                                    </td>
+                                    <td>
+                                        50
+                                    </td>
+                                    <td>
+                                        75
+                                    </td>
+                                    <td>
+                                        100
+                                    </td>
+                                    <td>
+                                        125
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        Full House
+                                    </td>
+                                    <td>
+                                        9
+                                    </td>
+                                    <td>
+                                        18
+                                    </td>
+                                    <td>
+                                        27
+                                    </td>
+                                    <td>
+                                        36
+                                    </td>
+                                    <td>
+                                        45
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        Flush
+                                    </td>
+                                    <td>
+                                        6
+                                    </td>
+                                    <td>
+                                        12
+                                    </td>
+                                    <td>
+                                        18
+                                    </td>
+                                    <td>
+                                        24
+                                    </td>
+                                    <td>
+                                        30
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        Straight
+                                    </td>
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        8
+                                    </td>
+                                    <td>
+                                        12
+                                    </td>
+                                    <td>
+                                        16
+                                    </td>
+                                    <td>
+                                        20
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        3 of a Kind
+                                    </td>
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        6
+                                    </td>
+                                    <td>
+                                        9
+                                    </td>
+                                    <td>
+                                        12
+                                    </td>
+                                    <td>
+                                        15
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        2 Pair
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        6
+                                    </td>
+                                    <td>
+                                        8
+                                    </td>
+                                    <td>
+                                        10
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="PRIZE">
+                                        Jacks or Better
+                                    </td>
+                                    <td>
+                                        1
+                                    </td>
+                                    <td>
+                                        2
+                                    </td>
+                                    <td>
+                                        3
+                                    </td>
+                                    <td>
+                                        4
+                                    </td>
+                                    <td>
+                                        5
+                                    </td>
+                                </tr>
+                              </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
+             </div>
             </div>
         );
     }
