@@ -342,6 +342,16 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+
+
+module.exports = __webpack_require__(23);
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 /**
  * Copyright 2013-present, Facebook, Inc.
  * All rights reserved.
@@ -536,16 +546,6 @@ var ReactDOMComponentTree = {
 };
 
 module.exports = ReactDOMComponentTree;
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = __webpack_require__(23);
-
 
 /***/ }),
 /* 6 */
@@ -1109,7 +1109,7 @@ module.exports = { debugTool: debugTool };
 
 
 var bind = __webpack_require__(115);
-var isBuffer = __webpack_require__(277);
+var isBuffer = __webpack_require__(278);
 
 /*global toString:true*/
 
@@ -2313,7 +2313,7 @@ exports.createRouteFromReactElement = createRouteFromReactElement;
 exports.createRoutesFromReactChildren = createRoutesFromReactChildren;
 exports.createRoutes = createRoutes;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -2870,7 +2870,7 @@ exports.__esModule = true;
 exports.routes = exports.route = exports.components = exports.component = exports.history = undefined;
 exports.falsy = falsy;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var func = _react.PropTypes.func;
 var object = _react.PropTypes.object;
@@ -5877,7 +5877,7 @@ var _invariant = __webpack_require__(8);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -6576,7 +6576,7 @@ module.exports = getEventModifierState;
 
 var DOMLazyTree = __webpack_require__(26);
 var Danger = __webpack_require__(157);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(10);
 
 var createMicrosoftUnsafeLocalFunction = __webpack_require__(54);
@@ -7906,7 +7906,7 @@ module.exports = getEventCharCode;
 exports.__esModule = true;
 exports.router = exports.routes = exports.route = exports.components = exports.component = exports.location = exports.history = exports.falsy = exports.locationShape = exports.routerShape = undefined;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _deprecateObjectProperties = __webpack_require__(42);
 
@@ -8549,7 +8549,7 @@ function mapAsync(array, work, callback) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(11);
-var normalizeHeaderName = __webpack_require__(279);
+var normalizeHeaderName = __webpack_require__(280);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -9597,7 +9597,7 @@ module.exports = ReactFeatureFlags;
 
 
 
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 
 function isCheckable(elem) {
   var type = elem.type;
@@ -10060,7 +10060,7 @@ module.exports = CSSProperty;
 
 
 var DOMProperty = __webpack_require__(17);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstrumentation = __webpack_require__(10);
 
 var quoteAttributeValueForBrowser = __webpack_require__(171);
@@ -10324,7 +10324,7 @@ module.exports = ReactPropTypesSecret;
 var _assign = __webpack_require__(3);
 
 var LinkedValueUtils = __webpack_require__(55);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(14);
 
 var warning = __webpack_require__(1);
@@ -11262,7 +11262,7 @@ var DOMProperty = __webpack_require__(17);
 var React = __webpack_require__(23);
 var ReactBrowserEventEmitter = __webpack_require__(41);
 var ReactCurrentOwner = __webpack_require__(13);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMContainerInfo = __webpack_require__(213);
 var ReactDOMFeatureFlags = __webpack_require__(214);
 var ReactFeatureFlags = __webpack_require__(82);
@@ -12753,7 +12753,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -12933,7 +12933,7 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13314,12 +13314,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(11);
-var settle = __webpack_require__(280);
-var buildURL = __webpack_require__(282);
-var parseHeaders = __webpack_require__(283);
-var isURLSameOrigin = __webpack_require__(284);
+var settle = __webpack_require__(281);
+var buildURL = __webpack_require__(283);
+var parseHeaders = __webpack_require__(284);
+var isURLSameOrigin = __webpack_require__(285);
 var createError = __webpack_require__(117);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(285);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(286);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13416,7 +13416,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(286);
+      var cookies = __webpack_require__(287);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13500,7 +13500,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(281);
+var enhanceError = __webpack_require__(282);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13561,7 +13561,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(121);
-module.exports = __webpack_require__(294);
+module.exports = __webpack_require__(295);
 
 
 /***/ }),
@@ -13571,7 +13571,7 @@ module.exports = __webpack_require__(294);
 "use strict";
 
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -13589,7 +13589,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(269);
+__webpack_require__(270);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -16090,7 +16090,7 @@ module.exports = __webpack_require__(138);
 
 
 
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDefaultInjection = __webpack_require__(139);
 var ReactMount = __webpack_require__(100);
 var ReactReconciler = __webpack_require__(25);
@@ -16212,7 +16212,7 @@ var EnterLeaveEventPlugin = __webpack_require__(154);
 var HTMLDOMPropertyConfig = __webpack_require__(155);
 var ReactComponentBrowserEnvironment = __webpack_require__(156);
 var ReactDOMComponent = __webpack_require__(162);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMEmptyComponent = __webpack_require__(188);
 var ReactDOMTreeTraversal = __webpack_require__(189);
 var ReactDOMTextComponent = __webpack_require__(190);
@@ -16949,7 +16949,7 @@ module.exports = SyntheticInputEvent;
 var EventPluginHub = __webpack_require__(31);
 var EventPropagators = __webpack_require__(30);
 var ExecutionEnvironment = __webpack_require__(6);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(14);
 var SyntheticEvent = __webpack_require__(16);
 
@@ -18001,7 +18001,7 @@ module.exports = DefaultEventPluginOrder;
 
 
 var EventPropagators = __webpack_require__(30);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticMouseEvent = __webpack_require__(38);
 
 var eventTypes = {
@@ -18750,7 +18750,7 @@ module.exports = getMarkupWrap;
 
 
 var DOMChildrenOperations = __webpack_require__(52);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 
 /**
  * Operations used to process updates to DOM nodes.
@@ -18802,7 +18802,7 @@ var EventPluginHub = __webpack_require__(31);
 var EventPluginRegistry = __webpack_require__(36);
 var ReactBrowserEventEmitter = __webpack_require__(41);
 var ReactDOMComponentFlags = __webpack_require__(77);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMInput = __webpack_require__(174);
 var ReactDOMOption = __webpack_require__(175);
 var ReactDOMSelect = __webpack_require__(91);
@@ -19802,7 +19802,7 @@ module.exports = ReactDOMComponent;
 
 
 
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 
 var focusNode = __webpack_require__(87);
 
@@ -20513,7 +20513,7 @@ var _prodInvariant = __webpack_require__(2),
 
 var DOMPropertyOperations = __webpack_require__(89);
 var LinkedValueUtils = __webpack_require__(55);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(14);
 
 var invariant = __webpack_require__(0);
@@ -20803,7 +20803,7 @@ module.exports = ReactDOMInput;
 var _assign = __webpack_require__(3);
 
 var React = __webpack_require__(23);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactDOMSelect = __webpack_require__(91);
 
 var warning = __webpack_require__(1);
@@ -20931,7 +20931,7 @@ var _prodInvariant = __webpack_require__(2),
     _assign = __webpack_require__(3);
 
 var LinkedValueUtils = __webpack_require__(55);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(14);
 
 var invariant = __webpack_require__(0);
@@ -23151,7 +23151,7 @@ module.exports = ReactServerUpdateQueue;
 var _assign = __webpack_require__(3);
 
 var DOMLazyTree = __webpack_require__(26);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 
 var ReactDOMEmptyComponent = function (instantiate) {
   // ReactCompositeComponent uses this:
@@ -23359,7 +23359,7 @@ var _prodInvariant = __webpack_require__(2),
 
 var DOMChildrenOperations = __webpack_require__(52);
 var DOMLazyTree = __webpack_require__(26);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 
 var escapeTextContentForBrowser = __webpack_require__(40);
 var invariant = __webpack_require__(0);
@@ -23599,7 +23599,7 @@ var _assign = __webpack_require__(3);
 var EventListener = __webpack_require__(97);
 var ExecutionEnvironment = __webpack_require__(6);
 var PooledClass = __webpack_require__(20);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactUpdates = __webpack_require__(14);
 
 var getEventTarget = __webpack_require__(49);
@@ -24730,7 +24730,7 @@ module.exports = SVGDOMPropertyConfig;
 
 var EventPropagators = __webpack_require__(30);
 var ExecutionEnvironment = __webpack_require__(6);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInputSelection = __webpack_require__(98);
 var SyntheticEvent = __webpack_require__(16);
 
@@ -24926,7 +24926,7 @@ var _prodInvariant = __webpack_require__(2);
 
 var EventListener = __webpack_require__(97);
 var EventPropagators = __webpack_require__(30);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var SyntheticAnimationEvent = __webpack_require__(204);
 var SyntheticClipboardEvent = __webpack_require__(205);
 var SyntheticEvent = __webpack_require__(16);
@@ -25865,7 +25865,7 @@ module.exports = '15.6.1';
 var _prodInvariant = __webpack_require__(2);
 
 var ReactCurrentOwner = __webpack_require__(13);
-var ReactDOMComponentTree = __webpack_require__(4);
+var ReactDOMComponentTree = __webpack_require__(5);
 var ReactInstanceMap = __webpack_require__(33);
 
 var getHostComponentFromComposite = __webpack_require__(101);
@@ -26205,7 +26205,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -26324,7 +26324,7 @@ var _invariant = __webpack_require__(8);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27600,7 +27600,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27640,7 +27640,7 @@ var _invariant = __webpack_require__(8);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27759,7 +27759,7 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 exports.__esModule = true;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27828,7 +27828,7 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27894,7 +27894,7 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -27996,7 +27996,7 @@ var _routerWarning = __webpack_require__(7);
 
 var _routerWarning2 = _interopRequireDefault(_routerWarning);
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28070,7 +28070,7 @@ var _routerWarning = __webpack_require__(7);
 
 var _routerWarning2 = _interopRequireDefault(_routerWarning);
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28174,7 +28174,7 @@ module.exports = exports['default'];
 
 exports.__esModule = true;
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28461,7 +28461,7 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28756,7 +28756,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
@@ -28862,35 +28862,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _react = __webpack_require__(5);
+var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _JacksOrBetterMarguee = __webpack_require__(258);
+__webpack_require__(258);
 
-var _JacksOrBetterMarguee2 = _interopRequireDefault(_JacksOrBetterMarguee);
+var _Payout = __webpack_require__(263);
 
-var _OneChip = __webpack_require__(259);
-
-var _OneChip2 = _interopRequireDefault(_OneChip);
-
-var _TwoChip = __webpack_require__(260);
-
-var _TwoChip2 = _interopRequireDefault(_TwoChip);
-
-var _ThreeChip = __webpack_require__(261);
-
-var _ThreeChip2 = _interopRequireDefault(_ThreeChip);
-
-var _FourChip = __webpack_require__(262);
-
-var _FourChip2 = _interopRequireDefault(_FourChip);
-
-var _FiveChip = __webpack_require__(263);
-
-var _FiveChip2 = _interopRequireDefault(_FiveChip);
-
-__webpack_require__(264);
+var _Payout2 = _interopRequireDefault(_Payout);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28918,390 +28898,9 @@ var Game = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
-                _react2.default.createElement(
-                    'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col-md-12' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'panel panel-default' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'panel-heading' },
-                                _react2.default.createElement(
-                                    'table',
-                                    { className: 'TITLE' },
-                                    _react2.default.createElement(
-                                        'tr',
-                                        null,
-                                        _react2.default.createElement('td', null),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            _react2.default.createElement('img', { src: _JacksOrBetterMarguee2.default, alt: '' })
-                                        ),
-                                        _react2.default.createElement('td', null)
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'panel-body' },
-                                _react2.default.createElement(
-                                    'table',
-                                    { className: 'MARQUEE' },
-                                    _react2.default.createElement(
-                                        'thead',
-                                        null,
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement('td', null),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                _react2.default.createElement('img', { alt: 'Bet 1', src: _OneChip2.default })
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                _react2.default.createElement('img', { alt: 'Bet 2', src: _TwoChip2.default })
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                _react2.default.createElement('img', { alt: 'Bet 3', src: _ThreeChip2.default })
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                _react2.default.createElement('img', { alt: 'Bet 4', src: _FourChip2.default })
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                _react2.default.createElement('img', { alt: 'Bet 1', src: _FiveChip2.default })
-                                            )
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'tbody',
-                                        null,
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                'Royal Flush'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '250'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '500'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '750'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '1000'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '4000'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                'Straight Flush'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '50'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '100'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '150'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '200'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '250'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                '4 of a Kind'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '25'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '50'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '75'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '100'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '125'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                'Full House'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '9'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '18'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '27'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '36'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '45'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                'Flush'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '6'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '12'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '18'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '24'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '30'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                'Straight'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '4'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '8'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '12'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '16'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '20'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                '3 of a Kind'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '3'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '6'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '9'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '12'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '15'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                '2 Pair'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '2'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '4'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '6'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '8'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '10'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'tr',
-                                            null,
-                                            _react2.default.createElement(
-                                                'td',
-                                                { className: 'PRIZE' },
-                                                'Jacks or Better'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '1'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '2'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '3'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '4'
-                                            ),
-                                            _react2.default.createElement(
-                                                'td',
-                                                null,
-                                                '5'
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            );
+                _react2.default.createElement(_Payout2.default, null)
+            ) // end container
+            ;
         }
     }]);
 
@@ -29319,48 +28918,12 @@ exports.default = Game;
 
 /***/ }),
 /* 258 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/JacksOrBetterMarguee.jpeg?2e590797db75130ca9abf58b4ec245ea";
-
-/***/ }),
-/* 259 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/OneChip.png?4ee0e29189600b29f3de5bb67167cba4";
-
-/***/ }),
-/* 260 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/TwoChip.png?9e25ae4579d8201559143b13eb69dd6c";
-
-/***/ }),
-/* 261 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/ThreeChip.png?c4df0124a629c8dcc364706b61cb8be4";
-
-/***/ }),
-/* 262 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/FourChip.png?8ce9f0a11a0a3786c1575641c67d7fe7";
-
-/***/ }),
-/* 263 */
-/***/ (function(module, exports) {
-
-module.exports = "/images/FiveChip.png?b4ede27ce0307f6a6748c929139ece67";
-
-/***/ }),
-/* 264 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(265);
+var content = __webpack_require__(259);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -29368,7 +28931,7 @@ var transform;
 var options = {}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(267)(content, options);
+var update = __webpack_require__(261)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -29385,10 +28948,10 @@ if(false) {
 }
 
 /***/ }),
-/* 265 */
+/* 259 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(266)(undefined);
+exports = module.exports = __webpack_require__(260)(undefined);
 // imports
 
 
@@ -29399,7 +28962,7 @@ exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-de
 
 
 /***/ }),
-/* 266 */
+/* 260 */
 /***/ (function(module, exports) {
 
 /*
@@ -29481,7 +29044,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 267 */
+/* 261 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -29527,7 +29090,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(268);
+var	fixUrls = __webpack_require__(262);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -29840,7 +29403,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 268 */
+/* 262 */
 /***/ (function(module, exports) {
 
 
@@ -29935,13 +29498,478 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 269 */
+/* 263 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-window._ = __webpack_require__(270);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(4);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _JacksOrBetterMarguee = __webpack_require__(264);
+
+var _JacksOrBetterMarguee2 = _interopRequireDefault(_JacksOrBetterMarguee);
+
+var _OneChip = __webpack_require__(265);
+
+var _OneChip2 = _interopRequireDefault(_OneChip);
+
+var _TwoChip = __webpack_require__(266);
+
+var _TwoChip2 = _interopRequireDefault(_TwoChip);
+
+var _ThreeChip = __webpack_require__(267);
+
+var _ThreeChip2 = _interopRequireDefault(_ThreeChip);
+
+var _FourChip = __webpack_require__(268);
+
+var _FourChip2 = _interopRequireDefault(_FourChip);
+
+var _FiveChip = __webpack_require__(269);
+
+var _FiveChip2 = _interopRequireDefault(_FiveChip);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function Payout() {
+    return _react2.default.createElement(
+        'div',
+        { className: 'row' },
+        _react2.default.createElement(
+            'div',
+            { className: 'col-md-12' },
+            _react2.default.createElement(
+                'div',
+                { className: 'panel panel-default' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'panel-heading' },
+                    _react2.default.createElement(
+                        'table',
+                        { className: 'TITLE' },
+                        _react2.default.createElement(
+                            'tbody',
+                            null,
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement('td', null),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    _react2.default.createElement('img', { src: _JacksOrBetterMarguee2.default, alt: '' })
+                                ),
+                                _react2.default.createElement('td', null)
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'panel-body' },
+                    _react2.default.createElement(
+                        'table',
+                        { className: 'MARQUEE' },
+                        _react2.default.createElement(
+                            'tbody',
+                            null,
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement('th', null),
+                                _react2.default.createElement(
+                                    'th',
+                                    null,
+                                    _react2.default.createElement('img', { alt: 'Bet 1', src: _OneChip2.default })
+                                ),
+                                _react2.default.createElement(
+                                    'th',
+                                    null,
+                                    _react2.default.createElement('img', { alt: 'Bet 2', src: _TwoChip2.default })
+                                ),
+                                _react2.default.createElement(
+                                    'th',
+                                    null,
+                                    _react2.default.createElement('img', { alt: 'Bet 3', src: _ThreeChip2.default })
+                                ),
+                                _react2.default.createElement(
+                                    'th',
+                                    null,
+                                    _react2.default.createElement('img', { alt: 'Bet 4', src: _FourChip2.default })
+                                ),
+                                _react2.default.createElement(
+                                    'th',
+                                    null,
+                                    _react2.default.createElement('img', { alt: 'Bet 1', src: _FiveChip2.default })
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    'Royal Flush'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '250'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '500'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '750'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '1000'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '4000'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    'Straight Flush'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '50'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '100'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '150'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '200'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '250'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    '4 of a Kind'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '25'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '50'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '75'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '100'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '125'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    'Full House'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '9'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '18'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '27'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '36'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '45'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    'Flush'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '6'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '12'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '18'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '24'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '30'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    'Straight'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '4'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '8'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '12'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '16'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '20'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    '3 of a Kind'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '3'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '6'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '9'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '12'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '15'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    '2 Pair'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '2'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '4'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '6'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '8'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '10'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tr',
+                                null,
+                                _react2.default.createElement(
+                                    'td',
+                                    { className: 'PRIZE' },
+                                    'Jacks or Better'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '1'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '2'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '3'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '4'
+                                ),
+                                _react2.default.createElement(
+                                    'td',
+                                    null,
+                                    '5'
+                                )
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    );
+}
+
+exports.default = Payout;
+
+/***/ }),
+/* 264 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/JacksOrBetterMarguee.jpeg?2e590797db75130ca9abf58b4ec245ea";
+
+/***/ }),
+/* 265 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/OneChip.png?4ee0e29189600b29f3de5bb67167cba4";
+
+/***/ }),
+/* 266 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/TwoChip.png?9e25ae4579d8201559143b13eb69dd6c";
+
+/***/ }),
+/* 267 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/ThreeChip.png?c4df0124a629c8dcc364706b61cb8be4";
+
+/***/ }),
+/* 268 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/FourChip.png?8ce9f0a11a0a3786c1575641c67d7fe7";
+
+/***/ }),
+/* 269 */
+/***/ (function(module, exports) {
+
+module.exports = "/images/FiveChip.png?b4ede27ce0307f6a6748c929139ece67";
+
+/***/ }),
+/* 270 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+window._ = __webpack_require__(271);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -29950,9 +29978,9 @@ window._ = __webpack_require__(270);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(273);
+  window.$ = window.jQuery = __webpack_require__(274);
 
-  __webpack_require__(274);
+  __webpack_require__(275);
 } catch (e) {}
 
 /**
@@ -29961,7 +29989,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(275);
+window.axios = __webpack_require__(276);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -29995,7 +30023,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 270 */
+/* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47084,10 +47112,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(271), __webpack_require__(272)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(272), __webpack_require__(273)(module)))
 
 /***/ }),
-/* 271 */
+/* 272 */
 /***/ (function(module, exports) {
 
 var g;
@@ -47114,7 +47142,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 272 */
+/* 273 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -47142,7 +47170,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 273 */
+/* 274 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -57402,7 +57430,7 @@ return jQuery;
 
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, exports) {
 
 /*!
@@ -59785,13 +59813,13 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(276);
+module.exports = __webpack_require__(277);
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59799,7 +59827,7 @@ module.exports = __webpack_require__(276);
 
 var utils = __webpack_require__(11);
 var bind = __webpack_require__(115);
-var Axios = __webpack_require__(278);
+var Axios = __webpack_require__(279);
 var defaults = __webpack_require__(69);
 
 /**
@@ -59834,14 +59862,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(119);
-axios.CancelToken = __webpack_require__(292);
+axios.CancelToken = __webpack_require__(293);
 axios.isCancel = __webpack_require__(118);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(293);
+axios.spread = __webpack_require__(294);
 
 module.exports = axios;
 
@@ -59850,7 +59878,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports) {
 
 /*!
@@ -59877,7 +59905,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59885,10 +59913,10 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(69);
 var utils = __webpack_require__(11);
-var InterceptorManager = __webpack_require__(287);
-var dispatchRequest = __webpack_require__(288);
-var isAbsoluteURL = __webpack_require__(290);
-var combineURLs = __webpack_require__(291);
+var InterceptorManager = __webpack_require__(288);
+var dispatchRequest = __webpack_require__(289);
+var isAbsoluteURL = __webpack_require__(291);
+var combineURLs = __webpack_require__(292);
 
 /**
  * Create a new instance of Axios
@@ -59970,7 +59998,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59989,7 +60017,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60022,7 +60050,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 281 */
+/* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60050,7 +60078,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60125,7 +60153,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 283 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60169,7 +60197,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 284 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60244,7 +60272,7 @@ module.exports = (
 
 
 /***/ }),
-/* 285 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60287,7 +60315,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 286 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60347,7 +60375,7 @@ module.exports = (
 
 
 /***/ }),
-/* 287 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60406,14 +60434,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 288 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(11);
-var transformData = __webpack_require__(289);
+var transformData = __webpack_require__(290);
 var isCancel = __webpack_require__(118);
 var defaults = __webpack_require__(69);
 
@@ -60492,7 +60520,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 289 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60519,7 +60547,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 290 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60540,7 +60568,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 291 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60561,7 +60589,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 292 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60625,7 +60653,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 293 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60659,7 +60687,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 294 */
+/* 295 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
