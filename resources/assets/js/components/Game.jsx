@@ -4,7 +4,9 @@
 import React, { Component } from 'react'
 
 import './Game.css'
-import Payout from './Payout';
+import Payout from './children/Payout';
+import Cards from './children/Cards';
+import Controls from './children/Controls';
 
 
 class Game extends Component {
@@ -12,6 +14,8 @@ class Game extends Component {
         return (
             <div className="container">
                 <Payout />
+                <Cards />
+                <Controls />
             </div> // end container
         );
     }

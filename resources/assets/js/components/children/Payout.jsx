@@ -1,25 +1,25 @@
 import React from 'react'
-import marquee from '../../../../public/images/JacksOrBetterMarguee.jpeg'
-import onechip from '../../../../public/images/OneChip.png'
-import twochip from '../../../../public/images/TwoChip.png'
-import threechip from '../../../../public/images/ThreeChip.png'
-import fourchip from '../../../../public/images/FourChip.png'
-import fivechip from '../../../../public/images/FiveChip.png'
+import marquee from '../../../../../public/images/JacksOrBetterMarguee.jpeg'
+import onechip from '../../../../../public/images/OneChip.png'
+import twochip from '../../../../../public/images/TwoChip.png'
+import threechip from '../../../../../public/images/ThreeChip.png'
+import fourchip from '../../../../../public/images/FourChip.png'
+import fivechip from '../../../../../public/images/FiveChip.png'
 
 function Payout() {
     return (
-        <div className="row">
+        <div className="row game_background">
             <div className="col-md-12">
                 <div className="panel panel-default">
                     <div className="panel-heading">
                         <table className="TITLE">
                             <tbody>
                                 <tr>
-                                    <td></td>
+                                    <td className="TITLE_SPACING"></td>
                                     <td>
-                                        <img src={marquee} alt=""/>
+                                        <img src={marquee} alt="" class="TITLE_IMAGE ROUNDED"/>
                                     </td>
-                                    <td></td>
+                                    <td className="TITLE_SPACING"></td>
                                 </tr>
                             </tbody>
                         </table>
