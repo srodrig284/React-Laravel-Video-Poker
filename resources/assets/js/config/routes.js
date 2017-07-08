@@ -11,7 +11,7 @@ import Game from "../components/Game";
 let myroutes = (
     <Router history={browserHistory}>
         <Route path="/home" component={Dashboard}/>
-        <Route path="/Game" component={Game}/>
+        <Route path="/game" component={Game}/>
     </Router>
 
 );
