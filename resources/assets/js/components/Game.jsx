@@ -3,7 +3,7 @@
  */
 import React, { Component } from 'react'
 
-import './Game.css'
+import '../../../../public/css/mystylesheet.css'
 import Payout from './children/Payout';
 import Cards from './children/Cards';
 import Controls from './children/Controls';
@@ -12,7 +12,7 @@ import Controls from './children/Controls';
 class Game extends Component {
     render() {
         return (
-            <div className="container">
+            <div className="container panel_background">
                 <Payout />
                 <Cards />
                 <Controls />

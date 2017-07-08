@@ -8,11 +8,11 @@ import fivechip from '../../../../../public/images/FiveChip.png'
 
 function Payout() {
     return (
-        <div className="row game_background">
-            <div className="col-md-12">
+        <div className="row">
+            <div className="col-md-12 panel_background">
                 <div className="panel panel-default">
-                    <div className="panel-heading">
-                        <table className="TITLE">
+                    <div className="panel-heading panel_background">
+                        <table className="TITLE  panel_background">
                             <tbody>
                                 <tr>
                                     <td className="TITLE_SPACING"></td>
@@ -25,7 +25,7 @@ function Payout() {
                         </table>
                     </div>
 
-                    <div className="panel-body">
+                    <div className="panel-body panel_background">
                         <table className="MARQUEE">
                             <tbody>
                                 <tr>

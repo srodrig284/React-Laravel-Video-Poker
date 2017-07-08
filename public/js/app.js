@@ -28905,7 +28905,7 @@ var Game = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'container' },
+                { className: 'container panel_background' },
                 _react2.default.createElement(_Payout2.default, null),
                 _react2.default.createElement(_Cards2.default, null),
                 _react2.default.createElement(_Controls2.default, null)
@@ -28947,8 +28947,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../../node_modules/css-loader/index.js!./Game.css", function() {
-			var newContent = require("!!../../../../node_modules/css-loader/index.js!./Game.css");
+		module.hot.accept("!!../../node_modules/css-loader/index.js!./mystylesheet.css", function() {
+			var newContent = require("!!../../node_modules/css-loader/index.js!./mystylesheet.css");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -28966,7 +28966,7 @@ exports = module.exports = __webpack_require__(260)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.game_background {\n    background-color: #d62728;\n}", ""]);
+exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.panel_background {\n    background-color: #033beb;\n}\n\n.game_letters {\n    color: white\n}\n\n.panel-default > .panel-heading {\n    background-color: #033beb;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n", ""]);
 
 // exports
 
@@ -29551,19 +29551,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Payout() {
     return _react2.default.createElement(
         'div',
-        { className: 'row game_background' },
+        { className: 'row' },
         _react2.default.createElement(
             'div',
-            { className: 'col-md-12' },
+            { className: 'col-md-12 panel_background' },
             _react2.default.createElement(
                 'div',
                 { className: 'panel panel-default' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'panel-heading' },
+                    { className: 'panel-heading panel_background' },
                     _react2.default.createElement(
                         'table',
-                        { className: 'TITLE' },
+                        { className: 'TITLE  panel_background' },
                         _react2.default.createElement(
                             'tbody',
                             null,
@@ -29583,7 +29583,7 @@ function Payout() {
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'panel-body' },
+                    { className: 'panel-body panel_background' },
                     _react2.default.createElement(
                         'table',
                         { className: 'MARQUEE' },
