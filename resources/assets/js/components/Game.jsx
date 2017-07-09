@@ -14,18 +14,57 @@ class Game extends Component {
     constructor() {
         super();
         this.state = {
-            squares: Array(5).fill(<img src={cardBack}/>)
+            dealtCards: Array(5).fill(<img src={cardBack}/>),
+            gameState: 0,
+            cardDeck: [],
+            shuffledDeck: [],
         };
+        this.setDealtCards = this.setDealtCards.bind(this);
+        this.setGameState = this.setGameState.bind(this);
+        this.setCardDeck = this.setCardDeck.bind(this);
+        this.setShuffledDeck = this.setShuffledDeck.bind(this);
     }
 
+    // allow children to update the parent
+    setDealtCards(cards) {
+        this.setState({
+            dealtCards: cards
+        });
+    }
 
+    // allow children to update the parent
+    setGameState(state){
+        this.setState({
+            gameState: state
+        })
+    }
+
+    // allow children to update the parent
+    setCardDeck(allcards){
+        this.setState({
+            cardDeck: allcards
+        })
+    }
+
+    // allow children to update the parent
+    setShuffledDeck(activeDeck){
+        this.setState({
+            shuffledDeck: activeDeck
+        })
+    }
+
+    handleClick(i) {
+        console.log("card clicked = ", i);
+    }
+
+    //
     render() {
         return (
             <div className="container">
                 <Payout />
                 <Cards
-                    squares={this.state.squares}
-                    /*onClick={i => this.handleClick(i)}*/
+                    cardsquares={this.state.dealtCards}
+                    onClick={i => this.handleClick(i)} disabled={!this.state.shuffledDeck}
                 />
                 <Controls />
             </div> // end container

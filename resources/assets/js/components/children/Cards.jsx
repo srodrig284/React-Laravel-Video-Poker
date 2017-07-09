@@ -15,8 +15,9 @@ class Cards extends Component {
     renderSquare(i) {
         return (
             <Square
-                value={this.props.squares[i]}
-                /*onClick={() => this.props.onClick(i)}*/
+                value={this.props.cardsquares[i]}
+                onClick={() => this.props.onClick(i)}
+                disabled={ this.props.disabled }
             />
         );
     }

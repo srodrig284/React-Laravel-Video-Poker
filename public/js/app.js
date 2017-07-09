@@ -28910,21 +28910,80 @@ var Game = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this));
 
         _this.state = {
-            squares: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default }))
+            dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
+            gameState: 0,
+            cardDeck: [],
+            shuffledDeck: []
         };
+        _this.setDealtCards = _this.setDealtCards.bind(_this);
+        _this.setGameState = _this.setGameState.bind(_this);
+        _this.setCardDeck = _this.setCardDeck.bind(_this);
+        _this.setShuffledDeck = _this.setShuffledDeck.bind(_this);
         return _this;
     }
 
+    // allow children to update the parent
+
+
     _createClass(Game, [{
+        key: 'setDealtCards',
+        value: function setDealtCards(cards) {
+            this.setState({
+                dealtCards: cards
+            });
+        }
+
+        // allow children to update the parent
+
+    }, {
+        key: 'setGameState',
+        value: function setGameState(state) {
+            this.setState({
+                gameState: state
+            });
+        }
+
+        // allow children to update the parent
+
+    }, {
+        key: 'setCardDeck',
+        value: function setCardDeck(allcards) {
+            this.setState({
+                cardDeck: allcards
+            });
+        }
+
+        // allow children to update the parent
+
+    }, {
+        key: 'setShuffledDeck',
+        value: function setShuffledDeck(activeDeck) {
+            this.setState({
+                shuffledDeck: activeDeck
+            });
+        }
+    }, {
+        key: 'handleClick',
+        value: function handleClick(i) {
+            console.log("card clicked = ", i);
+        }
+
+        //
+
+    }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
                 _react2.default.createElement(_Payout2.default, null),
                 _react2.default.createElement(_Cards2.default, {
-                    squares: this.state.squares
-                    /*onClick={i => this.handleClick(i)}*/
+                    cardsquares: this.state.dealtCards,
+                    onClick: function onClick(i) {
+                        return _this2.handleClick(i);
+                    }, disabled: !this.state.shuffledDeck
                 }),
                 _react2.default.createElement(_Controls2.default, null)
             ) // end container
@@ -30027,9 +30086,14 @@ var Cards = function (_Component) {
     _createClass(Cards, [{
         key: 'renderSquare',
         value: function renderSquare(i) {
+            var _this2 = this;
+
             return _react2.default.createElement(Square, {
-                value: this.props.squares[i]
-                /*onClick={() => this.props.onClick(i)}*/
+                value: this.props.cardsquares[i],
+                onClick: function onClick() {
+                    return _this2.props.onClick(i);
+                },
+                disabled: this.props.disabled
             });
         }
     }, {
