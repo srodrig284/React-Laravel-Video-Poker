@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import cardBack from '../../../../../public/images/cardBack_red2.png'
 
 class Cards extends Component {
     render() {
@@ -10,19 +11,19 @@ class Cards extends Component {
                             <div className="col-md-1">
                             </div>
                             <div className="col-md-2">
-                                Card 1
+                                <img src={cardBack} alt="" class="TITLE_IMAGE ROUNDED"/>
                             </div>
                             <div className="col-md-2">
-                                Card 2
+                                <img src={cardBack} />
                             </div>
                             <div className="col-md-2">
-                                Card 3
+                                <img src={cardBack} />
                             </div>
                             <div className="col-md-2">
-                                Card 4
+                                <img src={cardBack} />
                             </div>
                             <div className="col-md-2">
-                                Card 5
+                                <img src={cardBack} />
                             </div>
                             <div className="col-md-1">
                             </div>
