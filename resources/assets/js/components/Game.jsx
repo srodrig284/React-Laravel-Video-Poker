@@ -54,8 +54,14 @@ class Game extends Component {
         })
     }
 
-    handleClick(i) {
+    // card was clicked - hold or unhold
+    cardClick(i) {
         console.log("card clicked = ", i);
+    }
+
+    // draw button was clicked
+    drawClick(){
+        console.log("draw clicked");
     }
 
     //
@@ -65,10 +71,10 @@ class Game extends Component {
                 <Payout />
                 <Cards
                     cardsquares={this.state.dealtCards}
-                    onClick={i => this.handleClick(i)}
+                    onClick={i => this.cardClick(i)}
                     disabled={!this.state.shuffledDeckLength}
                 />
-                <Controls />
+                <Controls onClick={this.drawClick}/>
             </div> // end container
         );
     }

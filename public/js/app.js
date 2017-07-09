@@ -28963,10 +28963,21 @@ var Game = function (_Component) {
                 shuffledDeck: activeDeck
             });
         }
+
+        // card was clicked - hold or unhold
+
     }, {
-        key: 'handleClick',
-        value: function handleClick(i) {
+        key: 'cardClick',
+        value: function cardClick(i) {
             console.log("card clicked = ", i);
+        }
+
+        // draw button was clicked
+
+    }, {
+        key: 'drawClick',
+        value: function drawClick() {
+            console.log("draw clicked");
         }
 
         //
@@ -28983,11 +28994,11 @@ var Game = function (_Component) {
                 _react2.default.createElement(_Cards2.default, {
                     cardsquares: this.state.dealtCards,
                     onClick: function onClick(i) {
-                        return _this2.handleClick(i);
+                        return _this2.cardClick(i);
                     },
                     disabled: !this.state.shuffledDeckLength
                 }),
-                _react2.default.createElement(_Controls2.default, null)
+                _react2.default.createElement(_Controls2.default, { onClick: this.drawClick })
             ) // end container
             ;
         }
@@ -30200,7 +30211,7 @@ var Controls = function (_Component) {
                             { className: "col-md-6" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "button", className: "deal_button" },
+                                { type: "submit", className: "deal_button", onClick: this.props.onClick },
                                 "Draw"
                             )
                         )

@@ -9,7 +9,7 @@ class Controls extends Component {
                     <div className="col-md-6">
                     </div>
                     <div className="col-md-6">
-                        <button type="button" className="deal_button">
+                        <button type="submit" className="deal_button" onClick={this.props.onClick}>
                             Draw
                         </button>
                     </div>
