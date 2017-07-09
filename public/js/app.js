@@ -28966,7 +28966,7 @@ exports = module.exports = __webpack_require__(260)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.panel_background {\n    background-color: #033beb;\n}\n\n.game_letters {\n    color: white\n}\n\n.game_background{\n    background-color: #033beb;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }", ""]);
+exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.panel_background {\n    background-color: #033beb;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.game_background{\n    background-color: #033beb;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }", ""]);
 
 // exports
 
@@ -29586,7 +29586,7 @@ function Payout() {
                     { className: 'panel-body game_background' },
                     _react2.default.createElement(
                         'table',
-                        { className: 'MARQUEE' },
+                        { className: 'MARQUEE payout_color' },
                         _react2.default.createElement(
                             'tbody',
                             null,

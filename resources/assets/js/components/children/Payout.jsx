@@ -26,7 +26,7 @@ function Payout() {
                     </div>
 
                     <div className="panel-body game_background">
-                        <table className="MARQUEE">
+                        <table className="MARQUEE payout_color">
                             <tbody>
                                 <tr>
                                     <th></th>
