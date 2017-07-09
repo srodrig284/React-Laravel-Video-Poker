@@ -12,7 +12,7 @@ import Controls from './children/Controls';
 class Game extends Component {
     render() {
         return (
-            <div className="container panel_background">
+            <div className="container">
                 <Payout />
                 <Cards />
                 <Controls />

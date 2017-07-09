@@ -5,15 +5,14 @@ import twochip from '../../../../../public/images/TwoChip.png'
 import threechip from '../../../../../public/images/ThreeChip.png'
 import fourchip from '../../../../../public/images/FourChip.png'
 import fivechip from '../../../../../public/images/FiveChip.png'
-import '../../../../../public/css/payout.css'
 
 function Payout() {
     return (
         <div className="row">
-            <div className="col-md-12 panel_background">
-                <div className="panel panel-default">
-                    <div className="panel-heading panel_background">
-                        <table className="TITLE  panel_background">
+            <div className="col-md-12 game_background">
+                <div className="panel game_background">
+                    <div className="panel-heading game_background">
+                        <table className="TITLE  game_background">
                             <tbody>
                                 <tr>
                                     <td className="TITLE_SPACING"></td>
@@ -26,7 +25,7 @@ function Payout() {
                         </table>
                     </div>
 
-                    <div className="panel-body panel_background">
+                    <div className="panel-body game_background">
                         <table className="MARQUEE">
                             <tbody>
                                 <tr>
