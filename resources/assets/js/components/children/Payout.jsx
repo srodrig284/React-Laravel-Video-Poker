@@ -8,24 +8,24 @@ import fivechip from '../../../../../public/images/FiveChip.png'
 
 function Payout() {
     return (
-        <div className="row">
-            <div className="col-md-12 game_background">
-                <div className="panel game_background">
-                    <div className="panel-heading game_background">
-                        <table className="TITLE  game_background">
+        <div className="div_margin">
+
+
+
+                        <table className="TITLE">
                             <tbody>
                                 <tr>
                                     <td className="TITLE_SPACING"></td>
                                     <td>
-                                        <img src={marquee} alt="" class="TITLE_IMAGE ROUNDED"/>
+                                        <img src={marquee} alt=""/>
                                     </td>
                                     <td className="TITLE_SPACING"></td>
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
 
-                    <div className="panel-body game_background">
+
+                    <div className="panel-body">
                         <table className="MARQUEE payout_color">
                             <tbody>
                                 <tr>
@@ -231,8 +231,8 @@ function Payout() {
                             </tbody>
                         </table>
                     </div>
-                </div>
-            </div>
+
+
         </div>
     )
 }

@@ -3,18 +3,18 @@ import React, { Component } from 'react'
 class Controls extends Component {
     render() {
         return (
+            <div className="div_margin">
             <div className="row">
-                <div className="col-md-12 game_background">
-                    <div className="panel panel-default game_background">
-                        <div className="panel-body">
-                            <div className="col-md-6">
-                            </div>
-                            <div className="col-md-6">
-                                Deal
-                            </div>
-                        </div>
+                <div className="col-md-12">
+                    <div className="col-md-6">
+                    </div>
+                    <div className="col-md-6">
+                        <button type="button" className="deal_button">
+                            Draw
+                        </button>
                     </div>
                 </div>
+            </div>
             </div>
         )
     }

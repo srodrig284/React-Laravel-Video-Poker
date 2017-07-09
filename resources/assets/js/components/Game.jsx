@@ -7,14 +7,26 @@ import '../../../../public/css/mystylesheet.css'
 import Payout from './children/Payout';
 import Cards from './children/Cards';
 import Controls from './children/Controls';
+import cardBack from '../../../../public/images/cardBack_red2.png'
 
 
 class Game extends Component {
+    constructor() {
+        super();
+        this.state = {
+            squares: Array(5).fill(<img src={cardBack}/>)
+        };
+    }
+
+
     render() {
         return (
             <div className="container">
                 <Payout />
-                <Cards />
+                <Cards
+                    squares={this.state.squares}
+                    /*onClick={i => this.handleClick(i)}*/
+                />
                 <Controls />
             </div> // end container
         );

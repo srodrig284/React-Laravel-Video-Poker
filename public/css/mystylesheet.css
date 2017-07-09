@@ -39,10 +39,6 @@ body {
     width: 15%;
 }
 
-.panel_background {
-    background-color: #033beb;
-}
-
 .payout_color{
     background-color: #191d75;
 }
@@ -51,10 +47,38 @@ body {
     color: white
 }
 
-.game_background{
-    background-color: #033beb;
+.deal_button{
+    font-size: 30px;
+    background-color: yellow;
+    color: #000016;
+}
+
+.div_margin{
+    margin-bottom: 20px;
 }
 
 .MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }
 
 .ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
+
+
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    float: left;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 34px;
+    height: 190px;
+    margin-right: -1px;
+    margin-top: -1px;
+    padding: 0;
+    text-align: center;
+    width: 140px;
+}
+
+.board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+}
