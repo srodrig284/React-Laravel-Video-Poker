@@ -18,6 +18,7 @@ class Game extends Component {
             gameState: 0,
             cardDeck: [],
             shuffledDeck: [],
+            shuffledDeckLength: 0
         };
         this.setDealtCards = this.setDealtCards.bind(this);
         this.setGameState = this.setGameState.bind(this);
@@ -64,7 +65,8 @@ class Game extends Component {
                 <Payout />
                 <Cards
                     cardsquares={this.state.dealtCards}
-                    onClick={i => this.handleClick(i)} disabled={!this.state.shuffledDeck}
+                    onClick={i => this.handleClick(i)}
+                    disabled={!this.state.shuffledDeckLength}
                 />
                 <Controls />
             </div> // end container

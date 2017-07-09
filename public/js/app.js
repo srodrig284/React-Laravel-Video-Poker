@@ -28913,7 +28913,8 @@ var Game = function (_Component) {
             dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
             gameState: 0,
             cardDeck: [],
-            shuffledDeck: []
+            shuffledDeck: [],
+            shuffledDeckLength: 0
         };
         _this.setDealtCards = _this.setDealtCards.bind(_this);
         _this.setGameState = _this.setGameState.bind(_this);
@@ -28983,7 +28984,8 @@ var Game = function (_Component) {
                     cardsquares: this.state.dealtCards,
                     onClick: function onClick(i) {
                         return _this2.handleClick(i);
-                    }, disabled: !this.state.shuffledDeck
+                    },
+                    disabled: !this.state.shuffledDeckLength
                 }),
                 _react2.default.createElement(_Controls2.default, null)
             ) // end container
@@ -30069,7 +30071,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function Square(props) {
     return _react2.default.createElement(
         'button',
-        { className: 'square', onClick: props.onClick },
+        { className: 'square', onClick: props.onClick, disabled: props.disabled },
         props.value
     );
 }
