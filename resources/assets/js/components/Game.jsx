@@ -8,7 +8,7 @@ import Payout from './children/Payout';
 import Cards from './children/Cards';
 import Controls from './children/Controls';
 import cardBack from '../../../../public/images/cardBack_red2.png'
-
+import CreateDeck from './functions/Cardfunctions'
 
 class Game extends Component {
     constructor() {
@@ -16,14 +16,15 @@ class Game extends Component {
         this.state = {
             dealtCards: Array(5).fill(<img src={cardBack}/>),
             gameState: 0,
-            cardDeck: [],
-            shuffledDeck: [],
-            shuffledDeckLength: 0
+            cardDeck: CreateDeck(),
+            shuffledDeck: []
         };
         this.setDealtCards = this.setDealtCards.bind(this);
         this.setGameState = this.setGameState.bind(this);
         this.setCardDeck = this.setCardDeck.bind(this);
         this.setShuffledDeck = this.setShuffledDeck.bind(this);
+        this.drawClick = this.drawClick.bind(this);
+
     }
 
     // allow children to update the parent
@@ -62,6 +63,7 @@ class Game extends Component {
     // draw button was clicked
     drawClick(){
         console.log("draw clicked");
+        console.log("new deck = ", this.state.cardDeck);
     }
 
     //
@@ -72,7 +74,7 @@ class Game extends Component {
                 <Cards
                     cardsquares={this.state.dealtCards}
                     onClick={i => this.cardClick(i)}
-                    disabled={!this.state.shuffledDeckLength}
+                    disabled={!this.state.gameState}
                 />
                 <Controls onClick={this.drawClick}/>
             </div> // end container

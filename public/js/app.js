@@ -1109,7 +1109,7 @@ module.exports = { debugTool: debugTool };
 
 
 var bind = __webpack_require__(116);
-var isBuffer = __webpack_require__(281);
+var isBuffer = __webpack_require__(282);
 
 /*global toString:true*/
 
@@ -8549,7 +8549,7 @@ function mapAsync(array, work, callback) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(11);
-var normalizeHeaderName = __webpack_require__(283);
+var normalizeHeaderName = __webpack_require__(284);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -13320,12 +13320,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(11);
-var settle = __webpack_require__(284);
-var buildURL = __webpack_require__(286);
-var parseHeaders = __webpack_require__(287);
-var isURLSameOrigin = __webpack_require__(288);
+var settle = __webpack_require__(285);
+var buildURL = __webpack_require__(287);
+var parseHeaders = __webpack_require__(288);
+var isURLSameOrigin = __webpack_require__(289);
 var createError = __webpack_require__(118);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(289);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(290);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13422,7 +13422,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(290);
+      var cookies = __webpack_require__(291);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13506,7 +13506,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(285);
+var enhanceError = __webpack_require__(286);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13567,7 +13567,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(122);
-module.exports = __webpack_require__(298);
+module.exports = __webpack_require__(299);
 
 
 /***/ }),
@@ -13595,7 +13595,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-__webpack_require__(273);
+__webpack_require__(274);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28890,6 +28890,10 @@ var _cardBack_red = __webpack_require__(115);
 
 var _cardBack_red2 = _interopRequireDefault(_cardBack_red);
 
+var _Cardfunctions = __webpack_require__(273);
+
+var _Cardfunctions2 = _interopRequireDefault(_Cardfunctions);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -28912,14 +28916,15 @@ var Game = function (_Component) {
         _this.state = {
             dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
             gameState: 0,
-            cardDeck: [],
-            shuffledDeck: [],
-            shuffledDeckLength: 0
+            cardDeck: (0, _Cardfunctions2.default)(),
+            shuffledDeck: []
         };
         _this.setDealtCards = _this.setDealtCards.bind(_this);
         _this.setGameState = _this.setGameState.bind(_this);
         _this.setCardDeck = _this.setCardDeck.bind(_this);
         _this.setShuffledDeck = _this.setShuffledDeck.bind(_this);
+        _this.drawClick = _this.drawClick.bind(_this);
+
         return _this;
     }
 
@@ -28978,6 +28983,7 @@ var Game = function (_Component) {
         key: 'drawClick',
         value: function drawClick() {
             console.log("draw clicked");
+            console.log("new deck = ", this.state.cardDeck);
         }
 
         //
@@ -28996,7 +29002,7 @@ var Game = function (_Component) {
                     onClick: function onClick(i) {
                         return _this2.cardClick(i);
                     },
-                    disabled: !this.state.shuffledDeckLength
+                    disabled: !this.state.gameState
                 }),
                 _react2.default.createElement(_Controls2.default, { onClick: this.drawClick })
             ) // end container
@@ -30233,7 +30239,56 @@ exports.default = Controls;
 "use strict";
 
 
-window._ = __webpack_require__(274);
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.CreateDeck = CreateDeck;
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function CreateDeck() {
+    var Cards = []; // Array of Cards representing one deck
+    var oneCard = {};
+    var SpriteWidth = 230; // pixel width of card in source image
+    var SpriteHeight = 300; // pixel height of card in source image
+
+    for (var id = 0, i = 0; i < 4; i++) // for each Suit {Clubs,Diamonds,Hearts,Spades}
+    {
+        for (var j = 0; j < 13; j++) // for each Rank {A,2,...,10,J,Q,K}
+        {
+            // Card(id, suit, rank, x, y, width, height)
+            oneCard = {
+                Suit: i + 1,
+                Rank: j + 1,
+                X: j * SpriteWidth,
+                Y: i * SpriteHeight,
+                Width: SpriteWidth,
+                Height: SpriteHeight,
+                Locked: false,
+                Image: 'Deck.png'
+            };
+
+            Cards.push(oneCard);
+        }
+    }
+    console.log('onecard = ', Cards);
+    return Cards;
+}
+
+exports.default = CreateDeck;
+
+/***/ }),
+/* 274 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+window._ = __webpack_require__(275);
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -30242,9 +30297,9 @@ window._ = __webpack_require__(274);
  */
 
 try {
-  window.$ = window.jQuery = __webpack_require__(277);
+  window.$ = window.jQuery = __webpack_require__(278);
 
-  __webpack_require__(278);
+  __webpack_require__(279);
 } catch (e) {}
 
 /**
@@ -30253,7 +30308,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(279);
+window.axios = __webpack_require__(280);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -30287,7 +30342,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 274 */
+/* 275 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -47376,10 +47431,10 @@ if (token) {
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(275), __webpack_require__(276)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(276), __webpack_require__(277)(module)))
 
 /***/ }),
-/* 275 */
+/* 276 */
 /***/ (function(module, exports) {
 
 var g;
@@ -47406,7 +47461,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 276 */
+/* 277 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -47434,7 +47489,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 277 */
+/* 278 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -57694,7 +57749,7 @@ return jQuery;
 
 
 /***/ }),
-/* 278 */
+/* 279 */
 /***/ (function(module, exports) {
 
 /*!
@@ -60077,13 +60132,13 @@ if (typeof jQuery === 'undefined') {
 
 
 /***/ }),
-/* 279 */
+/* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(280);
+module.exports = __webpack_require__(281);
 
 /***/ }),
-/* 280 */
+/* 281 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60091,7 +60146,7 @@ module.exports = __webpack_require__(280);
 
 var utils = __webpack_require__(11);
 var bind = __webpack_require__(116);
-var Axios = __webpack_require__(282);
+var Axios = __webpack_require__(283);
 var defaults = __webpack_require__(69);
 
 /**
@@ -60126,14 +60181,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(120);
-axios.CancelToken = __webpack_require__(296);
+axios.CancelToken = __webpack_require__(297);
 axios.isCancel = __webpack_require__(119);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(297);
+axios.spread = __webpack_require__(298);
 
 module.exports = axios;
 
@@ -60142,7 +60197,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 281 */
+/* 282 */
 /***/ (function(module, exports) {
 
 /*!
@@ -60169,7 +60224,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 282 */
+/* 283 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60177,10 +60232,10 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(69);
 var utils = __webpack_require__(11);
-var InterceptorManager = __webpack_require__(291);
-var dispatchRequest = __webpack_require__(292);
-var isAbsoluteURL = __webpack_require__(294);
-var combineURLs = __webpack_require__(295);
+var InterceptorManager = __webpack_require__(292);
+var dispatchRequest = __webpack_require__(293);
+var isAbsoluteURL = __webpack_require__(295);
+var combineURLs = __webpack_require__(296);
 
 /**
  * Create a new instance of Axios
@@ -60262,7 +60317,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 283 */
+/* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60281,7 +60336,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 284 */
+/* 285 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60314,7 +60369,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 285 */
+/* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60342,7 +60397,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 286 */
+/* 287 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60417,7 +60472,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 287 */
+/* 288 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60461,7 +60516,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 288 */
+/* 289 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60536,7 +60591,7 @@ module.exports = (
 
 
 /***/ }),
-/* 289 */
+/* 290 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60579,7 +60634,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 290 */
+/* 291 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60639,7 +60694,7 @@ module.exports = (
 
 
 /***/ }),
-/* 291 */
+/* 292 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60698,14 +60753,14 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 292 */
+/* 293 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(11);
-var transformData = __webpack_require__(293);
+var transformData = __webpack_require__(294);
 var isCancel = __webpack_require__(119);
 var defaults = __webpack_require__(69);
 
@@ -60784,7 +60839,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 293 */
+/* 294 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60811,7 +60866,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 294 */
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60832,7 +60887,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 295 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60853,7 +60908,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 296 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60917,7 +60972,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 297 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -60951,7 +61006,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 298 */
+/* 299 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
