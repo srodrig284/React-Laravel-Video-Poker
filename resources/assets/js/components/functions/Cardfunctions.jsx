@@ -31,9 +31,9 @@ export function CreateDeck(){
     return Cards;
 }
 
-export function ShuffleCards(){
+export function ShuffleCards(cardDeck){
     /*let shuffledcards = cards; // Array of shuffled cards*/
-    let shuffledcards = CreateDeck();
+    let shuffledcards = cardDeck;
     let i;
     let t;
     let m = shuffledcards.length;

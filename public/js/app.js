@@ -28919,10 +28919,9 @@ var Game = function (_Component) {
 
         _this.state = {
             dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
-            gameState: (0, _reactEnumPropType2.default)('uninitialized', 'first_deal', 'second_deal', 'win', 'loss'),
-
+            gameState: 0, // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
             cardDeck: _Cardfunctions2.default.CreateDeck(),
-            shuffledDeck: _Cardfunctions2.default.ShuffleCards()
+            shuffledDeck: []
         };
         _this.setDealtCards = _this.setDealtCards.bind(_this);
         _this.setGameState = _this.setGameState.bind(_this);
@@ -28988,17 +28987,28 @@ var Game = function (_Component) {
     }, {
         key: 'drawClick',
         value: function drawClick() {
-
+            console.log('gamestate before = ', this.state.gameState);
+            console.log('cardDeck = ', this.state.cardDeck);
+            // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+            // 0, 3, 4 - create a shuffled deck
+            if (this.state.gameState === 0 || this.state.gameState === 3 || this.state.gameState === 4) {
+                this.setState({
+                    shuffledDeck: _Cardfunctions2.default.ShuffleCards(this.state.cardDeck)
+                }, function () {
+                    console.log('shuffledDeck = ', this.state.shuffledDeck);
+                });
+            }
             /*console.log("draw clicked");
             console.log('cardDeck = ', this.state.cardDeck);
             console.log('shuffledDeck = ', this.state.shuffledDeck);
             console.log('dealtcards = ', this.state.dealtCards);
             */
-            this.setState({
-                gameState: 'uninitialized'
-            }, function () {
+            /*this.setState({
+                    gameState: 'uninitialized'
+            },
+            function(){
                 console.log('gamestate = ', this.state.gameState);
-            });
+            });*/
         }
 
         //
@@ -30326,9 +30336,9 @@ function CreateDeck() {
     return Cards;
 }
 
-function ShuffleCards() {
+function ShuffleCards(cardDeck) {
     /*let shuffledcards = cards; // Array of shuffled cards*/
-    var shuffledcards = CreateDeck();
+    var shuffledcards = cardDeck;
     var i = void 0;
     var t = void 0;
     var m = shuffledcards.length;

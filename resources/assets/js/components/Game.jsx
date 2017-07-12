@@ -18,15 +18,9 @@ class Game extends Component {
         super();
         this.state = {
             dealtCards: Array(5).fill(<img src={cardBack}/>),
-            gameState: enumPropType(
-                'uninitialized',
-                'first_deal',
-                'second_deal',
-                'win',
-                'loss'),
-
+            gameState: 0,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
             cardDeck: DeckActions.CreateDeck(),
-            shuffledDeck: DeckActions.ShuffleCards(),
+            shuffledDeck: [],
         };
         this.setDealtCards = this.setDealtCards.bind(this);
         this.setGameState = this.setGameState.bind(this);
@@ -72,18 +66,29 @@ class Game extends Component {
 
     // draw button was clicked
     drawClick(){
-
+        console.log('gamestate before = ', this.state.gameState);
+        console.log('cardDeck = ', this.state.cardDeck);
+        // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+        // 0, 3, 4 - create a shuffled deck
+        if(this.state.gameState === 0 || this.state.gameState === 3 || this.state.gameState === 4){
+            this.setState({
+                shuffledDeck: DeckActions.ShuffleCards(this.state.cardDeck)
+            },
+            function(){
+                console.log('shuffledDeck = ', this.state.shuffledDeck);
+            })
+        }
         /*console.log("draw clicked");
         console.log('cardDeck = ', this.state.cardDeck);
         console.log('shuffledDeck = ', this.state.shuffledDeck);
         console.log('dealtcards = ', this.state.dealtCards);
 */
-            this.setState({
+            /*this.setState({
                     gameState: 'uninitialized'
             },
             function(){
                 console.log('gamestate = ', this.state.gameState);
-            });
+            });*/
 
 
 
