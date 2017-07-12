@@ -12,7 +12,7 @@ export function CreateDeck(){
         {
             // Card(id, suit, rank, x, y, width, height)
             oneCard = {
-                ID: id++,
+                ID: ++id,
                 Suit: i + 1,
                 Rank: j + 1,
                 X: j * SpriteWidth,
@@ -31,25 +31,13 @@ export function CreateDeck(){
     return Cards;
 }
 
-export function ShuffleCards(cards){
-    let shuffledcards = cards; // Array of shuffled cards
+export function ShuffleCards(){
+    /*let shuffledcards = cards; // Array of shuffled cards*/
+    let shuffledcards = CreateDeck();
     let i;
     let t;
-    let m = cards.length;
-    console.log('cards.length = ', m);
-    /*var m = array.length, t, i;
-
-    // While there remain elements to shuffle…
-    while (m) {
-
-        // Pick a remaining element…
-        i = Math.floor(Math.random() * m--);
-
-        // And swap it with the current element.
-        t = array[m];
-        array[m] = array[i];
-        array[i] = t;
-    }*/
+    let m = shuffledcards.length;
+    //console.log('cards.length = ', m);
 
     while (m){
         // Pick a remaining element
@@ -60,9 +48,16 @@ export function ShuffleCards(cards){
         shuffledcards[m] = shuffledcards[i];
         shuffledcards[i] = t;
     }
-    console.log('shuffled cards = ', shuffledcards);
+    //console.log('shuffled cards = ', shuffledcards);
     return shuffledcards;
 }
 
 
-export default {CreateDeck, ShuffleCards}
+export function DealCards(shuffledcards, dealtCards){
+
+
+
+    return cardsDealt;
+}
+
+export default {CreateDeck, ShuffleCards, DealCards}

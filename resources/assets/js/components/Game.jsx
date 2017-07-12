@@ -11,6 +11,7 @@ import cardBack from '../../../../public/images/cardBack_red2.png'
 import DeckActions from './functions/Cardfunctions';
 
 
+
 class Game extends Component {
     constructor() {
         super();
@@ -18,13 +19,14 @@ class Game extends Component {
             dealtCards: Array(5).fill(<img src={cardBack}/>),
             gameState: 0,
             cardDeck: DeckActions.CreateDeck(),
-            shuffledDeck: []
+            shuffledDeck: DeckActions.ShuffleCards(),
         };
         this.setDealtCards = this.setDealtCards.bind(this);
         this.setGameState = this.setGameState.bind(this);
         this.setCardDeck = this.setCardDeck.bind(this);
         this.setShuffledDeck = this.setShuffledDeck.bind(this);
         this.drawClick = this.drawClick.bind(this);
+        this.cardClick = this.cardClick.bind(this);
 
     }
 
@@ -64,11 +66,21 @@ class Game extends Component {
     // draw button was clicked
     drawClick(){
         console.log("draw clicked");
-        console.log("new deck = ", this.state.cardDeck);
-        if(this.state.gameState === 0){
-            let shuffledDeck = DeckActions.ShuffleCards(this.state.cardDeck);
-            console.log('shuffledDeck = ', shuffledDeck);
-        }
+        console.log('cardDeck = ', this.state.cardDeck);
+        console.log('shuffledDeck = ', this.state.shuffledDeck);
+        console.log('dealtcards = ', this.state.dealtCards);
+        /*if(this.state.gameState === 0){
+            this.setState({
+                shuffledDeck: DeckActions.ShuffleCards(this.state.cardDeck),
+                gameState: 1
+            },
+            function(){
+                console.log('shuffledDeck = ', this.state.shuffledDeck);
+                console.log('gamestate = ', this.state.gameState);
+            });
+        }*/
+
+
     }
 
     //

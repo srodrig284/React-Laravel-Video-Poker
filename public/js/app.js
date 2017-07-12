@@ -28917,13 +28917,14 @@ var Game = function (_Component) {
             dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
             gameState: 0,
             cardDeck: _Cardfunctions2.default.CreateDeck(),
-            shuffledDeck: []
+            shuffledDeck: _Cardfunctions2.default.ShuffleCards()
         };
         _this.setDealtCards = _this.setDealtCards.bind(_this);
         _this.setGameState = _this.setGameState.bind(_this);
         _this.setCardDeck = _this.setCardDeck.bind(_this);
         _this.setShuffledDeck = _this.setShuffledDeck.bind(_this);
         _this.drawClick = _this.drawClick.bind(_this);
+        _this.cardClick = _this.cardClick.bind(_this);
 
         return _this;
     }
@@ -28983,11 +28984,19 @@ var Game = function (_Component) {
         key: 'drawClick',
         value: function drawClick() {
             console.log("draw clicked");
-            console.log("new deck = ", this.state.cardDeck);
-            if (this.state.gameState === 0) {
-                var shuffledDeck = _Cardfunctions2.default.ShuffleCards(this.state.cardDeck);
-                console.log('shuffledDeck = ', shuffledDeck);
-            }
+            console.log('cardDeck = ', this.state.cardDeck);
+            console.log('shuffledDeck = ', this.state.shuffledDeck);
+            console.log('dealtcards = ', this.state.dealtCards);
+            /*if(this.state.gameState === 0){
+                this.setState({
+                    shuffledDeck: DeckActions.ShuffleCards(this.state.cardDeck),
+                    gameState: 1
+                },
+                function(){
+                    console.log('shuffledDeck = ', this.state.shuffledDeck);
+                    console.log('gamestate = ', this.state.gameState);
+                });
+            }*/
         }
 
         //
@@ -30248,6 +30257,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.CreateDeck = CreateDeck;
 exports.ShuffleCards = ShuffleCards;
+exports.DealCards = DealCards;
 
 var _react = __webpack_require__(3);
 
@@ -30267,7 +30277,7 @@ function CreateDeck() {
         {
             // Card(id, suit, rank, x, y, width, height)
             oneCard = {
-                ID: id++,
+                ID: ++id,
                 Suit: i + 1,
                 Rank: j + 1,
                 X: j * SpriteWidth,
@@ -30285,22 +30295,13 @@ function CreateDeck() {
     return Cards;
 }
 
-function ShuffleCards(cards) {
-    var shuffledcards = cards; // Array of shuffled cards
+function ShuffleCards() {
+    /*let shuffledcards = cards; // Array of shuffled cards*/
+    var shuffledcards = CreateDeck();
     var i = void 0;
     var t = void 0;
-    var m = cards.length;
-    console.log('cards.length = ', m);
-    /*var m = array.length, t, i;
-     // While there remain elements to shuffle…
-    while (m) {
-         // Pick a remaining element…
-        i = Math.floor(Math.random() * m--);
-         // And swap it with the current element.
-        t = array[m];
-        array[m] = array[i];
-        array[i] = t;
-    }*/
+    var m = shuffledcards.length;
+    //console.log('cards.length = ', m);
 
     while (m) {
         // Pick a remaining element
@@ -30311,11 +30312,16 @@ function ShuffleCards(cards) {
         shuffledcards[m] = shuffledcards[i];
         shuffledcards[i] = t;
     }
-    console.log('shuffled cards = ', shuffledcards);
+    //console.log('shuffled cards = ', shuffledcards);
     return shuffledcards;
 }
 
-exports.default = { CreateDeck: CreateDeck, ShuffleCards: ShuffleCards };
+function DealCards(shuffledcards, dealtCards) {
+
+    return cardsDealt;
+}
+
+exports.default = { CreateDeck: CreateDeck, ShuffleCards: ShuffleCards, DealCards: DealCards };
 
 /***/ }),
 /* 274 */
