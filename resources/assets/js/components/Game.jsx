@@ -2,6 +2,7 @@
  * Created by Sandra on 7/4/17.
  */
 import React, { Component } from 'react'
+import enumPropType from 'react-enum-prop-type'
 
 import '../../../../public/css/mystylesheet.css'
 import Payout from './children/Payout';
@@ -17,13 +18,13 @@ class Game extends Component {
         super();
         this.state = {
             dealtCards: Array(5).fill(<img src={cardBack}/>),
-            gameState: {
-                uninitialized: 0,
-                first_deal: 1,
-                second_deal: 2,
-                win: 3,
-                loss: 4
-            },
+            gameState: enumPropType(
+                'uninitialized',
+                'first_deal',
+                'second_deal',
+                'win',
+                'loss'),
+
             cardDeck: DeckActions.CreateDeck(),
             shuffledDeck: DeckActions.ShuffleCards(),
         };
@@ -71,21 +72,19 @@ class Game extends Component {
 
     // draw button was clicked
     drawClick(){
-        console.log('gamestate = ', this.state.gameState);
-        console.log("draw clicked");
+
+        /*console.log("draw clicked");
         console.log('cardDeck = ', this.state.cardDeck);
         console.log('shuffledDeck = ', this.state.shuffledDeck);
         console.log('dealtcards = ', this.state.dealtCards);
-        /*if(this.state.gameState === 0){
+*/
             this.setState({
-                shuffledDeck: DeckActions.ShuffleCards(this.state.cardDeck),
-                gameState: 1
+                    gameState: 'uninitialized'
             },
             function(){
-                console.log('shuffledDeck = ', this.state.shuffledDeck);
                 console.log('gamestate = ', this.state.gameState);
             });
-        }*/
+
 
 
     }
