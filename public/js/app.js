@@ -28916,7 +28916,7 @@ var Game = function (_Component) {
         _this.state = {
             dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
             gameState: 0,
-            cardDeck: (0, _Cardfunctions2.default)(),
+            cardDeck: _Cardfunctions2.default.CreateDeck(),
             shuffledDeck: []
         };
         _this.setDealtCards = _this.setDealtCards.bind(_this);
@@ -28984,6 +28984,10 @@ var Game = function (_Component) {
         value: function drawClick() {
             console.log("draw clicked");
             console.log("new deck = ", this.state.cardDeck);
+            if (this.state.gameState === 0) {
+                var shuffledDeck = _Cardfunctions2.default.ShuffleCards(this.state.cardDeck);
+                console.log('shuffledDeck = ', shuffledDeck);
+            }
         }
 
         //
@@ -30243,6 +30247,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.CreateDeck = CreateDeck;
+exports.ShuffleCards = ShuffleCards;
 
 var _react = __webpack_require__(3);
 
@@ -30262,6 +30267,7 @@ function CreateDeck() {
         {
             // Card(id, suit, rank, x, y, width, height)
             oneCard = {
+                ID: id++,
                 Suit: i + 1,
                 Rank: j + 1,
                 X: j * SpriteWidth,
@@ -30275,11 +30281,41 @@ function CreateDeck() {
             Cards.push(oneCard);
         }
     }
-    console.log('onecard = ', Cards);
+    //console.log('onecard = ', Cards);
     return Cards;
 }
 
-exports.default = CreateDeck;
+function ShuffleCards(cards) {
+    var shuffledcards = cards; // Array of shuffled cards
+    var i = void 0;
+    var t = void 0;
+    var m = cards.length;
+    console.log('cards.length = ', m);
+    /*var m = array.length, t, i;
+     // While there remain elements to shuffle…
+    while (m) {
+         // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
+         // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+    }*/
+
+    while (m) {
+        // Pick a remaining element
+        i = Math.floor(Math.random() * m--);
+
+        // And swap it with the current element.
+        t = shuffledcards[m];
+        shuffledcards[m] = shuffledcards[i];
+        shuffledcards[i] = t;
+    }
+    console.log('shuffled cards = ', shuffledcards);
+    return shuffledcards;
+}
+
+exports.default = { CreateDeck: CreateDeck, ShuffleCards: ShuffleCards };
 
 /***/ }),
 /* 274 */

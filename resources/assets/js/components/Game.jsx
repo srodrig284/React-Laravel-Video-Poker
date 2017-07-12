@@ -8,7 +8,8 @@ import Payout from './children/Payout';
 import Cards from './children/Cards';
 import Controls from './children/Controls';
 import cardBack from '../../../../public/images/cardBack_red2.png'
-import CreateDeck from './functions/Cardfunctions'
+import DeckActions from './functions/Cardfunctions';
+
 
 class Game extends Component {
     constructor() {
@@ -16,7 +17,7 @@ class Game extends Component {
         this.state = {
             dealtCards: Array(5).fill(<img src={cardBack}/>),
             gameState: 0,
-            cardDeck: CreateDeck(),
+            cardDeck: DeckActions.CreateDeck(),
             shuffledDeck: []
         };
         this.setDealtCards = this.setDealtCards.bind(this);
@@ -64,6 +65,10 @@ class Game extends Component {
     drawClick(){
         console.log("draw clicked");
         console.log("new deck = ", this.state.cardDeck);
+        if(this.state.gameState === 0){
+            let shuffledDeck = DeckActions.ShuffleCards(this.state.cardDeck);
+            console.log('shuffledDeck = ', shuffledDeck);
+        }
     }
 
     //
