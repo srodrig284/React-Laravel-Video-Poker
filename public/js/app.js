@@ -28915,7 +28915,13 @@ var Game = function (_Component) {
 
         _this.state = {
             dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
-            gameState: 0,
+            gameState: {
+                uninitialized: 0,
+                first_deal: 1,
+                second_deal: 2,
+                win: 3,
+                loss: 4
+            },
             cardDeck: _Cardfunctions2.default.CreateDeck(),
             shuffledDeck: _Cardfunctions2.default.ShuffleCards()
         };
@@ -28983,6 +28989,7 @@ var Game = function (_Component) {
     }, {
         key: 'drawClick',
         value: function drawClick() {
+            console.log('gamestate = ', this.state.gameState);
             console.log("draw clicked");
             console.log('cardDeck = ', this.state.cardDeck);
             console.log('shuffledDeck = ', this.state.shuffledDeck);
