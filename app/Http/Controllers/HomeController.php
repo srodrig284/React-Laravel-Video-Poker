@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Auth;
 use Illuminate\Http\Request;
+use JavaScript;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        JavaScript::put([
+            'name' => Auth::user()->name
+        ]);
+
         return view('home');
     }
 }
