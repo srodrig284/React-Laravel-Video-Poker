@@ -30,7 +30,7 @@ export function CreateDeck(){
 
         }
     }
-    console.log('Card Deck = ', Cards);
+    /*console.log('Card Deck = ', Cards);*/
     return Cards;
 }
 
@@ -50,7 +50,7 @@ export function InitCardBack(){
             };
             Cards.push(oneCard);
     }
-    console.log('Card backs = ', Cards);
+    /*console.log('Card backs = ', Cards);*/
     return Cards;
 }
 
@@ -76,11 +76,18 @@ export function ShuffleCards(cardDeck){
 }
 
 
-export function DealCards(shuffledcards, dealtCards){
+export function DealCards(shuffledcards, numCards){
+    let popShuffled = shuffledcards;
+    /*console.log('popShuffled before = ', popShuffled);*/
+    let dealt = [];
 
+    for (var i = 0; i < numCards; i++){
+        dealt.push(popShuffled.pop());
+    }
 
-
-    return cardsDealt;
+    /*console.log('popShuffled after= ', popShuffled);
+    console.log('dealt = ', dealt);*/
+    return {s: popShuffled, d: dealt};
 }
 
 export default {CreateDeck, ShuffleCards, DealCards, InitCardBack}

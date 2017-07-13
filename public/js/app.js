@@ -28987,30 +28987,27 @@ var Game = function (_Component) {
     }, {
         key: 'drawClick',
         value: function drawClick() {
-            console.log('dealtcards = ', this.state.dealtCards);
+            /*console.log('dealtcards = ', this.state.dealtCards);*/
             /*console.log('gamestate before = ', this.state.gameState);*/
-            console.log('cardDeck = ', this.state.cardDeck);
+            /*console.log('cardDeck = ', this.state.cardDeck);*/
             // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
             // 0, 3, 4 - create a shuffled deck
             if (this.state.gameState === 0 || this.state.gameState === 3 || this.state.gameState === 4) {
-                this.setState({
-                    shuffledDeck: _Cardfunctions2.default.ShuffleCards(this.state.cardDeck)
-                }, function () {
+                /*this.setState({
+                    shuffledDeck: DeckActions.ShuffleCards(this.state.cardDeck)
+                },
+                function(){
                     console.log('shuffledDeck = ', this.state.shuffledDeck);
-                });
-            }
+                })*/
+                var newShuffle = _Cardfunctions2.default.ShuffleCards(this.state.cardDeck);
+                console.log('newShuffle = ', newShuffle);
 
-            /*console.log("draw clicked");
-            console.log('cardDeck = ', this.state.cardDeck);
-            console.log('shuffledDeck = ', this.state.shuffledDeck);
-            console.log('dealtcards = ', this.state.dealtCards);
-            */
-            /*this.setState({
-                    gameState: 'uninitialized'
-            },
-            function(){
-                console.log('gamestate = ', this.state.gameState);
-            });*/
+                // get 5 new cards
+                var newDeal = _Cardfunctions2.default.DealCards(newShuffle, 5);
+                console.log('newdeal = ', newDeal);
+                console.log('newdeal.shuffled = ', newDeal.s);
+                console.log('newdeal.cards = ', newDeal.d);
+            }
         }
 
         //
@@ -30174,6 +30171,8 @@ var Cards = function (_Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             return _react2.default.createElement(
                 'div',
                 { className: 'div_margin' },
@@ -30184,31 +30183,13 @@ var Cards = function (_Component) {
                         'div',
                         { className: 'col-md-12' },
                         _react2.default.createElement('div', { className: 'col-md-1' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-md-2' },
-                            this.renderSquare(0)
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-md-2' },
-                            this.renderSquare(1)
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-md-2' },
-                            this.renderSquare(2)
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-md-2' },
-                            this.renderSquare(3)
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'col-md-2' },
-                            this.renderSquare(4)
-                        ),
+                        this.props.cardsquares.map(function (data, i) {
+                            return _react2.default.createElement(
+                                'div',
+                                { className: 'col-md-2', key: i },
+                                _this3.renderSquare(i)
+                            );
+                        }),
                         _react2.default.createElement('div', { className: 'col-md-1' })
                     )
                 )
@@ -30336,7 +30317,7 @@ function CreateDeck() {
             Cards.push(oneCard);
         }
     }
-    console.log('Card Deck = ', Cards);
+    /*console.log('Card Deck = ', Cards);*/
     return Cards;
 }
 
@@ -30355,7 +30336,7 @@ function InitCardBack() {
         };
         Cards.push(oneCard);
     }
-    console.log('Card backs = ', Cards);
+    /*console.log('Card backs = ', Cards);*/
     return Cards;
 }
 
@@ -30380,9 +30361,18 @@ function ShuffleCards(cardDeck) {
     return shuffledcards;
 }
 
-function DealCards(shuffledcards, dealtCards) {
+function DealCards(shuffledcards, numCards) {
+    var popShuffled = shuffledcards;
+    /*console.log('popShuffled before = ', popShuffled);*/
+    var dealt = [];
 
-    return cardsDealt;
+    for (var i = 0; i < numCards; i++) {
+        dealt.push(popShuffled.pop());
+    }
+
+    /*console.log('popShuffled after= ', popShuffled);
+    console.log('dealt = ', dealt);*/
+    return { s: popShuffled, d: dealt };
 }
 
 exports.default = { CreateDeck: CreateDeck, ShuffleCards: ShuffleCards, DealCards: DealCards, InitCardBack: InitCardBack };

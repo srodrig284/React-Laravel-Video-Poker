@@ -29,7 +29,7 @@ class Cards extends Component {
                     <div className="col-md-12">
                         <div className="col-md-1">
                         </div>
-                        <div className="col-md-2">
+                        {/*<div className="col-md-2">
                             {this.renderSquare(0)}
                         </div>
                         <div className="col-md-2">
@@ -43,7 +43,14 @@ class Cards extends Component {
                         </div>
                         <div className="col-md-2">
                             {this.renderSquare(4)}
-                        </div>
+                        </div>*/}
+                        {this.props.cardsquares.map((data, i) => {
+                            return (
+                                <div className="col-md-2" key={i}>
+                                    {this.renderSquare(i)}
+                                </div>
+                            );
+                        })}
                         <div className="col-md-1">
                         </div>
                     </div>
