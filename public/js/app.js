@@ -28918,7 +28918,7 @@ var Game = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Game.__proto__ || Object.getPrototypeOf(Game)).call(this));
 
         _this.state = {
-            dealtCards: Array(5).fill(_react2.default.createElement('img', { src: _cardBack_red2.default })),
+            dealtCards: _Cardfunctions2.default.InitCardBack(),
             gameState: 0, // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
             cardDeck: _Cardfunctions2.default.CreateDeck(),
             shuffledDeck: []
@@ -28987,7 +28987,8 @@ var Game = function (_Component) {
     }, {
         key: 'drawClick',
         value: function drawClick() {
-            console.log('gamestate before = ', this.state.gameState);
+            console.log('dealtcards = ', this.state.dealtCards);
+            /*console.log('gamestate before = ', this.state.gameState);*/
             console.log('cardDeck = ', this.state.cardDeck);
             // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
             // 0, 3, 4 - create a shuffled deck
@@ -28998,6 +28999,7 @@ var Game = function (_Component) {
                     console.log('shuffledDeck = ', this.state.shuffledDeck);
                 });
             }
+
             /*console.log("draw clicked");
             console.log('cardDeck = ', this.state.cardDeck);
             console.log('shuffledDeck = ', this.state.shuffledDeck);
@@ -30143,7 +30145,7 @@ function Square(props) {
     return _react2.default.createElement(
         'button',
         { className: 'square', onClick: props.onClick, disabled: props.disabled },
-        props.value
+        _react2.default.createElement('img', { src: props.value })
     );
 }
 
@@ -30162,7 +30164,7 @@ var Cards = function (_Component) {
             var _this2 = this;
 
             return _react2.default.createElement(Square, {
-                value: this.props.cardsquares[i],
+                value: this.props.cardsquares[i].Image,
                 onClick: function onClick() {
                     return _this2.props.onClick(i);
                 },
@@ -30297,6 +30299,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 exports.CreateDeck = CreateDeck;
+exports.InitCardBack = InitCardBack;
 exports.ShuffleCards = ShuffleCards;
 exports.DealCards = DealCards;
 
@@ -30306,13 +30309,18 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function CardPNGArray() {
+    var cardArray = ['/images/ace_of_clubs.png', '/images/2_of_clubs.png', '/images/3_of_clubs.png', '/images/4_of_clubs.png', '/images/5_of_clubs.png', '/images/6_of_clubs.png', '/images/7_of_clubs.png', '/images/8_of_clubs.png', '/images/9_of_clubs.png', '/images/10_of_clubs.png', '/images/jack_of_clubs.png', '/images/queen_of_clubs.png', '/images/king_of_clubs.png', '/images/ace_of_diamonds.png', '/images/2_of_diamonds.png', '/images/3_of_diamonds.png', '/images/4_of_diamonds.png', '/images/5_of_diamonds.png', '/images/6_of_diamonds.png', '/images/7_of_diamonds.png', '/images/8_of_diamonds.png', '/images//images/9_of_diamonds.png', '/images/10_of_diamonds.png', '/images/jack_of_diamonds.png', '/images/queen_of_diamonds.png', '/images/king_of_diamonds.png', '/images/ace_of_hearts.png', '/images/2_of_hearts.png', '/images/3_of_hearts.png', '/images/4_of_hearts.png', '/images/5_of_hearts.png', '/images/6_of_hearts.png', '/images/7_of_hearts.png', '/images/8_of_hearts.png', '/images/9_of_hearts.png', '/images/10_of_hearts.png', '/images/jack_of_hearts.png', '/images/queen_of_hearts.png', '/images/king_of_hearts.png', '/images/ace_of_spades.png', '/images/2_of_spades.png', '/images/3_of_spades.png', '/images/4_of_spades.png', '/images/5_of_spades.png', '/images/6_of_spades.png', '/images/7_of_spades.png', '/images/8_of_spades.png', '/images/9_of_spades.png', '/images/10_of_spades.png', '/images/jack_of_spades.png', '/images/queen_of_spades.png', '/images/king_of_spades.png'];
+    return cardArray;
+}
+
 function CreateDeck() {
     var Cards = []; // Array of Cards representing one deck
     var oneCard = {};
-    var SpriteWidth = 230; // pixel width of card in source image
-    var SpriteHeight = 300; // pixel height of card in source image
 
-    for (var id = 0, i = 0; i < 4; i++) // for each Suit {Clubs,Diamonds,Hearts,Spades}
+    var cardImages = CardPNGArray();
+
+    for (var id = 0, p = 0, i = 0; i < 4; i++) // for each Suit {Clubs,Diamonds,Hearts,Spades}
     {
         for (var j = 0; j < 13; j++) // for each Rank {A,2,...,10,J,Q,K}
         {
@@ -30321,18 +30329,33 @@ function CreateDeck() {
                 ID: ++id,
                 Suit: i + 1,
                 Rank: j + 1,
-                X: j * SpriteWidth,
-                Y: i * SpriteHeight,
-                Width: SpriteWidth,
-                Height: SpriteHeight,
                 Locked: false,
-                Image: 'Deck.png'
+                Image: cardImages[p++]
             };
 
             Cards.push(oneCard);
         }
     }
-    //console.log('onecard = ', Cards);
+    console.log('Card Deck = ', Cards);
+    return Cards;
+}
+
+function InitCardBack() {
+    var Cards = []; // Array of Cards representing 5 cards
+    var oneCard = {};
+    var cardBack = "/images/cardBack_red2.png";
+
+    for (var i = 0; i < 5; i++) {
+        oneCard = {
+            ID: i,
+            Suit: 0,
+            Rank: 0,
+            Locked: false,
+            Image: cardBack
+        };
+        Cards.push(oneCard);
+    }
+    console.log('Card backs = ', Cards);
     return Cards;
 }
 
@@ -30362,7 +30385,7 @@ function DealCards(shuffledcards, dealtCards) {
     return cardsDealt;
 }
 
-exports.default = { CreateDeck: CreateDeck, ShuffleCards: ShuffleCards, DealCards: DealCards };
+exports.default = { CreateDeck: CreateDeck, ShuffleCards: ShuffleCards, DealCards: DealCards, InitCardBack: InitCardBack };
 
 /***/ }),
 /* 275 */

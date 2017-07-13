@@ -5,7 +5,7 @@ import cardBack from '../../../../../public/images/cardBack_red2.png'
 function Square(props) {
     return (
         <button className="square" onClick={props.onClick} disabled={props.disabled}>
-            {props.value}
+            <img src={props.value}/>
         </button>
     );
 }
@@ -15,7 +15,7 @@ class Cards extends Component {
     renderSquare(i) {
         return (
             <Square
-                value={this.props.cardsquares[i]}
+                value={this.props.cardsquares[i].Image}
                 onClick={() => this.props.onClick(i)}
                 disabled={ this.props.disabled }
             />

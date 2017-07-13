@@ -17,7 +17,7 @@ class Game extends Component {
     constructor() {
         super();
         this.state = {
-            dealtCards: Array(5).fill(<img src={cardBack}/>),
+            dealtCards: DeckActions.InitCardBack(),
             gameState: 0,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
             cardDeck: DeckActions.CreateDeck(),
             shuffledDeck: [],
@@ -66,7 +66,8 @@ class Game extends Component {
 
     // draw button was clicked
     drawClick(){
-        console.log('gamestate before = ', this.state.gameState);
+        console.log('dealtcards = ', this.state.dealtCards);
+        /*console.log('gamestate before = ', this.state.gameState);*/
         console.log('cardDeck = ', this.state.cardDeck);
         // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
         // 0, 3, 4 - create a shuffled deck
@@ -78,6 +79,7 @@ class Game extends Component {
                 console.log('shuffledDeck = ', this.state.shuffledDeck);
             })
         }
+
         /*console.log("draw clicked");
         console.log('cardDeck = ', this.state.cardDeck);
         console.log('shuffledDeck = ', this.state.shuffledDeck);
