@@ -62,6 +62,14 @@ class Game extends Component {
     // card was clicked - hold or unhold
     cardClick(i) {
         console.log("card clicked = ", i);
+        let current = this.state.dealtCards;
+        console.log('current lock = ', current[i].Locked);
+        current[i].Locked = !current[i].Locked; // change Locked state
+        console.log('current lock after= ', current[i].Locked);
+
+        this.setState({
+            dealtCards: current
+        })
     }
 
     // draw button was clicked

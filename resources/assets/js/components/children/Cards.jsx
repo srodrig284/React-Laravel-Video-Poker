@@ -25,25 +25,34 @@ class Cards extends Component {
     render() {
         return (
             <div className="div_margin">
+                {/* Display HOLD if card is locked*/}
                 <div className="row">
                     <div className="col-md-12">
                         <div className="col-md-1">
                         </div>
-                        {/*<div className="col-md-2">
-                            {this.renderSquare(0)}
+                        {this.props.cardsquares.map((data, i) => {
+                            let returnString = function(){
+                              if(data.Locked === true){
+                                  return 'LOCKED';
+                              }else{
+                                  return null;
+                              }
+                            };
+                            return (
+                                <div className="col-md-2" key={i}>
+                                    <span className="holdCard" >{returnString()}</span>
+                                </div>
+                            );
+                        })}
+                        <div className="col-md-1">
                         </div>
-                        <div className="col-md-2">
-                            {this.renderSquare(1)}
+                    </div>
+                </div>
+
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="col-md-1">
                         </div>
-                        <div className="col-md-2">
-                            {this.renderSquare(2)}
-                        </div>
-                        <div className="col-md-2">
-                            {this.renderSquare(3)}
-                        </div>
-                        <div className="col-md-2">
-                            {this.renderSquare(4)}
-                        </div>*/}
                         {this.props.cardsquares.map((data, i) => {
                             return (
                                 <div className="col-md-2" key={i}>
