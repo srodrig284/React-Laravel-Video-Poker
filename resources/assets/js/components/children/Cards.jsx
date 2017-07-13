@@ -5,7 +5,7 @@ import cardBack from '../../../../../public/images/cardBack_red2.png'
 function Square(props) {
     return (
         <button className="square" onClick={props.onClick} disabled={props.disabled}>
-            <img src={props.value}/>
+            <img className="card_size" src={props.value}/>
         </button>
     );
 }

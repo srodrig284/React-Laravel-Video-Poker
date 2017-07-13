@@ -86,10 +86,14 @@ class Game extends Component {
             console.log('newdeal = ', newDeal);
             console.log('newdeal.shuffled = ', newDeal.s);
             console.log('newdeal.cards = ', newDeal.d);
+
+            this.setState({
+                shuffledDeck: newDeal.s,
+                dealtCards: newDeal.d,
+                gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+            })
         }
-
-
-    }
+    } // end drawClick
 
     //
     render() {

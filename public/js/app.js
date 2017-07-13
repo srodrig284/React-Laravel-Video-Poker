@@ -29007,8 +29007,14 @@ var Game = function (_Component) {
                 console.log('newdeal = ', newDeal);
                 console.log('newdeal.shuffled = ', newDeal.s);
                 console.log('newdeal.cards = ', newDeal.d);
+
+                this.setState({
+                    shuffledDeck: newDeal.s,
+                    dealtCards: newDeal.d,
+                    gameState: 1 // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+                });
             }
-        }
+        } // end drawClick
 
         //
 
@@ -29115,7 +29121,7 @@ exports = module.exports = __webpack_require__(262)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    font-size: 30px;\n    background-color: yellow;\n    color: #000016;\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}", ""]);
+exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    font-size: 30px;\n    background-color: yellow;\n    color: #000016;\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.card_size{\n    width: 140px;\n    height: 190px;\n}", ""]);
 
 // exports
 
@@ -30142,7 +30148,7 @@ function Square(props) {
     return _react2.default.createElement(
         'button',
         { className: 'square', onClick: props.onClick, disabled: props.disabled },
-        _react2.default.createElement('img', { src: props.value })
+        _react2.default.createElement('img', { className: 'card_size', src: props.value })
     );
 }
 
@@ -30291,7 +30297,7 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function CardPNGArray() {
-    var cardArray = ['/images/ace_of_clubs.png', '/images/2_of_clubs.png', '/images/3_of_clubs.png', '/images/4_of_clubs.png', '/images/5_of_clubs.png', '/images/6_of_clubs.png', '/images/7_of_clubs.png', '/images/8_of_clubs.png', '/images/9_of_clubs.png', '/images/10_of_clubs.png', '/images/jack_of_clubs.png', '/images/queen_of_clubs.png', '/images/king_of_clubs.png', '/images/ace_of_diamonds.png', '/images/2_of_diamonds.png', '/images/3_of_diamonds.png', '/images/4_of_diamonds.png', '/images/5_of_diamonds.png', '/images/6_of_diamonds.png', '/images/7_of_diamonds.png', '/images/8_of_diamonds.png', '/images//images/9_of_diamonds.png', '/images/10_of_diamonds.png', '/images/jack_of_diamonds.png', '/images/queen_of_diamonds.png', '/images/king_of_diamonds.png', '/images/ace_of_hearts.png', '/images/2_of_hearts.png', '/images/3_of_hearts.png', '/images/4_of_hearts.png', '/images/5_of_hearts.png', '/images/6_of_hearts.png', '/images/7_of_hearts.png', '/images/8_of_hearts.png', '/images/9_of_hearts.png', '/images/10_of_hearts.png', '/images/jack_of_hearts.png', '/images/queen_of_hearts.png', '/images/king_of_hearts.png', '/images/ace_of_spades.png', '/images/2_of_spades.png', '/images/3_of_spades.png', '/images/4_of_spades.png', '/images/5_of_spades.png', '/images/6_of_spades.png', '/images/7_of_spades.png', '/images/8_of_spades.png', '/images/9_of_spades.png', '/images/10_of_spades.png', '/images/jack_of_spades.png', '/images/queen_of_spades.png', '/images/king_of_spades.png'];
+    var cardArray = ['/images/ace_of_clubs.png', '/images/2_of_clubs.png', '/images/3_of_clubs.png', '/images/4_of_clubs.png', '/images/5_of_clubs.png', '/images/6_of_clubs.png', '/images/7_of_clubs.png', '/images/8_of_clubs.png', '/images/9_of_clubs.png', '/images/10_of_clubs.png', '/images/jack_of_clubs.png', '/images/queen_of_clubs.png', '/images/king_of_clubs.png', '/images/ace_of_diamonds.png', '/images/2_of_diamonds.png', '/images/3_of_diamonds.png', '/images/4_of_diamonds.png', '/images/5_of_diamonds.png', '/images/6_of_diamonds.png', '/images/7_of_diamonds.png', '/images/8_of_diamonds.png', '/images/9_of_diamonds.png', '/images/10_of_diamonds.png', '/images/jack_of_diamonds.png', '/images/queen_of_diamonds.png', '/images/king_of_diamonds.png', '/images/ace_of_hearts.png', '/images/2_of_hearts.png', '/images/3_of_hearts.png', '/images/4_of_hearts.png', '/images/5_of_hearts.png', '/images/6_of_hearts.png', '/images/7_of_hearts.png', '/images/8_of_hearts.png', '/images/9_of_hearts.png', '/images/10_of_hearts.png', '/images/jack_of_hearts.png', '/images/queen_of_hearts.png', '/images/king_of_hearts.png', '/images/ace_of_spades.png', '/images/2_of_spades.png', '/images/3_of_spades.png', '/images/4_of_spades.png', '/images/5_of_spades.png', '/images/6_of_spades.png', '/images/7_of_spades.png', '/images/8_of_spades.png', '/images/9_of_spades.png', '/images/10_of_spades.png', '/images/jack_of_spades.png', '/images/queen_of_spades.png', '/images/king_of_spades.png'];
     return cardArray;
 }
 
