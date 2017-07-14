@@ -87,7 +87,7 @@ export function DealCards(shuffledcards, numCards){
 
     /*console.log('popShuffled after= ', popShuffled);
     console.log('dealt = ', dealt);*/
-    return {s: popShuffled, d: dealt};
+    return {reshuffled: popShuffled, newCard: dealt};
 }
 
 export default {CreateDeck, ShuffleCards, DealCards, InitCardBack}

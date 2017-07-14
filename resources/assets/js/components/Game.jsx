@@ -79,7 +79,8 @@ class Game extends Component {
         /*console.log('cardDeck = ', this.state.cardDeck);*/
         // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
         // 0, 3, 4 - create a shuffled deck
-        if(this.state.gameState === 0 || this.state.gameState === 3 || this.state.gameState === 4){
+        if(this.state.gameState === 0 || this.state.gameState === 3 || this.state.gameState === 4)
+        {
             /*this.setState({
                 shuffledDeck: DeckActions.ShuffleCards(this.state.cardDeck)
             },
@@ -92,14 +93,54 @@ class Game extends Component {
             // get 5 new cards
             let newDeal = DeckActions.DealCards(newShuffle, 5);
             console.log('newdeal = ', newDeal);
-            console.log('newdeal.shuffled = ', newDeal.s);
-            console.log('newdeal.cards = ', newDeal.d);
+            console.log('newdeal.shuffled = ', newDeal.reshuffled);
+            console.log('newdeal.cards = ', newDeal.newCard);
 
             this.setState({
-                shuffledDeck: newDeal.s,
-                dealtCards: newDeal.d,
+                shuffledDeck: newDeal.reshuffled,
+                dealtCards: newDeal.newCard,
                 gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
             })
+        }
+        else
+        {
+            // get the currently shuffled cards
+            let currShuffled = this.state.shuffledDeck;
+
+            // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+            if(this.state.gameState === 1 || this.state.gameState === 2)
+            {
+                let tempCards = this.state.dealtCards;
+                // discard the unlocked cards and deal a new one
+                for(let i = 0; i < tempCards.length; i++ )
+                {
+                    if(!tempCards[i].Locked)
+                    {
+                        let newCards = DeckActions.DealCards(currShuffled,1);
+                        tempCards[i] = newCards.newCard[0];
+                        currShuffled = newCards.reshuffled;
+                    }
+                }
+                console.log('redeal = ', tempCards);
+                console.log('reshuffled = ', currShuffled);
+
+                if(this.state.gameState === 1)
+                {
+                    this.setState({
+                        shuffledDeck: currShuffled,
+                        dealtCards: tempCards,
+                        gameState: 2,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+                    })
+                }
+                else if(this.state.gameState === 2)
+                {
+                    this.setState({
+                        shuffledDeck: currShuffled,
+                        dealtCards: tempCards,
+                        gameState: 3,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+                    })
+                }
+            }
         }
     } // end drawClick
 
