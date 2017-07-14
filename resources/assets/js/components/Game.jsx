@@ -2,14 +2,13 @@
  * Created by Sandra on 7/4/17.
  */
 import React, { Component } from 'react'
-import enumPropType from 'react-enum-prop-type'
 
 import '../../../../public/css/mystylesheet.css'
 import Payout from './children/Payout';
 import Cards from './children/Cards';
 import Controls from './children/Controls';
-import cardBack from '../../../../public/images/cardBack_red2.png'
 import DeckActions from './functions/Cardfunctions';
+import WinLoss from './functions/Handfunctions';
 
 
 
@@ -18,9 +17,10 @@ class Game extends Component {
         super();
         this.state = {
             dealtCards: DeckActions.InitCardBack(),
-            gameState: 0,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+            gameState: 0,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             cardDeck: DeckActions.CreateDeck(),
             shuffledDeck: [],
+            finalText: ""
         };
         this.setDealtCards = this.setDealtCards.bind(this);
         this.setGameState = this.setGameState.bind(this);
@@ -61,7 +61,6 @@ class Game extends Component {
 
     // card was clicked - hold or unhold
     cardClick(i) {
-        console.log("card clicked = ", i);
         let current = this.state.dealtCards;
         console.log('current lock = ', current[i].Locked);
         current[i].Locked = !current[i].Locked; // change Locked state
@@ -74,32 +73,22 @@ class Game extends Component {
 
     // draw button was clicked
     drawClick(){
-        /*console.log('dealtcards = ', this.state.dealtCards);*/
-        /*console.log('gamestate before = ', this.state.gameState);*/
-        /*console.log('cardDeck = ', this.state.cardDeck);*/
-        // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+        console.log('game state on drawclick = ', this.state.gameState);
+        // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
         // 0, 3, 4 - create a shuffled deck
-        if(this.state.gameState === 0 || this.state.gameState === 3 || this.state.gameState === 4)
+        if(this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3)
         {
-            /*this.setState({
-                shuffledDeck: DeckActions.ShuffleCards(this.state.cardDeck)
-            },
-            function(){
-                console.log('shuffledDeck = ', this.state.shuffledDeck);
-            })*/
+            console.log('cardDeck = ', this.state.cardDeck);
+            console.log('gamestate = ', this.state.gameState);
             let newShuffle = DeckActions.ShuffleCards(this.state.cardDeck);
-            console.log('newShuffle = ', newShuffle);
 
             // get 5 new cards
             let newDeal = DeckActions.DealCards(newShuffle, 5);
-            console.log('newdeal = ', newDeal);
-            console.log('newdeal.shuffled = ', newDeal.reshuffled);
-            console.log('newdeal.cards = ', newDeal.newCard);
 
             this.setState({
                 shuffledDeck: newDeal.reshuffled,
                 dealtCards: newDeal.newCard,
-                gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+                gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             })
         }
         else
@@ -107,39 +96,34 @@ class Game extends Component {
             // get the currently shuffled cards
             let currShuffled = this.state.shuffledDeck;
 
-            // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
-            if(this.state.gameState === 1 || this.state.gameState === 2)
+            // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+            if(this.state.gameState === 1)
             {
                 let tempCards = this.state.dealtCards;
                 // discard the unlocked cards and deal a new one
                 for(let i = 0; i < tempCards.length; i++ )
                 {
-                    if(!tempCards[i].Locked)
+                    if(tempCards[i].Locked === false)
                     {
                         let newCards = DeckActions.DealCards(currShuffled,1);
                         tempCards[i] = newCards.newCard[0];
                         currShuffled = newCards.reshuffled;
                     }
                 }
-                console.log('redeal = ', tempCards);
-                console.log('reshuffled = ', currShuffled);
 
-                if(this.state.gameState === 1)
-                {
-                    this.setState({
-                        shuffledDeck: currShuffled,
-                        dealtCards: tempCards,
-                        gameState: 2,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
-                    })
-                }
-                else if(this.state.gameState === 2)
-                {
-                    this.setState({
-                        shuffledDeck: currShuffled,
-                        dealtCards: tempCards,
-                        gameState: 2,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
-                    })
-                }
+                console.log('redeal = ', tempCards);
+
+                let determineGame = WinLoss(tempCards);
+
+                console.log('winloss = ', determineGame.status);
+                console.log('final message = ', determineGame.message);
+
+                this.setState({
+                    shuffledDeck: currShuffled,
+                    dealtCards: tempCards,
+                    gameState: determineGame.status,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+                    finalText: determineGame.message
+                })
             }
         }
     } // end drawClick
@@ -147,9 +131,17 @@ class Game extends Component {
     //
     render() {
         let status;
-        if(this.state.gameState === 1 || this.state.gameState === 2)
+        let disableCards = true;  // for gamestate = 0
+
+        if(this.state.gameState === 1)
         {
-            status = "SELECT CARDS TO LOCK OR PRESS DRAW";
+            status = "SELECT CARDS TO LOCK THEN PRESS DRAW";
+            disableCards = false;
+        }
+        else if(this.state.gameState === 2 || this.state.gameState === 3)
+        {
+            disableCards = true;
+            status = this.state.finalText;
         }
 
         return (
@@ -158,7 +150,7 @@ class Game extends Component {
                 <Cards
                     cardsquares={this.state.dealtCards}
                     onClick={i => this.cardClick(i)}
-                    disabled={!this.state.gameState}
+                    disabled={disableCards}
                     message={status}
                 />
                 <Controls onClick={this.drawClick}/>
