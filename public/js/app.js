@@ -28910,14 +28910,14 @@ var Game = function (_Component) {
         _this.state = {
             dealtCards: _Cardfunctions2.default.InitCardBack(),
             gameState: 0, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-            cardDeck: _Cardfunctions2.default.CreateDeck(),
+            cardDeck: [],
             shuffledDeck: [],
             finalText: ""
         };
-        _this.setDealtCards = _this.setDealtCards.bind(_this);
-        _this.setGameState = _this.setGameState.bind(_this);
-        _this.setCardDeck = _this.setCardDeck.bind(_this);
-        _this.setShuffledDeck = _this.setShuffledDeck.bind(_this);
+        /*this.setDealtCards = this.setDealtCards.bind(this);
+        this.setGameState = this.setGameState.bind(this);
+        this.setCardDeck = this.setCardDeck.bind(this);
+        this.setShuffledDeck = this.setShuffledDeck.bind(this);*/
         _this.drawClick = _this.drawClick.bind(_this);
         _this.cardClick = _this.cardClick.bind(_this);
 
@@ -28970,7 +28970,7 @@ var Game = function (_Component) {
     }, {
         key: 'cardClick',
         value: function cardClick(i) {
-            var current = this.state.dealtCards;
+            var current = this.state.dealtCards.slice();
             console.log('current lock = ', current[i].Locked);
             current[i].Locked = !current[i].Locked; // change Locked state
             console.log('current lock after= ', current[i].Locked);
@@ -28989,12 +28989,17 @@ var Game = function (_Component) {
             // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             // 0, 3, 4 - create a shuffled deck
             if (this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3) {
-                console.log('cardDeck = ', this.state.cardDeck);
+                var newDeck = _Cardfunctions2.default.CreateDeck();
+                console.log('cardDeck = ', newDeck);
                 console.log('gamestate = ', this.state.gameState);
-                var newShuffle = _Cardfunctions2.default.ShuffleCards(this.state.cardDeck);
+
+                var newShuffle = newDeck.slice();
+                newShuffle = _Cardfunctions2.default.ShuffleCards(newShuffle);
+                console.log('newShuffle after shuffle = ', newShuffle);
 
                 // get 5 new cards
                 var newDeal = _Cardfunctions2.default.DealCards(newShuffle, 5);
+                console.log('newDeal = ', newDeal);
 
                 this.setState({
                     shuffledDeck: newDeal.reshuffled,
@@ -29003,11 +29008,11 @@ var Game = function (_Component) {
                 });
             } else {
                 // get the currently shuffled cards
-                var currShuffled = this.state.shuffledDeck;
+                var currShuffled = this.state.shuffledDeck.slice();
 
                 // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
                 if (this.state.gameState === 1) {
-                    var tempCards = this.state.dealtCards;
+                    var tempCards = this.state.dealtCards.slice();
                     // discard the unlocked cards and deal a new one
                     for (var i = 0; i < tempCards.length; i++) {
                         if (tempCards[i].Locked === false) {
@@ -30392,7 +30397,7 @@ function InitCardBack() {
 
 function ShuffleCards(cardDeck) {
     /*let shuffledcards = cards; // Array of shuffled cards*/
-    var shuffledcards = cardDeck;
+    var shuffledcards = cardDeck.slice();
     var i = void 0;
     var t = void 0;
     var m = shuffledcards.length;
@@ -30412,7 +30417,7 @@ function ShuffleCards(cardDeck) {
 }
 
 function DealCards(shuffledcards, numCards) {
-    var popShuffled = shuffledcards;
+    var popShuffled = shuffledcards.slice();
     /*console.log('popShuffled before = ', popShuffled);*/
     var dealt = [];
 

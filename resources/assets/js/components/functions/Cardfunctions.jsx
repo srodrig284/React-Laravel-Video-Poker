@@ -56,7 +56,7 @@ export function InitCardBack(){
 
 export function ShuffleCards(cardDeck){
     /*let shuffledcards = cards; // Array of shuffled cards*/
-    let shuffledcards = cardDeck;
+    let shuffledcards = cardDeck.slice();
     let i;
     let t;
     let m = shuffledcards.length;
@@ -77,7 +77,7 @@ export function ShuffleCards(cardDeck){
 
 
 export function DealCards(shuffledcards, numCards){
-    let popShuffled = shuffledcards;
+    let popShuffled = shuffledcards.slice();
     /*console.log('popShuffled before = ', popShuffled);*/
     let dealt = [];
 

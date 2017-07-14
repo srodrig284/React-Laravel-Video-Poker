@@ -18,14 +18,14 @@ class Game extends Component {
         this.state = {
             dealtCards: DeckActions.InitCardBack(),
             gameState: 0,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-            cardDeck: DeckActions.CreateDeck(),
+            cardDeck: [],
             shuffledDeck: [],
             finalText: ""
         };
-        this.setDealtCards = this.setDealtCards.bind(this);
+        /*this.setDealtCards = this.setDealtCards.bind(this);
         this.setGameState = this.setGameState.bind(this);
         this.setCardDeck = this.setCardDeck.bind(this);
-        this.setShuffledDeck = this.setShuffledDeck.bind(this);
+        this.setShuffledDeck = this.setShuffledDeck.bind(this);*/
         this.drawClick = this.drawClick.bind(this);
         this.cardClick = this.cardClick.bind(this);
 
@@ -61,7 +61,7 @@ class Game extends Component {
 
     // card was clicked - hold or unhold
     cardClick(i) {
-        let current = this.state.dealtCards;
+        let current = (this.state.dealtCards).slice();
         console.log('current lock = ', current[i].Locked);
         current[i].Locked = !current[i].Locked; // change Locked state
         console.log('current lock after= ', current[i].Locked);
@@ -78,12 +78,17 @@ class Game extends Component {
         // 0, 3, 4 - create a shuffled deck
         if(this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3)
         {
-            console.log('cardDeck = ', this.state.cardDeck);
+            let newDeck = DeckActions.CreateDeck();
+            console.log('cardDeck = ', newDeck);
             console.log('gamestate = ', this.state.gameState);
-            let newShuffle = DeckActions.ShuffleCards(this.state.cardDeck);
+
+            let newShuffle = (newDeck).slice();
+            newShuffle = DeckActions.ShuffleCards(newShuffle);
+            console.log('newShuffle after shuffle = ', newShuffle);
 
             // get 5 new cards
             let newDeal = DeckActions.DealCards(newShuffle, 5);
+            console.log('newDeal = ', newDeal);
 
             this.setState({
                 shuffledDeck: newDeal.reshuffled,
@@ -94,12 +99,12 @@ class Game extends Component {
         else
         {
             // get the currently shuffled cards
-            let currShuffled = this.state.shuffledDeck;
+            let currShuffled = (this.state.shuffledDeck).slice();
 
             // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             if(this.state.gameState === 1)
             {
-                let tempCards = this.state.dealtCards;
+                let tempCards = (this.state.dealtCards).slice();
                 // discard the unlocked cards and deal a new one
                 for(let i = 0; i < tempCards.length; i++ )
                 {
