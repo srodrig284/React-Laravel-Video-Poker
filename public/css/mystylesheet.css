@@ -90,7 +90,21 @@ body {
 
 .holdCard{
     font-size: 20px;
-    color: #000016;
+    color: #c90c2f;
+    font-weight: bolder;
+}
+
+.message{
+    font-size: 35px;
+    color: #c90c2f;
     font-weight: bolder;
     margin: 0 30px;
+}
+
+.centerDiv{
+    text-align: center;
+}
+
+.rowposition{
+    min-height: 32px;
 }

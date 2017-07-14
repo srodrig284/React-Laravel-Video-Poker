@@ -25,11 +25,17 @@ class Cards extends Component {
     render() {
         return (
             <div className="div_margin">
-                {/* Display HOLD if card is locked*/}
+                {/* DISPLAY MESSAGE*/}
+                <div className="centerDiv">
+                    <span className="message">{this.props.message}</span>
+                </div>
+
+                {/* DISPLAY LOCKED ABOVE CARDS*/}
                 <div className="row">
-                    <div className="col-md-12">
+                    <div className="col-md-12 rowposition">
                         <div className="col-md-1">
                         </div>
+                        {/* Display HOLD if card is locked*/}
                         {this.props.cardsquares.map((data, i) => {
                             let returnString = function(){
                               if(data.Locked === true){
@@ -39,8 +45,8 @@ class Cards extends Component {
                               }
                             };
                             return (
-                                <div className="col-md-2" key={i}>
-                                    <span className="holdCard" >{returnString()}</span>
+                                <div className="col-md-2 centerDiv" key={i}>
+                                    <div className="holdCard" >{returnString()}</div>
                                 </div>
                             );
                         })}
@@ -49,6 +55,7 @@ class Cards extends Component {
                     </div>
                 </div>
 
+                {/*DISPLAY CARDS*/}
                 <div className="row">
                     <div className="col-md-12">
                         <div className="col-md-1">

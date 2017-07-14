@@ -137,7 +137,7 @@ class Game extends Component {
                     this.setState({
                         shuffledDeck: currShuffled,
                         dealtCards: tempCards,
-                        gameState: 3,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+                        gameState: 2,   // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
                     })
                 }
             }
@@ -146,6 +146,12 @@ class Game extends Component {
 
     //
     render() {
+        let status;
+        if(this.state.gameState === 1 || this.state.gameState === 2)
+        {
+            status = "SELECT CARDS TO LOCK OR PRESS DRAW";
+        }
+
         return (
             <div className="container">
                 <Payout />
@@ -153,6 +159,7 @@ class Game extends Component {
                     cardsquares={this.state.dealtCards}
                     onClick={i => this.cardClick(i)}
                     disabled={!this.state.gameState}
+                    message={status}
                 />
                 <Controls onClick={this.drawClick}/>
             </div> // end container

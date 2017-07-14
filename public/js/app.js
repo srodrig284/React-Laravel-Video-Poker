@@ -29049,7 +29049,7 @@ var Game = function (_Component) {
                         this.setState({
                             shuffledDeck: currShuffled,
                             dealtCards: tempCards,
-                            gameState: 3 // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
+                            gameState: 2 // 0=uninitialized, 1=firstdeal, 2=seconddeal, 3=win, 4=loss
                         });
                     }
                 }
@@ -29063,6 +29063,11 @@ var Game = function (_Component) {
         value: function render() {
             var _this2 = this;
 
+            var status = void 0;
+            if (this.state.gameState === 1 || this.state.gameState === 2) {
+                status = "SELECT CARDS TO LOCK OR PRESS DRAW";
+            }
+
             return _react2.default.createElement(
                 'div',
                 { className: 'container' },
@@ -29072,7 +29077,8 @@ var Game = function (_Component) {
                     onClick: function onClick(i) {
                         return _this2.cardClick(i);
                     },
-                    disabled: !this.state.gameState
+                    disabled: !this.state.gameState,
+                    message: status
                 }),
                 _react2.default.createElement(_Controls2.default, { onClick: this.drawClick })
             ) // end container
@@ -29161,7 +29167,7 @@ exports = module.exports = __webpack_require__(262)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    font-size: 30px;\n    background-color: yellow;\n    color: #000016;\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.card_size{\n    width: 140px;\n    height: 190px;\n}\n\n.holdCard{\n    font-size: 20px;\n    color: #000016;\n    font-weight: bolder;\n    margin: 0 30px;\n}", ""]);
+exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    font-size: 30px;\n    background-color: yellow;\n    color: #000016;\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.card_size{\n    width: 140px;\n    height: 190px;\n}\n\n.holdCard{\n    font-size: 20px;\n    color: #c90c2f;\n    font-weight: bolder;\n}\n\n.message{\n    font-size: 35px;\n    color: #c90c2f;\n    font-weight: bolder;\n    margin: 0 30px;\n}\n\n.centerDiv{\n    text-align: center;\n}\n\n.rowposition{\n    min-height: 32px;\n}", ""]);
 
 // exports
 
@@ -30224,10 +30230,19 @@ var Cards = function (_Component) {
                 { className: 'div_margin' },
                 _react2.default.createElement(
                     'div',
+                    { className: 'centerDiv' },
+                    _react2.default.createElement(
+                        'span',
+                        { className: 'message' },
+                        this.props.message
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
                     { className: 'row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'col-md-12' },
+                        { className: 'col-md-12 rowposition' },
                         _react2.default.createElement('div', { className: 'col-md-1' }),
                         this.props.cardsquares.map(function (data, i) {
                             var returnString = function returnString() {
@@ -30239,9 +30254,9 @@ var Cards = function (_Component) {
                             };
                             return _react2.default.createElement(
                                 'div',
-                                { className: 'col-md-2', key: i },
+                                { className: 'col-md-2 centerDiv', key: i },
                                 _react2.default.createElement(
-                                    'span',
+                                    'div',
                                     { className: 'holdCard' },
                                     returnString()
                                 )
