@@ -39,7 +39,7 @@ class Cards extends Component {
                         {this.props.cardsquares.map((data, i) => {
                             let returnString = function(){
                               if(data.Locked === true){
-                                  return 'LOCKED';
+                                  return 'H O L D';
                               }else{
                                   return null;
                               }

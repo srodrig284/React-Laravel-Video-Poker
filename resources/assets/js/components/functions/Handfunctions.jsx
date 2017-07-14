@@ -3,7 +3,7 @@ import React from 'react'
 export function ProcessHand(finalCards){
 
     let sortedCards = SortCards(finalCards);
-    let finalMessage = "You Lose";
+    let finalMessage = "You Lose !!!";
     let winloss = 3;  // loss
 
     let IsRoyal = checkRoyal(sortedCards);
@@ -14,10 +14,10 @@ export function ProcessHand(finalCards){
     let isStraight;
     if(IsRoyal)
     {
-        checkIsStraight = true;
+        isStraight = true;
     }
     else {
-        checkIsStraight(sortedCards);
+        isStraight = checkIsStraight(sortedCards);
     }
 
     let isThreeOfAKind = checkIsThreeOfAKind(sortedCards);

@@ -29050,7 +29050,7 @@ var Game = function (_Component) {
             var disableCards = true; // for gamestate = 0
 
             if (this.state.gameState === 1) {
-                status = "SELECT CARDS TO LOCK THEN PRESS DRAW";
+                status = "SELECT CARDS TO HOLD AND/OR PRESS DRAW";
                 disableCards = false;
             } else if (this.state.gameState === 2 || this.state.gameState === 3) {
                 disableCards = true;
@@ -29127,7 +29127,7 @@ exports = module.exports = __webpack_require__(260)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    font-size: 30px;\n    background-color: yellow;\n    color: #000016;\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.card_size{\n    width: 140px;\n    height: 190px;\n}\n\n.holdCard{\n    font-size: 20px;\n    color: #c90c2f;\n    font-weight: bolder;\n}\n\n.message{\n    font-size: 35px;\n    color: #c90c2f;\n    font-weight: bolder;\n    margin: 0 30px;\n}\n\n.centerDiv{\n    text-align: center;\n}\n\n.rowposition{\n    min-height: 32px;\n}", ""]);
+exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    font-size: 30px;\n    background-color: yellow;\n    color: #000016;\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.card_size{\n    width: 140px;\n    height: 190px;\n}\n\n.holdCard{\n    font-size: 20px;\n    color: #080d1a;\n    font-weight: bolder;\n}\n\n.message{\n    font-size: 35px;\n    color: #9d0420;\n    font-weight: bolder;\n    margin: 0 30px;\n}\n\n.centerDiv{\n    text-align: center;\n}\n\n.rowposition{\n    min-height: 32px;\n}", ""]);
 
 // exports
 
@@ -30207,7 +30207,7 @@ var Cards = function (_Component) {
                         this.props.cardsquares.map(function (data, i) {
                             var returnString = function returnString() {
                                 if (data.Locked === true) {
-                                    return 'LOCKED';
+                                    return 'H O L D';
                                 } else {
                                     return null;
                                 }
@@ -30453,7 +30453,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function ProcessHand(finalCards) {
 
     var sortedCards = SortCards(finalCards);
-    var finalMessage = "You Lose";
+    var finalMessage = "You Lose !!!";
     var winloss = 3; // loss
 
     var IsRoyal = checkRoyal(sortedCards);
@@ -30463,9 +30463,9 @@ function ProcessHand(finalCards) {
 
     var isStraight = void 0;
     if (IsRoyal) {
-        checkIsStraight = true;
+        isStraight = true;
     } else {
-        checkIsStraight(sortedCards);
+        isStraight = checkIsStraight(sortedCards);
     }
 
     var isThreeOfAKind = checkIsThreeOfAKind(sortedCards);

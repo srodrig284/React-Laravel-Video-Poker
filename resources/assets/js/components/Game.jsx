@@ -140,7 +140,7 @@ class Game extends Component {
 
         if(this.state.gameState === 1)
         {
-            status = "SELECT CARDS TO LOCK THEN PRESS DRAW";
+            status = "SELECT CARDS TO HOLD AND/OR PRESS DRAW";
             disableCards = false;
         }
         else if(this.state.gameState === 2 || this.state.gameState === 3)
