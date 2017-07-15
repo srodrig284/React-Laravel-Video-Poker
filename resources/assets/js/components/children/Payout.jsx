@@ -25,7 +25,7 @@ function Payout() {
                         </table>
 
 
-                    <div className="panel-body">
+                    <div className="panel-body payout_padding">
                         <table className="MARQUEE payout_color">
                             <tbody>
                                 <tr>

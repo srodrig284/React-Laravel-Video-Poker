@@ -21,6 +21,10 @@ body {
     border-radius: 0px;
 }
 
+.payout_padding{
+    padding: 0;
+}
+
 .TITLE {
     text-align: center;
     width: 100%;
