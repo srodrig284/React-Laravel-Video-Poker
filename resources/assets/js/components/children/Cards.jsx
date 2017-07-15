@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import cardBack from '../../../../../public/images/cardBack_red2.png'
 
 
 function Square(props) {
@@ -9,6 +8,19 @@ function Square(props) {
         </button>
     );
 }
+
+function Message(props) {
+    if(props.disabled)
+    {
+        return <span className="message animated infinite flash">{props.message}</span>;
+    }
+    else
+    {
+        return <span className="message animated fadeInLeftBig">{props.message}</span>;
+    }
+}
+
+
 
 
 class Cards extends Component {
@@ -22,12 +34,21 @@ class Cards extends Component {
         );
     }
 
+    renderMessage() {
+        return (
+            <Message
+                disabled={this.props.disabled}
+                message={this.props.message}
+            />
+        )
+    }
+
     render() {
         return (
             <div className="div_margin">
                 {/* DISPLAY MESSAGE*/}
                 <div className="centerDiv">
-                    <span className="message">{this.props.message}</span>
+                    {this.renderMessage()}
                 </div>
 
                 {/* DISPLAY LOCKED ABOVE CARDS*/}

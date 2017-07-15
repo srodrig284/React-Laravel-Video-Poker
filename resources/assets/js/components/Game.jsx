@@ -4,6 +4,7 @@
 import React, { Component } from 'react'
 
 import '../../../../public/css/mystylesheet.css'
+import '../../../../public/css/animate.css'
 import Payout from './children/Payout';
 import Cards from './children/Cards';
 import Controls from './children/Controls';
@@ -136,8 +137,11 @@ class Game extends Component {
     //
     render() {
         let status;
-        let disableCards = true;  // for gamestate = 0
+        let disableCards = true;  // for gamestate = 2, 3
 
+        if(this.state.gameState === 0){
+            status = "PRESS DRAW TO PLAY POKER";
+        }
         if(this.state.gameState === 1)
         {
             status = "SELECT CARDS TO HOLD AND/OR PRESS DRAW";
@@ -145,7 +149,6 @@ class Game extends Component {
         }
         else if(this.state.gameState === 2 || this.state.gameState === 3)
         {
-            disableCards = true;
             status = this.state.finalText;
         }
 
