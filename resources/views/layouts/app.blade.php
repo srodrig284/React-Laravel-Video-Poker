@@ -31,7 +31,8 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{--{{ config('app.name' . 'Home', 'Laravel') }}--}}
+                        Video Poker Home
                     </a>
                 </div>
 
