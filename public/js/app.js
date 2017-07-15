@@ -30512,7 +30512,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function ProcessHand(finalCards) {
 
     var sortedCards = SortCards(finalCards);
-    var finalMessage = "You Lose !!!";
+    var finalMessage = "GAME OVER !!!";
     var winloss = 3; // loss
 
     var IsRoyal = checkRoyal(sortedCards);
@@ -30535,39 +30535,39 @@ function ProcessHand(finalCards) {
     if (isStraight && isFlush && isRoyal) {
         // royal flush
         winloss = 2;
-        finalMessage = 'Winner!!!  Royal Flush';
+        finalMessage = 'W i n n e r!!!  Royal Flush';
     } else if (isStraight && isFlush && !isRoyal) {
         // straight flush}
         winloss = 2;
-        finalMessage = 'Winner!!!  Straight Flush';
+        finalMessage = 'W i n n e r!!!  Straight Flush';
     } else if (isFourOfAKind) {
         // four of a kind
         winloss = 2;
-        finalMessage = 'Winner!!!  Four Of A Kind';
+        finalMessage = 'W i n n e r!!!  Four Of A Kind';
     } else if (isFullHouse) {
         // full house
         winloss = 2;
-        finalMessage = 'Winner!!!  Full House';
+        finalMessage = 'W i n n e r!!!  Full House';
     } else if (isFlush) {
         // flush
         winloss = 2;
-        finalMessage = 'Winner!!!  Flush';
+        finalMessage = 'W i n n e r!!!  Flush';
     } else if (isStraight) {
         // straight
         winloss = 2;
-        finalMessage = 'Winner!!!  Straight';
+        finalMessage = 'W i n n e r!!!  Straight';
     } else if (isThreeOfAKind) {
         // 3 of a kind
         winloss = 2;
-        finalMessage = 'Winner!!!  Three Of A Kind';
+        finalMessage = 'W i n n e r!!!  Three Of A Kind';
     } else if (isTwoPair) {
         // two pair
         winloss = 2;
-        finalMessage = 'Winner!!!  Two Pair';
+        finalMessage = 'W i n n e r!!!  Two Pair';
     } else if (isJacksOrBetter) {
         // jacks or better
         winloss = 2;
-        finalMessage = 'Winner!!!  Jacks Or Better';
+        finalMessage = 'W i n n e r!!!  Jacks Or Better';
     }
 
     return { message: finalMessage, status: winloss };
