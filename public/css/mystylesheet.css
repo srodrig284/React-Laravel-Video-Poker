@@ -52,9 +52,50 @@ body {
 }
 
 .deal_button{
+    border-radius: 50%;
+    width:  50%;
     font-size: 30px;
-    background-color: yellow;
+    background-color: #4CAF50;
     color: #000016;
+    display: inline-block;
+    text-align: center;
+}
+.control_buttons{
+    font-size: 30px;
+    background-color: #4CAF50;
+    color: #000016;
+    display: inline-block;
+    text-align: center;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.controls_words{
+    font-size: 30px;
+    color: yellow;
+    font-weight: bolder;
+    text-align: center;
+
+}
+
+.bet_words{
+    font-size: 30px;
+    color: #000016;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.plusminus{
+    padding-left: 0px;
+    padding-right: 0px;
+ }
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
 .div_margin{
