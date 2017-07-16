@@ -22,14 +22,16 @@ class Game extends Component {
             cardDeck: [],
             shuffledDeck: [],
             finalText: "",
-            credits: 10,
+            credits: 1000,
             payout: 0,
-            betAmt: 1
+            betAmt: 1,
+            reset: true  // disable reset button
         };
         this.drawClick = this.drawClick.bind(this);
         this.cardClick = this.cardClick.bind(this);
         this.minusClick = this.minusClick.bind(this);
         this.plusClick = this.plusClick.bind(this);
+        this.resetClick = this.resetClick.bind(this);
 
     }
 
@@ -51,6 +53,14 @@ class Game extends Component {
                 betAmt: currBet + 1
             })
         }
+    }
+
+    resetClick(){
+        this.setState({
+            reset: true,
+            credits: 1000,
+            gameState: 0
+        })
     }
 
     // card was clicked - hold or unhold
@@ -76,7 +86,8 @@ class Game extends Component {
             if(this.state.betAmt === 0 || this.state.betAmt > this.state.credits){
                 // not enough credits to play
                 this.setState({
-                    finalText: "Not enough credits. Lower bet or press Reset Game."
+                    finalText: "Not enough credits. Lower bet or press Reset Game.",
+                    reset: false  // enable reset button
                 })
             }
             else {
@@ -97,7 +108,8 @@ class Game extends Component {
                     shuffledDeck: newDeal.reshuffled,
                     dealtCards: newDeal.newCard,
                     gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-                    credits: newCredits
+                    credits: newCredits,
+                    reset: true  // disable reset button
                 })
             }
         }
@@ -175,8 +187,10 @@ class Game extends Component {
                     drawClicked={this.drawClick}
                     minusClicked={this.minusClick}
                     plusClicked={this.plusClick}
+                    resetClicked={this.resetClick}
                     bet={this.state.betAmt}
                     credits={this.state.credits}
+                    disableReset={this.state.reset}
 
                 />
             </div> // end container

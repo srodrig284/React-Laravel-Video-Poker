@@ -53,8 +53,8 @@ class Cards extends Component {
 
                 {/* DISPLAY LOCKED ABOVE CARDS*/}
                 <div className="row">
-                    <div className="col-md-12 rowposition">
-                        <div className="col-md-1">
+                    <div className="col-sm-12 rowposition">
+                        <div className="col-sm-1">
                         </div>
                         {/* Display HOLD if card is locked*/}
                         {this.props.cardsquares.map((data, i) => {
@@ -66,29 +66,29 @@ class Cards extends Component {
                               }
                             };
                             return (
-                                <div className="col-md-2 centerDiv" key={i}>
+                                <div className="col-sm-2 centerDiv" key={i}>
                                     <div className="holdCard" >{returnString()}</div>
                                 </div>
                             );
                         })}
-                        <div className="col-md-1">
+                        <div className="col-sm-1">
                         </div>
                     </div>
                 </div>
 
                 {/*DISPLAY CARDS*/}
                 <div className="row">
-                    <div className="col-md-12">
-                        <div className="col-md-1">
+                    <div className="col-sm-12">
+                        <div className="col-sm-1">
                         </div>
                         {this.props.cardsquares.map((data, i) => {
                             return (
-                                <div className="col-md-2" key={i}>
+                                <div className="col-sm-2" key={i}>
                                     {this.renderSquare(i)}
                                 </div>
                             );
                         })}
-                        <div className="col-md-1">
+                        <div className="col-sm-1">
                         </div>
                     </div>
                 </div>

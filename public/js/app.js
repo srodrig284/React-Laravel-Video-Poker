@@ -29356,14 +29356,16 @@ var Game = function (_Component) {
             cardDeck: [],
             shuffledDeck: [],
             finalText: "",
-            credits: 10,
+            credits: 1000,
             payout: 0,
-            betAmt: 1
+            betAmt: 1,
+            reset: true // disable reset button
         };
         _this.drawClick = _this.drawClick.bind(_this);
         _this.cardClick = _this.cardClick.bind(_this);
         _this.minusClick = _this.minusClick.bind(_this);
         _this.plusClick = _this.plusClick.bind(_this);
+        _this.resetClick = _this.resetClick.bind(_this);
 
         return _this;
     }
@@ -29389,6 +29391,15 @@ var Game = function (_Component) {
                     betAmt: currBet + 1
                 });
             }
+        }
+    }, {
+        key: 'resetClick',
+        value: function resetClick() {
+            this.setState({
+                reset: true,
+                credits: 1000,
+                gameState: 0
+            });
         }
 
         // card was clicked - hold or unhold
@@ -29419,7 +29430,8 @@ var Game = function (_Component) {
                 if (this.state.betAmt === 0 || this.state.betAmt > this.state.credits) {
                     // not enough credits to play
                     this.setState({
-                        finalText: "Not enough credits. Lower bet or press Reset Game."
+                        finalText: "Not enough credits. Lower bet or press Reset Game.",
+                        reset: false // enable reset button
                     });
                 } else {
                     var newDeck = _Cardfunctions2.default.CreateDeck();
@@ -29439,7 +29451,8 @@ var Game = function (_Component) {
                         shuffledDeck: newDeal.reshuffled,
                         dealtCards: newDeal.newCard,
                         gameState: 1, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-                        credits: newCredits
+                        credits: newCredits,
+                        reset: true // disable reset button
                     });
                 }
             } else {
@@ -29517,8 +29530,10 @@ var Game = function (_Component) {
                     drawClicked: this.drawClick,
                     minusClicked: this.minusClick,
                     plusClicked: this.plusClick,
+                    resetClicked: this.resetClick,
                     bet: this.state.betAmt,
-                    credits: this.state.credits
+                    credits: this.state.credits,
+                    disableReset: this.state.reset
 
                 })
             ) // end container
@@ -29578,7 +29593,7 @@ exports = module.exports = __webpack_require__(115)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.payout_padding{\n    padding: 0;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    border-radius: 50%;\n    width:  50%;\n    font-size: 30px;\n    background-color: #4CAF50;\n    color: #000016;\n    display: inline-block;\n    text-align: center;\n}\n.control_buttons{\n    font-size: 30px;\n    background-color: #4CAF50;\n    color: #000016;\n    display: inline-block;\n    text-align: center;\n    border-radius: 12px;\n    width: 100%;\n}\n\n.controls_words{\n    font-size: 30px;\n    color: yellow;\n    font-weight: bolder;\n    text-align: center;\n\n}\n\n.bet_words{\n    font-size: 30px;\n    color: #000016;\n    font-weight: bolder;\n    text-align: center;\n}\n\n.plusminus{\n    padding-left: 0px;\n    padding-right: 0px;\n }\n\n.button:hover {background-color: #3e8e41}\n\n.button:active {\n    background-color: #3e8e41;\n    box-shadow: 0 5px #666;\n    transform: translateY(4px);\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.card_size{\n    width: 140px;\n    height: 190px;\n}\n\n.holdCard{\n    font-size: 20px;\n    color: #080d1a;\n    font-weight: bolder;\n}\n\n.message{\n    font-size: 35px;\n    color: #9d0420;\n    font-weight: bolder;\n    margin: 0 30px;\n}\n\n.centerDiv{\n    text-align: center;\n}\n\n.rowposition{\n    min-height: 32px;\n}", ""]);
+exports.push([module.i, "body {\n    background-color: #428bca;\n}\n\n.navbar-default{\n    background-color: #428bca;\n    color: #000016;\n}\n\n.navbar-default .navbar-brand{\n    color: #000016;\n}\n\n.navbar-default .navbar-nav > li > a{\n    color: #000016;\n}\n\n.panel{\n    margin-bottom: 0px;\n    border: 0px;\n    border-radius: 0px;\n}\n\n.payout_padding{\n    padding: 0;\n}\n\n.TITLE {\n    text-align: center;\n    width: 100%;\n    z-index: 2;\n    min-width: 480px;\n}\n\n.TITLE_IMAGE {\n    width: 350px;\n    height: 50px;\n    border: 2px solid #000;\n    box-shadow: 0 0 5px #000;\n}\n\n.TITLE_SPACING {\n    width: 15%;\n}\n\n.payout_color{\n    background-color: #191d75;\n}\n\n.game_letters {\n    color: white\n}\n\n.deal_button{\n    border-radius: 50%;\n    width:  100%;\n    font-size: 30px;\n    background-color: #4CAF50;\n    color: #000016;\n    display: inline-block;\n    text-align: center;\n}\n.control_buttons{\n    font-size: 30px;\n    background-color: #4CAF50;\n    color: #000016;\n    display: inline-block;\n    text-align: center;\n    border-radius: 12px;\n    width: 100%;\n}\n\n.controls_words{\n    font-size: 30px;\n    color: yellow;\n    font-weight: bolder;\n    text-align: center;\n\n}\n\n.bet_words{\n    font-size: 30px;\n    color: #000016;\n    font-weight: bolder;\n    text-align: center;\n}\n\n.plusminus{\n    padding-left: 0px;\n    padding-right: 0px;\n }\n\n.button:hover {background-color: #3e8e41}\n\n.button:active {\n    background-color: #3e8e41;\n    box-shadow: 0 5px #666;\n    transform: translateY(4px);\n}\n\n\n.disabled {\n    opacity: 0.6;\n    cursor: not-allowed;\n    background-color: #7DA0B1;\n}\n\n.div_margin{\n    margin-bottom: 20px;\n}\n\n.MARQUEE { font-family: Arial; font-size: 1em; font-weight: bold; text-shadow: 1px 1px 2px #000; text-align: center; width: 100%; min-width: 460px; max-width: 750px; color: #fff; white-space: nowrap; margin: auto; }\n\n.ROUNDED { -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }\n\n\n.square {\n    background: #fff;\n    border: 1px solid #999;\n    float: left;\n    font-size: 24px;\n    font-weight: bold;\n    line-height: 34px;\n    height: 190px;\n    margin-right: -1px;\n    margin-top: -1px;\n    padding: 0;\n    text-align: center;\n    width: 140px;\n}\n\n.board-row:after {\n    clear: both;\n    content: \"\";\n    display: table;\n}\n\n.card_size{\n    width: 140px;\n    height: 190px;\n}\n\n.holdCard{\n    font-size: 20px;\n    color: #080d1a;\n    font-weight: bolder;\n}\n\n.message{\n    font-size: 35px;\n    color: #9d0420;\n    font-weight: bolder;\n    margin: 0 30px;\n}\n\n.centerDiv{\n    text-align: center;\n}\n\n.rowposition{\n    min-height: 32px;\n}", ""]);
 
 // exports
 
@@ -30273,8 +30288,8 @@ var Cards = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-12 rowposition" },
-                        _react2.default.createElement("div", { className: "col-md-1" }),
+                        { className: "col-sm-12 rowposition" },
+                        _react2.default.createElement("div", { className: "col-sm-1" }),
                         this.props.cardsquares.map(function (data, i) {
                             var returnString = function returnString() {
                                 if (data.Locked === true) {
@@ -30285,7 +30300,7 @@ var Cards = function (_Component) {
                             };
                             return _react2.default.createElement(
                                 "div",
-                                { className: "col-md-2 centerDiv", key: i },
+                                { className: "col-sm-2 centerDiv", key: i },
                                 _react2.default.createElement(
                                     "div",
                                     { className: "holdCard" },
@@ -30293,7 +30308,7 @@ var Cards = function (_Component) {
                                 )
                             );
                         }),
-                        _react2.default.createElement("div", { className: "col-md-1" })
+                        _react2.default.createElement("div", { className: "col-sm-1" })
                     )
                 ),
                 _react2.default.createElement(
@@ -30301,16 +30316,16 @@ var Cards = function (_Component) {
                     { className: "row" },
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-12" },
-                        _react2.default.createElement("div", { className: "col-md-1" }),
+                        { className: "col-sm-12" },
+                        _react2.default.createElement("div", { className: "col-sm-1" }),
                         this.props.cardsquares.map(function (data, i) {
                             return _react2.default.createElement(
                                 "div",
-                                { className: "col-md-2", key: i },
+                                { className: "col-sm-2", key: i },
                                 _this3.renderSquare(i)
                             );
                         }),
-                        _react2.default.createElement("div", { className: "col-md-1" })
+                        _react2.default.createElement("div", { className: "col-sm-1" })
                     )
                 )
             );
@@ -30347,6 +30362,22 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function ResetButton(props) {
+    if (props.disabled) {
+        return _react2.default.createElement(
+            "button",
+            { type: "submit", className: "control_buttons disabled", disabled: props.disabled, onClick: props.resetClicked },
+            "Reset"
+        );
+    } else {
+        return _react2.default.createElement(
+            "button",
+            { type: "submit", className: "control_buttons", disabled: props.disabled, onClick: props.resetClicked },
+            "Reset"
+        );
+    }
+}
+
 var Controls = function (_Component) {
     _inherits(Controls, _Component);
 
@@ -30357,6 +30388,14 @@ var Controls = function (_Component) {
     }
 
     _createClass(Controls, [{
+        key: "renderReset",
+        value: function renderReset() {
+            return _react2.default.createElement(ResetButton, {
+                disabled: this.props.disableReset,
+                resetClicked: this.props.resetClicked
+            });
+        }
+    }, {
         key: "render",
         value: function render() {
             return _react2.default.createElement(
@@ -30365,60 +30404,60 @@ var Controls = function (_Component) {
                 _react2.default.createElement(
                     "div",
                     { className: "row" },
+                    _react2.default.createElement("div", { className: "col-sm-1" }),
                     _react2.default.createElement(
                         "div",
-                        { className: "col-md-12" },
-                        _react2.default.createElement("div", { className: "col-md-1" }),
+                        { className: "col-sm-3 plusminus" },
                         _react2.default.createElement(
                             "div",
-                            { className: "col-md-3" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "controls_words" },
-                                "CREDITS: ",
-                                this.props.credits
-                            )
-                        ),
-                        _react2.default.createElement("div", { className: "col-md-1" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-md-1 plusminus" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "submit", className: "control_buttons", onClick: this.props.minusClicked },
-                                "-"
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-md-1 plusminus" },
-                            _react2.default.createElement(
-                                "div",
-                                { className: "bet_words" },
-                                "Bet ",
-                                this.props.bet
-                            )
-                        ),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-md-1 plusminus" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "submit", className: "control_buttons", onClick: this.props.plusClicked },
-                                "+"
-                            )
-                        ),
-                        _react2.default.createElement("div", { className: "col-md-1" }),
-                        _react2.default.createElement(
-                            "div",
-                            { className: "col-md-3" },
-                            _react2.default.createElement(
-                                "button",
-                                { type: "submit", className: "deal_button button", onClick: this.props.drawClicked },
-                                "Draw"
-                            )
+                            { className: "controls_words" },
+                            "CREDITS: ",
+                            this.props.credits
                         )
-                    )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-1 plusminus" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "submit", className: "control_buttons", onClick: this.props.minusClicked },
+                            "-"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-1 plusminus" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "bet_words" },
+                            "Bet ",
+                            this.props.bet
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-1 plusminus" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "submit", className: "control_buttons", onClick: this.props.plusClicked },
+                            "+"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-2" },
+                        _react2.default.createElement(
+                            "button",
+                            { type: "submit", className: "deal_button button", onClick: this.props.drawClicked },
+                            "Draw"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "col-sm-2" },
+                        this.renderReset()
+                    ),
+                    _react2.default.createElement("div", { className: "col-sm-1" })
                 )
             );
         }

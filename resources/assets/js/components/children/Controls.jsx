@@ -1,41 +1,71 @@
 import React, { Component } from 'react'
 
+function ResetButton(props) {
+    if(props.disabled)
+    {
+        return <button type="submit" className="control_buttons disabled" disabled={props.disabled} onClick={props.resetClicked}>
+            Reset
+        </button>;
+    }
+    else
+    {
+        return <button type="submit" className="control_buttons" disabled={props.disabled} onClick={props.resetClicked}>
+            Reset
+        </button>;
+    }
+}
+
+
 class Controls extends Component {
+
+    renderReset() {
+        return (
+            <ResetButton
+                disabled={this.props.disableReset}
+                resetClicked={this.props.resetClicked}
+            />
+        )
+    }
+
     render() {
         return (
             <div className="div_margin">
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="col-md-1"/>
-                    <div className="col-md-3">
-                        <div className="controls_words">
-                        CREDITS: {this.props.credits}
+                <div className="row">
+                        <div className="col-sm-1"/>
+                        <div className="col-sm-3 plusminus">
+                            <div className="controls_words">
+                            CREDITS: {this.props.credits}
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-md-1"/>
-                    <div className="col-md-1 plusminus">
-                        <button type="submit" className="control_buttons" onClick={this.props.minusClicked}>
-                            -
-                        </button>
-                    </div>
-                    <div className="col-md-1 plusminus">
-                        <div className="bet_words">
-                            Bet {this.props.bet}
+                        <div className="col-sm-1 plusminus">
+                            <button type="submit" className="control_buttons" onClick={this.props.minusClicked}>
+                                -
+                            </button>
                         </div>
-                    </div>
-                    <div className="col-md-1 plusminus">
-                        <button type="submit" className="control_buttons" onClick={this.props.plusClicked}>
-                            +
-                        </button>
-                    </div>
-                    <div className="col-md-1"/>
-                    <div className="col-md-3">
-                        <button type="submit" className="deal_button button" onClick={this.props.drawClicked}>
-                            Draw
-                        </button>
-                    </div>
+                        <div className="col-sm-1 plusminus">
+                            <div className="bet_words">
+                                Bet {this.props.bet}
+                            </div>
+                        </div>
+                        <div className="col-sm-1 plusminus">
+                            <button type="submit" className="control_buttons" onClick={this.props.plusClicked}>
+                                +
+                            </button>
+                        </div>
+                        {/*<div className="col-sm-1"/>*/}
+                        <div className="col-sm-2">
+                            <button type="submit" className="deal_button button" onClick={this.props.drawClicked}>
+                                Draw
+                            </button>
+                        </div>
+                        <div className="col-sm-2">
+                            {/*<button type="submit" className="control_buttons disabled" disabled={this.props.disableReset} onClick={this.props.resetClicked}>
+                                Reset
+                            </button>*/}
+                            {this.renderReset()}
+                        </div>
+                        <div className="col-sm-1"/>
                 </div>
-            </div>
             </div>
         )
     }
