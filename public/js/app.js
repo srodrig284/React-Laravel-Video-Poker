@@ -30197,7 +30197,7 @@ function Square(props) {
     return _react2.default.createElement(
         "button",
         { className: "square", onClick: props.onClick, disabled: props.disabled },
-        _react2.default.createElement("img", { className: "card_size", src: props.value })
+        _react2.default.createElement("img", { className: "card_size animated flip", src: props.value })
     );
 }
 

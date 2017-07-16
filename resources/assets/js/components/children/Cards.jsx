@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 function Square(props) {
     return (
         <button className="square" onClick={props.onClick} disabled={props.disabled}>
-            <img className="card_size" src={props.value}/>
+            <img className="card_size animated flip" src={props.value}/>
         </button>
     );
 }
