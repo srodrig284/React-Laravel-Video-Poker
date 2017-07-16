@@ -21,43 +21,36 @@ class Game extends Component {
             gameState: 0,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             cardDeck: [],
             shuffledDeck: [],
-            finalText: ""
+            finalText: "",
+            credits: 1000,
+            coinsWon: 0,
+            betAmt: 1
         };
-        /*this.setDealtCards = this.setDealtCards.bind(this);
-        this.setGameState = this.setGameState.bind(this);
-        this.setCardDeck = this.setCardDeck.bind(this);
-        this.setShuffledDeck = this.setShuffledDeck.bind(this);*/
         this.drawClick = this.drawClick.bind(this);
         this.cardClick = this.cardClick.bind(this);
+        this.minusClick = this.minusClick.bind(this);
+        this.plusClick = this.plusClick.bind(this);
 
     }
 
-    // allow children to update the parent
-    setDealtCards(cards) {
-        this.setState({
-            dealtCards: cards
-        });
+    minusClick(){
+        console.log('Minus was clicked');
+        let currBet = (this.state.betAmt);
+        if(currBet > 1){
+            this.setState({
+                betAmt: currBet - 1
+            })
+        }
     }
 
-    // allow children to update the parent
-    setGameState(state){
-        this.setState({
-            gameState: state
-        })
-    }
-
-    // allow children to update the parent
-    setCardDeck(allcards){
-        this.setState({
-            cardDeck: allcards
-        })
-    }
-
-    // allow children to update the parent
-    setShuffledDeck(activeDeck){
-        this.setState({
-            shuffledDeck: activeDeck
-        })
+    plusClick(){
+        console.log('Plus was clicked');
+        let currBet = (this.state.betAmt);
+        if(currBet < 5){
+            this.setState({
+                betAmt: currBet + 1
+            })
+        }
     }
 
     // card was clicked - hold or unhold
@@ -80,16 +73,12 @@ class Game extends Component {
         if(this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3)
         {
             let newDeck = DeckActions.CreateDeck();
-            console.log('cardDeck = ', newDeck);
-            console.log('gamestate = ', this.state.gameState);
-
+            console.log("BetAmt = ", this.state.betAmt);
             let newShuffle = (newDeck).slice();
             newShuffle = DeckActions.ShuffleCards(newShuffle);
-            console.log('newShuffle after shuffle = ', newShuffle);
 
             // get 5 new cards
             let newDeal = DeckActions.DealCards(newShuffle, 5);
-            console.log('newDeal = ', newDeal);
 
             this.setState({
                 shuffledDeck: newDeal.reshuffled,
@@ -161,7 +150,14 @@ class Game extends Component {
                     disabled={disableCards}
                     message={status}
                 />
-                <Controls onClick={this.drawClick}/>
+                <Controls
+                    drawClicked={this.drawClick}
+                    minusClicked={this.minusClick}
+                    plusClicked={this.plusClick}
+                    bet={this.state.betAmt}
+                    credits={this.state.credits}
+
+                />
             </div> // end container
         );
     }

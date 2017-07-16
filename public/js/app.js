@@ -29355,57 +29355,40 @@ var Game = function (_Component) {
             gameState: 0, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             cardDeck: [],
             shuffledDeck: [],
-            finalText: ""
+            finalText: "",
+            credits: 1000,
+            coinsWon: 0,
+            betAmt: 1
         };
-        /*this.setDealtCards = this.setDealtCards.bind(this);
-        this.setGameState = this.setGameState.bind(this);
-        this.setCardDeck = this.setCardDeck.bind(this);
-        this.setShuffledDeck = this.setShuffledDeck.bind(this);*/
         _this.drawClick = _this.drawClick.bind(_this);
         _this.cardClick = _this.cardClick.bind(_this);
+        _this.minusClick = _this.minusClick.bind(_this);
+        _this.plusClick = _this.plusClick.bind(_this);
 
         return _this;
     }
 
-    // allow children to update the parent
-
-
     _createClass(Game, [{
-        key: 'setDealtCards',
-        value: function setDealtCards(cards) {
-            this.setState({
-                dealtCards: cards
-            });
+        key: 'minusClick',
+        value: function minusClick() {
+            console.log('Minus was clicked');
+            var currBet = this.state.betAmt;
+            if (currBet > 1) {
+                this.setState({
+                    betAmt: currBet - 1
+                });
+            }
         }
-
-        // allow children to update the parent
-
     }, {
-        key: 'setGameState',
-        value: function setGameState(state) {
-            this.setState({
-                gameState: state
-            });
-        }
-
-        // allow children to update the parent
-
-    }, {
-        key: 'setCardDeck',
-        value: function setCardDeck(allcards) {
-            this.setState({
-                cardDeck: allcards
-            });
-        }
-
-        // allow children to update the parent
-
-    }, {
-        key: 'setShuffledDeck',
-        value: function setShuffledDeck(activeDeck) {
-            this.setState({
-                shuffledDeck: activeDeck
-            });
+        key: 'plusClick',
+        value: function plusClick() {
+            console.log('Plus was clicked');
+            var currBet = this.state.betAmt;
+            if (currBet < 5) {
+                this.setState({
+                    betAmt: currBet + 1
+                });
+            }
         }
 
         // card was clicked - hold or unhold
@@ -29433,16 +29416,12 @@ var Game = function (_Component) {
             // 0, 3, 4 - create a shuffled deck
             if (this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3) {
                 var newDeck = _Cardfunctions2.default.CreateDeck();
-                console.log('cardDeck = ', newDeck);
-                console.log('gamestate = ', this.state.gameState);
-
+                console.log("BetAmt = ", this.state.betAmt);
                 var newShuffle = newDeck.slice();
                 newShuffle = _Cardfunctions2.default.ShuffleCards(newShuffle);
-                console.log('newShuffle after shuffle = ', newShuffle);
 
                 // get 5 new cards
                 var newDeal = _Cardfunctions2.default.DealCards(newShuffle, 5);
-                console.log('newDeal = ', newDeal);
 
                 this.setState({
                     shuffledDeck: newDeal.reshuffled,
@@ -29514,7 +29493,14 @@ var Game = function (_Component) {
                     disabled: disableCards,
                     message: status
                 }),
-                _react2.default.createElement(_Controls2.default, { onClick: this.drawClick })
+                _react2.default.createElement(_Controls2.default, {
+                    drawClicked: this.drawClick,
+                    minusClicked: this.minusClick,
+                    plusClicked: this.plusClick,
+                    bet: this.state.betAmt,
+                    credits: this.state.credits
+
+                })
             ) // end container
             ;
         }
@@ -30369,7 +30355,8 @@ var Controls = function (_Component) {
                             _react2.default.createElement(
                                 "div",
                                 { className: "controls_words" },
-                                "CREDITS: 1000 "
+                                "CREDITS: ",
+                                this.props.credits
                             )
                         ),
                         _react2.default.createElement("div", { className: "col-md-1" }),
@@ -30378,7 +30365,7 @@ var Controls = function (_Component) {
                             { className: "col-md-1 plusminus" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "submit", className: "control_buttons", onClick: this.props.onClick },
+                                { type: "submit", className: "control_buttons", onClick: this.props.minusClicked },
                                 "-"
                             )
                         ),
@@ -30388,7 +30375,8 @@ var Controls = function (_Component) {
                             _react2.default.createElement(
                                 "div",
                                 { className: "bet_words" },
-                                "Bet 1 "
+                                "Bet ",
+                                this.props.bet
                             )
                         ),
                         _react2.default.createElement(
@@ -30396,7 +30384,7 @@ var Controls = function (_Component) {
                             { className: "col-md-1 plusminus" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "submit", className: "control_buttons", onClick: this.props.onClick },
+                                { type: "submit", className: "control_buttons", onClick: this.props.plusClicked },
                                 "+"
                             )
                         ),
@@ -30406,7 +30394,7 @@ var Controls = function (_Component) {
                             { className: "col-md-3" },
                             _react2.default.createElement(
                                 "button",
-                                { type: "submit", className: "deal_button button", onClick: this.props.onClick },
+                                { type: "submit", className: "deal_button button", onClick: this.props.drawClicked },
                                 "Draw"
                             )
                         )
