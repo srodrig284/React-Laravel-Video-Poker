@@ -22,7 +22,7 @@ class Game extends Component {
             cardDeck: [],
             shuffledDeck: [],
             finalText: "",
-            credits: 1000,
+            credits: 10,
             payout: 0,
             betAmt: 1
         };
@@ -72,25 +72,34 @@ class Game extends Component {
         // 0, 3, 4 - create a shuffled deck
         if(this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3)
         {
-            let newDeck = DeckActions.CreateDeck();
-            console.log("BetAmt = ", this.state.betAmt);
-            let newShuffle = (newDeck).slice();
-            newShuffle = DeckActions.ShuffleCards(newShuffle);
+            // check if there are enough credits to play
+            if(this.state.betAmt === 0 || this.state.betAmt > this.state.credits){
+                // not enough credits to play
+                this.setState({
+                    finalText: "Not enough credits. Lower bet or press Reset Game."
+                })
+            }
+            else {
+                let newDeck = DeckActions.CreateDeck();
+                console.log("BetAmt = ", this.state.betAmt);
+                let newShuffle = (newDeck).slice();
+                newShuffle = DeckActions.ShuffleCards(newShuffle);
 
-            // get 5 new cards
-            let newDeal = DeckActions.DealCards(newShuffle, 5);
+                // get 5 new cards
+                let newDeal = DeckActions.DealCards(newShuffle, 5);
 
-            // update credits by subtracting the bet amount
-            let currBet = this.state.betAmt;
-            let newCredits = this.state.credits;
-            newCredits = newCredits - currBet;
+                // update credits by subtracting the bet amount
+                let currBet = this.state.betAmt;
+                let newCredits = this.state.credits;
+                newCredits = newCredits - currBet;
 
-            this.setState({
-                shuffledDeck: newDeal.reshuffled,
-                dealtCards: newDeal.newCard,
-                gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-                credits: newCredits
-            })
+                this.setState({
+                    shuffledDeck: newDeal.reshuffled,
+                    dealtCards: newDeal.newCard,
+                    gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+                    credits: newCredits
+                })
+            }
         }
         else
         {

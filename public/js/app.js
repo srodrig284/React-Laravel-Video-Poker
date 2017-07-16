@@ -29356,7 +29356,7 @@ var Game = function (_Component) {
             cardDeck: [],
             shuffledDeck: [],
             finalText: "",
-            credits: 1000,
+            credits: 10,
             payout: 0,
             betAmt: 1
         };
@@ -29415,25 +29415,33 @@ var Game = function (_Component) {
             // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             // 0, 3, 4 - create a shuffled deck
             if (this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3) {
-                var newDeck = _Cardfunctions2.default.CreateDeck();
-                console.log("BetAmt = ", this.state.betAmt);
-                var newShuffle = newDeck.slice();
-                newShuffle = _Cardfunctions2.default.ShuffleCards(newShuffle);
+                // check if there are enough credits to play
+                if (this.state.betAmt === 0 || this.state.betAmt > this.state.credits) {
+                    // not enough credits to play
+                    this.setState({
+                        finalText: "Not enough credits. Lower bet or press Reset Game."
+                    });
+                } else {
+                    var newDeck = _Cardfunctions2.default.CreateDeck();
+                    console.log("BetAmt = ", this.state.betAmt);
+                    var newShuffle = newDeck.slice();
+                    newShuffle = _Cardfunctions2.default.ShuffleCards(newShuffle);
 
-                // get 5 new cards
-                var newDeal = _Cardfunctions2.default.DealCards(newShuffle, 5);
+                    // get 5 new cards
+                    var newDeal = _Cardfunctions2.default.DealCards(newShuffle, 5);
 
-                // update credits by subtracting the bet amount
-                var currBet = this.state.betAmt;
-                var newCredits = this.state.credits;
-                newCredits = newCredits - currBet;
+                    // update credits by subtracting the bet amount
+                    var currBet = this.state.betAmt;
+                    var newCredits = this.state.credits;
+                    newCredits = newCredits - currBet;
 
-                this.setState({
-                    shuffledDeck: newDeal.reshuffled,
-                    dealtCards: newDeal.newCard,
-                    gameState: 1, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-                    credits: newCredits
-                });
+                    this.setState({
+                        shuffledDeck: newDeal.reshuffled,
+                        dealtCards: newDeal.newCard,
+                        gameState: 1, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+                        credits: newCredits
+                    });
+                }
             } else {
                 // get the currently shuffled cards
                 var currShuffled = this.state.shuffledDeck.slice();
