@@ -80,10 +80,16 @@ class Game extends Component {
             // get 5 new cards
             let newDeal = DeckActions.DealCards(newShuffle, 5);
 
+            // update credits by subtracting the bet amount
+            let currBet = this.state.betAmt;
+            let newCredits = this.state.credits;
+            newCredits = newCredits - currBet;
+
             this.setState({
                 shuffledDeck: newDeal.reshuffled,
                 dealtCards: newDeal.newCard,
                 gameState: 1,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+                credits: newCredits
             })
         }
         else

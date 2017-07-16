@@ -29423,10 +29423,16 @@ var Game = function (_Component) {
                 // get 5 new cards
                 var newDeal = _Cardfunctions2.default.DealCards(newShuffle, 5);
 
+                // update credits by subtracting the bet amount
+                var currBet = this.state.betAmt;
+                var newCredits = this.state.credits;
+                newCredits = newCredits - currBet;
+
                 this.setState({
                     shuffledDeck: newDeal.reshuffled,
                     dealtCards: newDeal.newCard,
-                    gameState: 1 // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+                    gameState: 1, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+                    credits: newCredits
                 });
             } else {
                 // get the currently shuffled cards
