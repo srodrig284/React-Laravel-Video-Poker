@@ -120,13 +120,16 @@ class Game extends Component {
                 console.log('final message = ', determineGame.message);
                 console.log('payout amount = ', determineGame.payout);
 
+                let newCredits = this.state.credits;
+                newCredits = newCredits + determineGame.payout;
+
                 this.setState({
                     shuffledDeck: currShuffled,
                     dealtCards: tempCards,
                     gameState: determineGame.status,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
                     finalText: determineGame.message,
-                    payout: determineGame.payout
-
+                    payout: determineGame.payout,
+                    credits: newCredits
                 })
             }
         }

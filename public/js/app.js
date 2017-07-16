@@ -29458,13 +29458,16 @@ var Game = function (_Component) {
                     console.log('final message = ', determineGame.message);
                     console.log('payout amount = ', determineGame.payout);
 
+                    var _newCredits = this.state.credits;
+                    _newCredits = _newCredits + determineGame.payout;
+
                     this.setState({
                         shuffledDeck: currShuffled,
                         dealtCards: tempCards,
                         gameState: determineGame.status, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
                         finalText: determineGame.message,
-                        payout: determineGame.payout
-
+                        payout: determineGame.payout,
+                        credits: _newCredits
                     });
                 }
             }
@@ -30582,6 +30585,7 @@ function ProcessHand(finalCards, amountBet) {
     var payoutAmount = 0;
     var sortedCards = SortCards(finalCards);
     var finalMessage = "GAME OVER !!!";
+    var winMessage = "";
     var winloss = 3; // loss
 
     var IsRoyal = checkRoyal(sortedCards);
@@ -30604,48 +30608,51 @@ function ProcessHand(finalCards, amountBet) {
     if (isStraight && isFlush && isRoyal) {
         // royal flush
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Royal Flush';
+        winMessage = 'W i n n e r!!!  Royal Flush - ';
         payoutAmount = payoutTable[0].payout[amountBet];
     } else if (isStraight && isFlush && !isRoyal) {
         // straight flush}
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Straight Flush';
+        winMessage = 'W i n n e r!!!  Straight Flush - ';
         payoutAmount = payoutTable[1].payout[amountBet];
     } else if (isFourOfAKind) {
         // four of a kind
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Four Of A Kind';
+        winMessage = 'W i n n e r!!!  Four Of A Kind - ';
         payoutAmount = payoutTable[2].payout[amountBet];
     } else if (isFullHouse) {
         // full house
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Full House';
+        winMessage = 'W i n n e r!!!  Full House - ';
         payoutAmount = payoutTable[3].payout[amountBet];
     } else if (isFlush) {
         // flush
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Flush';
+        winMessage = 'W i n n e r!!!  Flush - ';
         payoutAmount = payoutTable[4].payout[amountBet];
     } else if (isStraight) {
         // straight
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Straight';
+        winMessage = 'W i n n e r!!!  Straight - ';
         payoutAmount = payoutTable[5].payout[amountBet];
     } else if (isThreeOfAKind) {
         // 3 of a kind
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Three Of A Kind';
+        winMessage = 'W i n n e r!!!  Three Of A Kind - ';
         payoutAmount = payoutTable[6].payout[amountBet];
     } else if (isTwoPair) {
         // two pair
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Two Pair';
+        winMessage = 'W i n n e r!!!  Two Pair - ';
         payoutAmount = payoutTable[7].payout[amountBet];
     } else if (isJacksOrBetter) {
         // jacks or better
         winloss = 2;
-        finalMessage = 'W i n n e r!!!  Jacks Or Better';
+        winMessage = 'W i n n e r!!!  Jacks Or Better - ';
         payoutAmount = payoutTable[8].payout[amountBet];
+    }
+    if (winMessage) {
+        finalMessage = winMessage + payoutAmount + ' Credits';
     }
 
     return { message: finalMessage, status: winloss, payout: payoutAmount };
