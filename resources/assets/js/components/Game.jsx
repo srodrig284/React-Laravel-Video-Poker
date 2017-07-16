@@ -23,7 +23,7 @@ class Game extends Component {
             shuffledDeck: [],
             finalText: "",
             credits: 1000,
-            coinsWon: 0,
+            payout: 0,
             betAmt: 1
         };
         this.drawClick = this.drawClick.bind(this);
@@ -114,16 +114,19 @@ class Game extends Component {
 
                 console.log('redeal = ', tempCards);
 
-                let determineGame = WinLoss(tempCards);
+                let determineGame = WinLoss.ProcessHand(tempCards, this.state.betAmt);
 
                 console.log('winloss = ', determineGame.status);
                 console.log('final message = ', determineGame.message);
+                console.log('payout amount = ', determineGame.payout);
 
                 this.setState({
                     shuffledDeck: currShuffled,
                     dealtCards: tempCards,
                     gameState: determineGame.status,   // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-                    finalText: determineGame.message
+                    finalText: determineGame.message,
+                    payout: determineGame.payout
+
                 })
             }
         }

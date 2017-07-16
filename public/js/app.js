@@ -29357,7 +29357,7 @@ var Game = function (_Component) {
             shuffledDeck: [],
             finalText: "",
             credits: 1000,
-            coinsWon: 0,
+            payout: 0,
             betAmt: 1
         };
         _this.drawClick = _this.drawClick.bind(_this);
@@ -29452,16 +29452,19 @@ var Game = function (_Component) {
 
                     console.log('redeal = ', tempCards);
 
-                    var determineGame = (0, _Handfunctions2.default)(tempCards);
+                    var determineGame = _Handfunctions2.default.ProcessHand(tempCards, this.state.betAmt);
 
                     console.log('winloss = ', determineGame.status);
                     console.log('final message = ', determineGame.message);
+                    console.log('payout amount = ', determineGame.payout);
 
                     this.setState({
                         shuffledDeck: currShuffled,
                         dealtCards: tempCards,
                         gameState: determineGame.status, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
-                        finalText: determineGame.message
+                        finalText: determineGame.message,
+                        payout: determineGame.payout
+
                     });
                 }
             }
@@ -30541,8 +30544,42 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function ProcessHand(finalCards) {
+function PayoutArray() {
+    var payoutTable = [{
+        handName: "Royal Flush",
+        payout: [0, 250, 500, 750, 1000, 4000]
+    }, {
+        handName: "Straight Flush",
+        payout: [0, 50, 100, 150, 200, 250]
+    }, {
+        handName: "4 of a Kind",
+        payout: [0, 25, 50, 75, 100, 125]
+    }, {
+        handName: "Full House",
+        payout: [0, 9, 18, 27, 36, 45]
+    }, {
+        handName: "Flush",
+        payout: [0, 6, 12, 18, 24, 30]
+    }, {
+        handName: "Straight",
+        payout: [0, 4, 8, 12, 16, 20]
+    }, {
+        handName: "3 of a Kind",
+        payout: [0, 3, 6, 9, 12, 15]
+    }, {
+        handName: "2 Pair",
+        payout: [0, 2, 4, 6, 8, 10]
+    }, {
+        handName: "Jacks or Better",
+        payout: [0, 1, 2, 3, 4, 5]
+    }];
+    return payoutTable;
+}
 
+function ProcessHand(finalCards, amountBet) {
+    // get payout table array
+    var payoutTable = PayoutArray();
+    var payoutAmount = 0;
     var sortedCards = SortCards(finalCards);
     var finalMessage = "GAME OVER !!!";
     var winloss = 3; // loss
@@ -30568,41 +30605,50 @@ function ProcessHand(finalCards) {
         // royal flush
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Royal Flush';
+        payoutAmount = payoutTable[0].payout[amountBet];
     } else if (isStraight && isFlush && !isRoyal) {
         // straight flush}
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Straight Flush';
+        payoutAmount = payoutTable[1].payout[amountBet];
     } else if (isFourOfAKind) {
         // four of a kind
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Four Of A Kind';
+        payoutAmount = payoutTable[2].payout[amountBet];
     } else if (isFullHouse) {
         // full house
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Full House';
+        payoutAmount = payoutTable[3].payout[amountBet];
     } else if (isFlush) {
         // flush
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Flush';
+        payoutAmount = payoutTable[4].payout[amountBet];
     } else if (isStraight) {
         // straight
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Straight';
+        payoutAmount = payoutTable[5].payout[amountBet];
     } else if (isThreeOfAKind) {
         // 3 of a kind
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Three Of A Kind';
+        payoutAmount = payoutTable[6].payout[amountBet];
     } else if (isTwoPair) {
         // two pair
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Two Pair';
+        payoutAmount = payoutTable[7].payout[amountBet];
     } else if (isJacksOrBetter) {
         // jacks or better
         winloss = 2;
         finalMessage = 'W i n n e r!!!  Jacks Or Better';
+        payoutAmount = payoutTable[8].payout[amountBet];
     }
 
-    return { message: finalMessage, status: winloss };
+    return { message: finalMessage, status: winloss, payout: payoutAmount };
 }
 
 function SortCards(unsortedCards) {
@@ -30704,7 +30750,7 @@ function checkIsJacksOrBetter(sortedCards) {
     }return false;
 }
 
-exports.default = ProcessHand;
+exports.default = { ProcessHand: ProcessHand };
 
 /***/ }),
 /* 276 */
