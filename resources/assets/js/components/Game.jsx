@@ -22,7 +22,7 @@ class Game extends Component {
             cardDeck: [],
             shuffledDeck: [],
             finalText: "",
-            credits: 1000,
+            credits: 10,
             payout: 0,
             betAmt: 1,
             reset: true  // disable reset button

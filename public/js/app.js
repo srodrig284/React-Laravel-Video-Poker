@@ -29250,7 +29250,9 @@ var Dashboard = function (_Component) {
                                     'h1',
                                     null,
                                     'Welcome, ',
-                                    window.name
+                                    window.name,
+                                    ', ',
+                                    window.id
                                 ),
                                 _react2.default.createElement(
                                     'h2',
@@ -29356,7 +29358,7 @@ var Game = function (_Component) {
             cardDeck: [],
             shuffledDeck: [],
             finalText: "",
-            credits: 1000,
+            credits: 10,
             payout: 0,
             betAmt: 1,
             reset: true // disable reset button

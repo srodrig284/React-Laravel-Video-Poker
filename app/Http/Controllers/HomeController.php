@@ -26,7 +26,8 @@ class HomeController extends Controller
     {
 
         JavaScript::put([
-            'name' => Auth::user()->name
+            'name' => Auth::user()->name,
+            'id' => Auth::user()->id
         ]);
 
         return view('home');
