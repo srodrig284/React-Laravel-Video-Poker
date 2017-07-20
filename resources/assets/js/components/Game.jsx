@@ -160,6 +160,7 @@ class Game extends Component {
     render() {
         let status;
         let disableCards = true;  // for gamestate = 2, 3
+        let disableBetting = false;
 
         if(this.state.gameState === 0){
             status = "PRESS DRAW TO PLAY POKER";
@@ -168,6 +169,7 @@ class Game extends Component {
         {
             status = "SELECT CARDS TO HOLD AND/OR PRESS DRAW";
             disableCards = false;
+            disableBetting = true;
         }
         else if(this.state.gameState === 2 || this.state.gameState === 3)
         {
@@ -191,6 +193,7 @@ class Game extends Component {
                     bet={this.state.betAmt}
                     credits={this.state.credits}
                     disableReset={this.state.reset}
+                    disableBet={disableBetting}
 
                 />
             </div> // end container

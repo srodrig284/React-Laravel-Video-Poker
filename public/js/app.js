@@ -29505,6 +29505,7 @@ var Game = function (_Component) {
 
             var status = void 0;
             var disableCards = true; // for gamestate = 2, 3
+            var disableBetting = false;
 
             if (this.state.gameState === 0) {
                 status = "PRESS DRAW TO PLAY POKER";
@@ -29512,6 +29513,7 @@ var Game = function (_Component) {
             if (this.state.gameState === 1) {
                 status = "SELECT CARDS TO HOLD AND/OR PRESS DRAW";
                 disableCards = false;
+                disableBetting = true;
             } else if (this.state.gameState === 2 || this.state.gameState === 3) {
                 status = this.state.finalText;
             }
@@ -29535,7 +29537,8 @@ var Game = function (_Component) {
                     resetClicked: this.resetClick,
                     bet: this.state.betAmt,
                     credits: this.state.credits,
-                    disableReset: this.state.reset
+                    disableReset: this.state.reset,
+                    disableBet: disableBetting
 
                 })
             ) // end container
@@ -30365,10 +30368,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 function ResetButton(props) {
-    if (props.disabled) {
+    if (props.disabledReset) {
         return _react2.default.createElement(
             "button",
-            { type: "submit", className: "control_buttons disabled", disabled: props.disabled, onClick: props.resetClicked },
+            { type: "submit", className: "control_buttons disabled", disabled: props.disabledReset, onClick: props.resetClicked },
             "Reset"
         );
     } else {
@@ -30393,7 +30396,7 @@ var Controls = function (_Component) {
         key: "renderReset",
         value: function renderReset() {
             return _react2.default.createElement(ResetButton, {
-                disabled: this.props.disableReset,
+                disabledReset: this.props.disableReset,
                 resetClicked: this.props.resetClicked
             });
         }
@@ -30422,7 +30425,7 @@ var Controls = function (_Component) {
                         { className: "col-sm-1 plusminus" },
                         _react2.default.createElement(
                             "button",
-                            { type: "submit", className: "control_buttons", onClick: this.props.minusClicked },
+                            { type: "submit", className: "control_buttons", disabled: this.props.disableBet, onClick: this.props.minusClicked },
                             "-"
                         )
                     ),
@@ -30441,7 +30444,7 @@ var Controls = function (_Component) {
                         { className: "col-sm-1 plusminus" },
                         _react2.default.createElement(
                             "button",
-                            { type: "submit", className: "control_buttons", onClick: this.props.plusClicked },
+                            { type: "submit", className: "control_buttons", disabled: this.props.disableBet, onClick: this.props.plusClicked },
                             "+"
                         )
                     ),

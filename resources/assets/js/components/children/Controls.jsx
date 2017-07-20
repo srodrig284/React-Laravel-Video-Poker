@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
 function ResetButton(props) {
-    if(props.disabled)
+    if(props.disabledReset)
     {
-        return <button type="submit" className="control_buttons disabled" disabled={props.disabled} onClick={props.resetClicked}>
+        return <button type="submit" className="control_buttons disabled" disabled={props.disabledReset} onClick={props.resetClicked}>
             Reset
         </button>;
     }
@@ -21,7 +21,7 @@ class Controls extends Component {
     renderReset() {
         return (
             <ResetButton
-                disabled={this.props.disableReset}
+                disabledReset={this.props.disableReset}
                 resetClicked={this.props.resetClicked}
             />
         )
@@ -38,7 +38,7 @@ class Controls extends Component {
                             </div>
                         </div>
                         <div className="col-sm-1 plusminus">
-                            <button type="submit" className="control_buttons" onClick={this.props.minusClicked}>
+                            <button type="submit" className="control_buttons" disabled={this.props.disableBet} onClick={this.props.minusClicked}>
                                 -
                             </button>
                         </div>
@@ -48,7 +48,7 @@ class Controls extends Component {
                             </div>
                         </div>
                         <div className="col-sm-1 plusminus">
-                            <button type="submit" className="control_buttons" onClick={this.props.plusClicked}>
+                            <button type="submit" className="control_buttons" disabled={this.props.disableBet} onClick={this.props.plusClicked}>
                                 +
                             </button>
                         </div>
