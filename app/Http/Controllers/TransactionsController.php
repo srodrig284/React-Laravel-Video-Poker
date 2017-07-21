@@ -82,9 +82,9 @@ class TransactionsController extends Controller
     public function updatetotal( $id)
     {
         $transactions = Transactions::where('user_id', $id)->firstOrFail();
-        $transactions->credits = 1000;
+        $transactions->credits = 100;
         $newYTD = $transactions->ytd_credits;
-        $newYTD = $newYTD + 1000;
+        $newYTD = $newYTD + 100;
         $transactions->ytd_credits = $newYTD;
         $transactions->save();
 

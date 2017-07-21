@@ -14,7 +14,7 @@ class AddTotalcoinsToTransactions extends Migration
     public function up()
     {
         Schema::table('transactions', function (Blueprint $table) {
-            $table->integer('ytd_credits')->default(1000);
+            $table->integer('ytd_credits')->default(100);
         });
     }
 
