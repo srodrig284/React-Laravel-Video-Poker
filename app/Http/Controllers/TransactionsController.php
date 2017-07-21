@@ -79,6 +79,17 @@ class TransactionsController extends Controller
         return ($transactions);
     }
 
+    public function updatetotal( $id)
+    {
+        $transactions = Transactions::where('user_id', $id)->firstOrFail();
+        $transactions->credits = 1000;
+        $newYTD = $transactions->ytd_credits;
+        $newYTD = $newYTD + 1000;
+        $transactions->ytd_credits = $newYTD;
+        $transactions->save();
+
+        return ($transactions);
+    }
     /**
      * Remove the specified resource from storage.
      *

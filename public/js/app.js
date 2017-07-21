@@ -29441,11 +29441,25 @@ var Game = function (_Component) {
     }, {
         key: 'resetClick',
         value: function resetClick() {
-            this.setState({
+            // save new credits to user
+            _axios2.default.post("/newcredits/" + user.id).then(function (response) {
+                /*console.log('post response', response);*/
+                this.setState({
+                    credits: 1000,
+                    reset: true, // disable reset button
+                    gameState: 0
+                });
+            }.bind(this)).catch(function (error) {
+                console.log(error);
+            });
+
+            // now update
+
+            /*this.setState({
                 reset: true,
                 credits: 1000,
                 gameState: 0
-            });
+            })*/
         }
 
         // card was clicked - hold or unhold
