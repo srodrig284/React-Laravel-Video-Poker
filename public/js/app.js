@@ -29241,11 +29241,8 @@ var Dashboard = function (_Component) {
             /*console.log('Dashboard componentDidMount');*/
             /*console.log('user.id = ', user.id);*/
             axios.get("/credits/" + user.id).then(function (response) {
-<<<<<<< HEAD
-=======
                 /*console.log('some response', response);*/
                 /*console.log('user credits = ',response.data.credits);*/;
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                 this.setState({
                     usercredits: response.data.credits,
                     ytdcredits: response.data.ytd_credits
@@ -29423,15 +29420,11 @@ var Game = function (_Component) {
     _createClass(Game, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-<<<<<<< HEAD
-            _axios2.default.get("/credits/" + user.id).then(function (response) {
-=======
             /*console.log('componentDidMount');*/
             /*console.log('user.id = ', user.id);*/
             _axios2.default.get("/credits/" + user.id).then(function (response) {
                 /*console.log('some response', response);*/
                 /*console.log('user credits = ',response.data.credits);*/
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                 this.setState({
                     credits: response.data.credits
                 });
@@ -29443,10 +29436,7 @@ var Game = function (_Component) {
     }, {
         key: 'minusClick',
         value: function minusClick() {
-<<<<<<< HEAD
-=======
             /*console.log('Minus was clicked');*/
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
             var currBet = this.state.betAmt;
             if (currBet > 1) {
                 this.setState({
@@ -29457,10 +29447,7 @@ var Game = function (_Component) {
     }, {
         key: 'plusClick',
         value: function plusClick() {
-<<<<<<< HEAD
-=======
             /*console.log('Plus was clicked');*/
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
             var currBet = this.state.betAmt;
             if (currBet < 5) {
                 this.setState({
@@ -29473,31 +29460,23 @@ var Game = function (_Component) {
         value: function resetClick() {
             // save new credits to user
             _axios2.default.post("/newcredits/" + user.id).then(function (response) {
-<<<<<<< HEAD
-                this.setState({
-                    credits: 100,
-=======
                 /*console.log('post response', response);*/
                 this.setState({
-                    credits: 1000,
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
+                    credits: 100,
                     reset: true, // disable reset button
                     gameState: 0
                 });
             }.bind(this)).catch(function (error) {
                 console.log(error);
             });
-<<<<<<< HEAD
-=======
 
             // now update
 
             /*this.setState({
-                reset: true,
-                credits: 1000,
-                gameState: 0
-            })*/
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
+             reset: true,
+             credits: 1000,
+             gameState: 0
+             })*/
         }
 
         // card was clicked - hold or unhold
@@ -29506,13 +29485,9 @@ var Game = function (_Component) {
         key: 'cardClick',
         value: function cardClick(i) {
             var current = this.state.dealtCards.slice();
-<<<<<<< HEAD
-            current[i].Locked = !current[i].Locked; // change Locked state
-=======
             /*console.log('current lock = ', current[i].Locked);*/
             current[i].Locked = !current[i].Locked; // change Locked state
             /*console.log('current lock after= ', current[i].Locked);*/
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
 
             this.setState({
                 dealtCards: current
@@ -29524,10 +29499,7 @@ var Game = function (_Component) {
     }, {
         key: 'drawClick',
         value: function drawClick() {
-<<<<<<< HEAD
-=======
             /*console.log('game state on drawclick = ', this.state.gameState);*/
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
             // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             // 0, 3, 4 - create a shuffled deck
             if (this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3) {
@@ -29540,10 +29512,7 @@ var Game = function (_Component) {
                     });
                 } else {
                     var newDeck = _Cardfunctions2.default.CreateDeck();
-<<<<<<< HEAD
-=======
                     /*console.log("BetAmt = ", this.state.betAmt);*/
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                     var newShuffle = newDeck.slice();
                     newShuffle = _Cardfunctions2.default.ShuffleCards(newShuffle);
 
@@ -29593,10 +29562,6 @@ var Game = function (_Component) {
                         }
                     }
 
-<<<<<<< HEAD
-                    var determineGame = _Handfunctions2.default.ProcessHand(tempCards, this.state.betAmt);
-
-=======
                     /*console.log('redeal = ', tempCards);*/
 
                     var determineGame = _Handfunctions2.default.ProcessHand(tempCards, this.state.betAmt);
@@ -29605,7 +29570,6 @@ var Game = function (_Component) {
                     /*console.log('final message = ', determineGame.message);*/
                     /*console.log('payout amount = ', determineGame.payout);*/
 
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                     var _newCredits = this.state.credits;
                     _newCredits = _newCredits + determineGame.payout;
 
@@ -29882,7 +29846,6 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 var createError = __webpack_require__(118);
-<<<<<<< HEAD
 
 /**
  * Resolve or reject a Promise based on response status.
@@ -30003,128 +29966,6 @@ module.exports = function buildURL(url, params, paramsSerializer) {
     serializedParams = parts.join('&');
   }
 
-=======
-
-/**
- * Resolve or reject a Promise based on response status.
- *
- * @param {Function} resolve A function that resolves the promise.
- * @param {Function} reject A function that rejects the promise.
- * @param {object} response The response.
- */
-module.exports = function settle(resolve, reject, response) {
-  var validateStatus = response.config.validateStatus;
-  // Note: status is not exposed by XDomainRequest
-  if (!response.status || !validateStatus || validateStatus(response.status)) {
-    resolve(response);
-  } else {
-    reject(createError(
-      'Request failed with status code ' + response.status,
-      response.config,
-      null,
-      response.request,
-      response
-    ));
-  }
-};
-
-
-/***/ }),
-/* 266 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/**
- * Update an Error with the specified config, error code, and response.
- *
- * @param {Error} error The error to update.
- * @param {Object} config The config.
- * @param {string} [code] The error code (for example, 'ECONNABORTED').
- * @param {Object} [request] The request.
- * @param {Object} [response] The response.
- * @returns {Error} The error.
- */
-module.exports = function enhanceError(error, config, code, request, response) {
-  error.config = config;
-  if (code) {
-    error.code = code;
-  }
-  error.request = request;
-  error.response = response;
-  return error;
-};
-
-
-/***/ }),
-/* 267 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var utils = __webpack_require__(11);
-
-function encode(val) {
-  return encodeURIComponent(val).
-    replace(/%40/gi, '@').
-    replace(/%3A/gi, ':').
-    replace(/%24/g, '$').
-    replace(/%2C/gi, ',').
-    replace(/%20/g, '+').
-    replace(/%5B/gi, '[').
-    replace(/%5D/gi, ']');
-}
-
-/**
- * Build a URL by appending params to the end
- *
- * @param {string} url The base of the url (e.g., http://www.google.com)
- * @param {object} [params] The params to be appended
- * @returns {string} The formatted url
- */
-module.exports = function buildURL(url, params, paramsSerializer) {
-  /*eslint no-param-reassign:0*/
-  if (!params) {
-    return url;
-  }
-
-  var serializedParams;
-  if (paramsSerializer) {
-    serializedParams = paramsSerializer(params);
-  } else if (utils.isURLSearchParams(params)) {
-    serializedParams = params.toString();
-  } else {
-    var parts = [];
-
-    utils.forEach(params, function serialize(val, key) {
-      if (val === null || typeof val === 'undefined') {
-        return;
-      }
-
-      if (utils.isArray(val)) {
-        key = key + '[]';
-      }
-
-      if (!utils.isArray(val)) {
-        val = [val];
-      }
-
-      utils.forEach(val, function parseValue(v) {
-        if (utils.isDate(v)) {
-          v = v.toISOString();
-        } else if (utils.isObject(v)) {
-          v = JSON.stringify(v);
-        }
-        parts.push(encode(key) + '=' + encode(v));
-      });
-    });
-
-    serializedParams = parts.join('&');
-  }
-
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
   if (serializedParams) {
     url += (url.indexOf('?') === -1 ? '?' : '&') + serializedParams;
   }
@@ -30185,114 +30026,6 @@ module.exports = function parseHeaders(headers) {
 
 
 var utils = __webpack_require__(11);
-<<<<<<< HEAD
-
-module.exports = (
-  utils.isStandardBrowserEnv() ?
-
-  // Standard browser envs have full support of the APIs needed to test
-  // whether the request URL is of the same origin as current location.
-  (function standardBrowserEnv() {
-    var msie = /(msie|trident)/i.test(navigator.userAgent);
-    var urlParsingNode = document.createElement('a');
-    var originURL;
-
-    /**
-    * Parse a URL to discover it's components
-    *
-    * @param {String} url The URL to be parsed
-    * @returns {Object}
-    */
-    function resolveURL(url) {
-      var href = url;
-
-      if (msie) {
-        // IE needs attribute set twice to normalize properties
-        urlParsingNode.setAttribute('href', href);
-        href = urlParsingNode.href;
-      }
-
-      urlParsingNode.setAttribute('href', href);
-
-      // urlParsingNode provides the UrlUtils interface - http://url.spec.whatwg.org/#urlutils
-      return {
-        href: urlParsingNode.href,
-        protocol: urlParsingNode.protocol ? urlParsingNode.protocol.replace(/:$/, '') : '',
-        host: urlParsingNode.host,
-        search: urlParsingNode.search ? urlParsingNode.search.replace(/^\?/, '') : '',
-        hash: urlParsingNode.hash ? urlParsingNode.hash.replace(/^#/, '') : '',
-        hostname: urlParsingNode.hostname,
-        port: urlParsingNode.port,
-        pathname: (urlParsingNode.pathname.charAt(0) === '/') ?
-                  urlParsingNode.pathname :
-                  '/' + urlParsingNode.pathname
-      };
-    }
-
-    originURL = resolveURL(window.location.href);
-
-    /**
-    * Determine if a URL shares the same origin as the current location
-    *
-    * @param {String} requestURL The URL to test
-    * @returns {boolean} True if URL shares the same origin, otherwise false
-    */
-    return function isURLSameOrigin(requestURL) {
-      var parsed = (utils.isString(requestURL)) ? resolveURL(requestURL) : requestURL;
-      return (parsed.protocol === originURL.protocol &&
-            parsed.host === originURL.host);
-    };
-  })() :
-
-  // Non standard browser envs (web workers, react-native) lack needed support.
-  (function nonStandardBrowserEnv() {
-    return function isURLSameOrigin() {
-      return true;
-    };
-  })()
-);
-
-
-/***/ }),
-/* 270 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-// btoa polyfill for IE<10 courtesy https://github.com/davidchambers/Base64.js
-
-var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-
-function E() {
-  this.message = 'String contains an invalid character';
-}
-E.prototype = new Error;
-E.prototype.code = 5;
-E.prototype.name = 'InvalidCharacterError';
-
-function btoa(input) {
-  var str = String(input);
-  var output = '';
-  for (
-    // initialize result and counter
-    var block, charCode, idx = 0, map = chars;
-    // if the next str index does not exist:
-    //   change the mapping table to "="
-    //   check if d has no fractional digits
-    str.charAt(idx | 0) || (map = '=', idx % 1);
-    // "8 - idx % 1 * 8" generates the sequence 2, 4, 6, 8
-    output += map.charAt(63 & block >> 8 - idx % 1 * 8)
-  ) {
-    charCode = str.charCodeAt(idx += 3 / 4);
-    if (charCode > 0xFF) {
-      throw new E();
-    }
-    block = block << 8 | charCode;
-  }
-  return output;
-}
-=======
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -30406,21 +30139,10 @@ module.exports = btoa;
 /***/ }),
 /* 271 */
 /***/ (function(module, exports, __webpack_require__) {
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
-
-module.exports = btoa;
-
-
-<<<<<<< HEAD
-/***/ }),
-/* 271 */
-/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-=======
->>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
 var utils = __webpack_require__(11);
 
 module.exports = (
