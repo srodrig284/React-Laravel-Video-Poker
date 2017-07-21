@@ -29256,10 +29256,25 @@ var Dashboard = function (_Component) {
                                     'h1',
                                     null,
                                     'Welcome, ',
-                                    user.name,
-                                    ', ',
-                                    user.id
+                                    user.name
                                 ),
+                                _react2.default.createElement(
+                                    'h2',
+                                    null,
+                                    ' Account Overview:'
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Coins available to play: '
+                                ),
+                                _react2.default.createElement(
+                                    'h3',
+                                    null,
+                                    'Total Coins Given: '
+                                ),
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement('hr', null),
                                 _react2.default.createElement(
                                     'h2',
                                     null,
