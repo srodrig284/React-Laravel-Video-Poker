@@ -29276,6 +29276,12 @@ var Dashboard = function (_Component) {
                                 'div',
                                 { className: 'panel-body' },
                                 _react2.default.createElement(
+                                    'h1',
+                                    null,
+                                    'Welcome, ',
+                                    user.name
+                                ),
+                                _react2.default.createElement(
                                     'h2',
                                     null,
                                     ' Account Overview:'
