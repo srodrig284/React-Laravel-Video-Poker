@@ -29390,14 +29390,14 @@ var Game = function (_Component) {
             console.log('componentDidMount');
             console.log('user.id = ', user.id);
             _axios2.default.get("/credits/" + user.id).then(function (response) {
-                console.log('some response', response);
-                console.log('user credits = ', response.data.credits);
+                /*console.log('some response', response);*/
+                /*console.log('user credits = ',response.data.credits);*/
                 var userCredits = response.data.credits;
                 this.setState({
                     credits: userCredits
                 });
             }.bind(this)).catch(function (error) {
-                console.log('no response');
+                /*console.log('no response');*/
                 console.log(error);
             });
         }

@@ -43,7 +43,7 @@ class Game extends Component {
         axios.get("/credits/"+user.id)
             .then(function (response) {
                 /*console.log('some response', response);*/
-                ¿
+                /*console.log('user credits = ',response.data.credits);*/
                 let userCredits = response.data.credits;
                 this.setState({
                     credits: userCredits
