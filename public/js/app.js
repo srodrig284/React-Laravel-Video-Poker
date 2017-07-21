@@ -29387,8 +29387,8 @@ var Game = function (_Component) {
     _createClass(Game, [{
         key: 'componentDidMount',
         value: function componentDidMount() {
-            console.log('componentDidMount');
-            console.log('user.id = ', user.id);
+            /*console.log('componentDidMount');*/
+            /*console.log('user.id = ', user.id);*/
             _axios2.default.get("/credits/" + user.id).then(function (response) {
                 /*console.log('some response', response);*/
                 /*console.log('user credits = ',response.data.credits);*/
@@ -29404,7 +29404,7 @@ var Game = function (_Component) {
     }, {
         key: 'minusClick',
         value: function minusClick() {
-            console.log('Minus was clicked');
+            /*console.log('Minus was clicked');*/
             var currBet = this.state.betAmt;
             if (currBet > 1) {
                 this.setState({
@@ -29415,7 +29415,7 @@ var Game = function (_Component) {
     }, {
         key: 'plusClick',
         value: function plusClick() {
-            console.log('Plus was clicked');
+            /*console.log('Plus was clicked');*/
             var currBet = this.state.betAmt;
             if (currBet < 5) {
                 this.setState({
@@ -29439,9 +29439,9 @@ var Game = function (_Component) {
         key: 'cardClick',
         value: function cardClick(i) {
             var current = this.state.dealtCards.slice();
-            console.log('current lock = ', current[i].Locked);
+            /*console.log('current lock = ', current[i].Locked);*/
             current[i].Locked = !current[i].Locked; // change Locked state
-            console.log('current lock after= ', current[i].Locked);
+            /*console.log('current lock after= ', current[i].Locked);*/
 
             this.setState({
                 dealtCards: current
@@ -29453,7 +29453,7 @@ var Game = function (_Component) {
     }, {
         key: 'drawClick',
         value: function drawClick() {
-            console.log('game state on drawclick = ', this.state.gameState);
+            /*console.log('game state on drawclick = ', this.state.gameState);*/
             // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
             // 0, 3, 4 - create a shuffled deck
             if (this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3) {
@@ -29466,7 +29466,7 @@ var Game = function (_Component) {
                     });
                 } else {
                     var newDeck = _Cardfunctions2.default.CreateDeck();
-                    console.log("BetAmt = ", this.state.betAmt);
+                    /*console.log("BetAmt = ", this.state.betAmt);*/
                     var newShuffle = newDeck.slice();
                     newShuffle = _Cardfunctions2.default.ShuffleCards(newShuffle);
 
@@ -29477,6 +29477,20 @@ var Game = function (_Component) {
                     var currBet = this.state.betAmt;
                     var newCredits = this.state.credits;
                     newCredits = newCredits - currBet;
+
+                    // save new credits to user
+                    _axios2.default.post("/credits/" + user.id + "/" + newCredits).then(function (response) {
+                        /*console.log('post response', response);*/
+                        this.setState({
+                            shuffledDeck: newDeal.reshuffled,
+                            dealtCards: newDeal.newCard,
+                            gameState: 1, // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
+                            credits: newCredits,
+                            reset: true // disable reset button
+                        });
+                    }.bind(this)).catch(function (error) {
+                        console.log(error);
+                    });
 
                     this.setState({
                         shuffledDeck: newDeal.reshuffled,
@@ -29502,13 +29516,13 @@ var Game = function (_Component) {
                         }
                     }
 
-                    console.log('redeal = ', tempCards);
+                    /*console.log('redeal = ', tempCards);*/
 
                     var determineGame = _Handfunctions2.default.ProcessHand(tempCards, this.state.betAmt);
 
-                    console.log('winloss = ', determineGame.status);
-                    console.log('final message = ', determineGame.message);
-                    console.log('payout amount = ', determineGame.payout);
+                    /*console.log('winloss = ', determineGame.status);*/
+                    /*console.log('final message = ', determineGame.message);*/
+                    /*console.log('payout amount = ', determineGame.payout);*/
 
                     var _newCredits = this.state.credits;
                     _newCredits = _newCredits + determineGame.payout;
@@ -29579,13 +29593,6 @@ var Game = function (_Component) {
 }(_react.Component);
 
 exports.default = Game;
-
-// We only want to try to render our component on pages that have a div with an ID
-// of "example"; otherwise, we will see an error in our console
-/*
- if (document.getElementById('example')) {
- ReactDOM.render(<Dashboard />, document.getElementById('example'));
- }*/
 
 /***/ }),
 /* 261 */

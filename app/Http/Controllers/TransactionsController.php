@@ -58,7 +58,7 @@ class TransactionsController extends Controller
      * @param  \App\Transactions  $transactions
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transactions $transactions)
+    public function edit(Transactions $transaction)
     {
         //
     }
@@ -70,9 +70,13 @@ class TransactionsController extends Controller
      * @param  \App\Transactions  $transactions
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transactions $transactions)
+    public function update( $id, $credits)
     {
-        //
+        $transactions = Transactions::where('user_id', $id)->firstOrFail();
+        $transactions->credits = $credits;
+        $transactions->save();
+
+        return ($transactions);
     }
 
     /**
