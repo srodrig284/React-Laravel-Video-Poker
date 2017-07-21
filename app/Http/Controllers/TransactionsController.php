@@ -44,9 +44,12 @@ class TransactionsController extends Controller
      * @param  \App\Transactions  $transactions
      * @return \Illuminate\Http\Response
      */
-    public function show(Transactions $transactions)
+    public function show( $id )
     {
-        //
+        $transactions = Transactions::where('user_id', $id)->firstOrFail();
+        /*return view('/game');*/
+
+        return ($transactions);
     }
 
     /**

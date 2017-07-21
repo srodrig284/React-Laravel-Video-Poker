@@ -1,7 +1,9 @@
 /**
  * Created by Sandra on 7/4/17.
  */
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+// Include the axios package for performing HTTP requests (promise based alternative to request)
+import axios from 'axios';
 
 import '../../../../public/css/mystylesheet.css'
 import '../../../../public/css/animate.css'
@@ -32,6 +34,25 @@ class Game extends Component {
         this.minusClick = this.minusClick.bind(this);
         this.plusClick = this.plusClick.bind(this);
         this.resetClick = this.resetClick.bind(this);
+
+    }
+
+    componentDidMount() {
+        console.log('componentDidMount');
+        console.log('user.id = ', user.id);
+        axios.get("/credits/"+user.id)
+            .then(function (response) {
+                /*console.log('some response', response);*/
+                ¿
+                let userCredits = response.data.credits;
+                this.setState({
+                    credits: userCredits
+                })
+            }.bind(this))
+            .catch(function (error) {
+                /*console.log('no response');*/
+                console.log(error);
+            });
 
     }
 
