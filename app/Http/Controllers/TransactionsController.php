@@ -64,11 +64,11 @@ class TransactionsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transactions  $transactions
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @param $credits
+     * @return mixed
+     *  Find the user's transaction data in the
+     * transactions table
      */
     public function update( $id, $credits)
     {
@@ -79,6 +79,14 @@ class TransactionsController extends Controller
         return ($transactions);
     }
 
+
+    /**
+     * @param $id
+     * @return mixed
+     * Update the credits available for the user in
+     * the transactions table.  Add the new credits
+     * to the ytd total.
+     */
     public function updatetotal( $id)
     {
         $transactions = Transactions::where('user_id', $id)->firstOrFail();

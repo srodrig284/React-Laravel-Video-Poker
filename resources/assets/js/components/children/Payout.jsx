@@ -9,9 +9,6 @@ import fivechip from '../../../../../public/images/FiveChip.png'
 function Payout() {
     return (
         <div className="div_margin">
-
-
-
                         <table className="TITLE">
                             <tbody>
                                 <tr>

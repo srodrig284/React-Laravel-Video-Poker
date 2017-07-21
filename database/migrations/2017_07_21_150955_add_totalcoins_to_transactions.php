@@ -25,6 +25,8 @@ class AddTotalcoinsToTransactions extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('transactions', function($table) {
+            $table->dropColumn('ytd_credits');
+        });
     }
 }
