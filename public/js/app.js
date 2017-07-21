@@ -29226,10 +29226,33 @@ var Dashboard = function (_Component) {
     function Dashboard() {
         _classCallCheck(this, Dashboard);
 
-        return _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Dashboard.__proto__ || Object.getPrototypeOf(Dashboard)).call(this));
+
+        _this.state = {
+            usercredits: 0,
+            ytdcredits: 0
+        };
+        return _this;
     }
 
     _createClass(Dashboard, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            /*console.log('Dashboard componentDidMount');*/
+            /*console.log('user.id = ', user.id);*/
+            axios.get("/credits/" + user.id).then(function (response) {
+                /*console.log('some response', response);*/
+                /*console.log('user credits = ',response.data.credits);*/;
+                this.setState({
+                    usercredits: response.data.credits,
+                    ytdcredits: response.data.ytd_credits
+                });
+            }.bind(this)).catch(function (error) {
+                /*console.log('no response');*/
+                console.log(error);
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -29266,12 +29289,14 @@ var Dashboard = function (_Component) {
                                 _react2.default.createElement(
                                     'h3',
                                     null,
-                                    'Coins available to play: '
+                                    'Coins available to play: ',
+                                    this.state.usercredits
                                 ),
                                 _react2.default.createElement(
                                     'h3',
                                     null,
-                                    'Total Coins Given: '
+                                    'Total Coins Given: ',
+                                    this.state.ytdcredits
                                 ),
                                 _react2.default.createElement('br', null),
                                 _react2.default.createElement('hr', null),
@@ -29407,9 +29432,8 @@ var Game = function (_Component) {
             _axios2.default.get("/credits/" + user.id).then(function (response) {
                 /*console.log('some response', response);*/
                 /*console.log('user credits = ',response.data.credits);*/
-                var userCredits = response.data.credits;
                 this.setState({
-                    credits: userCredits
+                    credits: response.data.credits
                 });
             }.bind(this)).catch(function (error) {
                 /*console.log('no response');*/

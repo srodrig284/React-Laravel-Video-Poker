@@ -44,9 +44,8 @@ class Game extends Component {
             .then(function (response) {
                 /*console.log('some response', response);*/
                 /*console.log('user credits = ',response.data.credits);*/
-                let userCredits = response.data.credits;
                 this.setState({
-                    credits: userCredits
+                    credits: response.data.credits
                 })
             }.bind(this))
             .catch(function (error) {
