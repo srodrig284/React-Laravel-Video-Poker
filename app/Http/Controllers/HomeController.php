@@ -18,9 +18,9 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Pass variables from PHP Blade to React Javascript
+     * to be able to access them in jsx file
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {

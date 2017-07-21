@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transactions extends Model
 {
     protected $fillable = [
-        'credits_bal', 'user_id',
+        'credits', 'user_id', 'ytd_credits',
     ];
 
     public function user(){
