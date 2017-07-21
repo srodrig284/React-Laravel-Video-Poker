@@ -32,7 +32,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
                         {{--{{ config('app.name' . 'Home', 'Laravel') }}--}}
-                        Video Poker Home
+                        <h3>Video Poker Home</h3>
                     </a>
                 </div>
 
@@ -51,7 +51,7 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <h3>{{ Auth::user()->name }} <span class="caret"></span></h3>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
