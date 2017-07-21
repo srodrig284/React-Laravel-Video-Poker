@@ -88,14 +88,6 @@ class Game extends Component {
             .catch(function (error) {
                 console.log(error);
             });
-
-        // now update
-
-        /*this.setState({
-         reset: true,
-         credits: 1000,
-         gameState: 0
-         })*/
     }
 
     // card was clicked - hold or unhold
@@ -118,7 +110,7 @@ class Game extends Component {
         if(this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3)
         {
             // check if there are enough credits to play
-            if(this.state.betAmt === 0 || this.state.betAmt > this.state.credits){
+            if(this.state.betAmt > this.state.credits){
                 // not enough credits to play
                 this.setState({
                     finalText: "Not enough credits. Lower bet or press Reset Game.",
@@ -212,9 +204,16 @@ class Game extends Component {
         let status;
         let disableCards = true;  // for gamestate = 2, 3
         let disableBetting = false;
+        let reset = this.state.reset;
 
         if(this.state.gameState === 0){
-            status = "PRESS DRAW TO PLAY POKER";
+            if(this.state.betAmt > this.state.credits){
+                status = "Not enough credits. Lower bet or press Reset Game."
+                reset = false;
+            }
+            else{
+                status = "PRESS DRAW TO PLAY POKER";
+            }
         }
         if(this.state.gameState === 1)
         {
@@ -243,7 +242,7 @@ class Game extends Component {
                     resetClicked={this.resetClick}
                     bet={this.state.betAmt}
                     credits={this.state.credits}
-                    disableReset={this.state.reset}
+                    disableReset={reset}
                     disableBet={disableBetting}
 
                 />

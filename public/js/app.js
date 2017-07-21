@@ -29331,6 +29331,13 @@ var Dashboard = function (_Component) {
 
 exports.default = Dashboard;
 
+// We only want to try to render our component on pages that have a div with an ID
+// of "example"; otherwise, we will see an error in our console
+/*
+ if (document.getElementById('example')) {
+ ReactDOM.render(<Dashboard />, document.getElementById('example'));
+ }*/
+
 /***/ }),
 /* 260 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -29469,14 +29476,6 @@ var Game = function (_Component) {
             }.bind(this)).catch(function (error) {
                 console.log(error);
             });
-
-            // now update
-
-            /*this.setState({
-             reset: true,
-             credits: 1000,
-             gameState: 0
-             })*/
         }
 
         // card was clicked - hold or unhold
@@ -29504,7 +29503,7 @@ var Game = function (_Component) {
             // 0, 3, 4 - create a shuffled deck
             if (this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3) {
                 // check if there are enough credits to play
-                if (this.state.betAmt === 0 || this.state.betAmt > this.state.credits) {
+                if (this.state.betAmt > this.state.credits) {
                     // not enough credits to play
                     this.setState({
                         finalText: "Not enough credits. Lower bet or press Reset Game.",
@@ -29595,9 +29594,15 @@ var Game = function (_Component) {
             var status = void 0;
             var disableCards = true; // for gamestate = 2, 3
             var disableBetting = false;
+            var reset = this.state.reset;
 
             if (this.state.gameState === 0) {
-                status = "PRESS DRAW TO PLAY POKER";
+                if (this.state.betAmt > this.state.credits) {
+                    status = "Not enough credits. Lower bet or press Reset Game.";
+                    reset = false;
+                } else {
+                    status = "PRESS DRAW TO PLAY POKER";
+                }
             }
             if (this.state.gameState === 1) {
                 status = "SELECT CARDS TO HOLD AND/OR PRESS DRAW";
@@ -29626,7 +29631,7 @@ var Game = function (_Component) {
                     resetClicked: this.resetClick,
                     bet: this.state.betAmt,
                     credits: this.state.credits,
-                    disableReset: this.state.reset,
+                    disableReset: reset,
                     disableBet: disableBetting
 
                 })
