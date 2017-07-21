@@ -22,6 +22,11 @@ class Dashboard extends Component {
         /*console.log('user.id = ', user.id);*/
         axios.get("/credits/"+user.id)
             .then(function (response) {
+<<<<<<< HEAD
+=======
+                /*console.log('some response', response);*/
+                /*console.log('user credits = ',response.data.credits);*/;
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                 this.setState({
                     usercredits: response.data.credits,
                     ytdcredits: response.data.ytd_credits

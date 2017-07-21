@@ -38,8 +38,17 @@ class Game extends Component {
     }
 
     componentDidMount() {
+<<<<<<< HEAD
         axios.get("/credits/"+user.id)
             .then(function (response) {
+=======
+        /*console.log('componentDidMount');*/
+        /*console.log('user.id = ', user.id);*/
+        axios.get("/credits/"+user.id)
+            .then(function (response) {
+                /*console.log('some response', response);*/
+                /*console.log('user credits = ',response.data.credits);*/
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                 this.setState({
                     credits: response.data.credits
                 })
@@ -51,6 +60,10 @@ class Game extends Component {
     }
 
     minusClick(){
+<<<<<<< HEAD
+=======
+        /*console.log('Minus was clicked');*/
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
         let currBet = (this.state.betAmt);
         if(currBet > 1){
             this.setState({
@@ -60,6 +73,10 @@ class Game extends Component {
     }
 
     plusClick(){
+<<<<<<< HEAD
+=======
+        /*console.log('Plus was clicked');*/
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
         let currBet = (this.state.betAmt);
         if(currBet < 5){
             this.setState({
@@ -72,8 +89,14 @@ class Game extends Component {
         // save new credits to user
         axios.post("/newcredits/"+user.id)
             .then(function (response) {
+<<<<<<< HEAD
                 this.setState({
                     credits: 100,
+=======
+                /*console.log('post response', response);*/
+                this.setState({
+                    credits: 1000,
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                     reset: true,  // disable reset button
                     gameState: 0
                 })
@@ -81,12 +104,29 @@ class Game extends Component {
             .catch(function (error) {
                 console.log(error);
             });
+<<<<<<< HEAD
+=======
+
+        // now update
+
+        /*this.setState({
+            reset: true,
+            credits: 1000,
+            gameState: 0
+        })*/
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
     }
 
     // card was clicked - hold or unhold
     cardClick(i) {
         let current = (this.state.dealtCards).slice();
+<<<<<<< HEAD
         current[i].Locked = !current[i].Locked; // change Locked state
+=======
+        /*console.log('current lock = ', current[i].Locked);*/
+        current[i].Locked = !current[i].Locked; // change Locked state
+        /*console.log('current lock after= ', current[i].Locked);*/
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
 
         this.setState({
             dealtCards: current
@@ -95,6 +135,10 @@ class Game extends Component {
 
     // draw button was clicked
     drawClick(){
+<<<<<<< HEAD
+=======
+        /*console.log('game state on drawclick = ', this.state.gameState);*/
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
         // 0=uninitialized, 1=firstdeal, 2=win, 3=loss
         // 0, 3, 4 - create a shuffled deck
         if(this.state.gameState === 0 || this.state.gameState === 2 || this.state.gameState === 3)
@@ -109,6 +153,10 @@ class Game extends Component {
             }
             else {
                 let newDeck = DeckActions.CreateDeck();
+<<<<<<< HEAD
+=======
+                /*console.log("BetAmt = ", this.state.betAmt);*/
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                 let newShuffle = (newDeck).slice();
                 newShuffle = DeckActions.ShuffleCards(newShuffle);
 
@@ -165,8 +213,19 @@ class Game extends Component {
                     }
                 }
 
+<<<<<<< HEAD
                 let determineGame = WinLoss.ProcessHand(tempCards, this.state.betAmt);
 
+=======
+                /*console.log('redeal = ', tempCards);*/
+
+                let determineGame = WinLoss.ProcessHand(tempCards, this.state.betAmt);
+
+                /*console.log('winloss = ', determineGame.status);*/
+                /*console.log('final message = ', determineGame.message);*/
+                /*console.log('payout amount = ', determineGame.payout);*/
+
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748
                 let newCredits = this.state.credits;
                 newCredits = newCredits + determineGame.payout;
 
@@ -227,4 +286,8 @@ class Game extends Component {
     }
 }
 
+<<<<<<< HEAD
 export default Game;
+=======
+export default Game;
+>>>>>>> 100a7a6b6817796357ff79ba52d71a7e3754c748

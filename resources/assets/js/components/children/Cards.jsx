@@ -21,8 +21,6 @@ function Message(props) {
 }
 
 
-
-
 class Cards extends Component {
     renderSquare(i) {
         return (
