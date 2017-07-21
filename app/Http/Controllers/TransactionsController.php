@@ -44,9 +44,12 @@ class TransactionsController extends Controller
      * @param  \App\Transactions  $transactions
      * @return \Illuminate\Http\Response
      */
-    public function show(Transactions $transactions)
+    public function show( $id )
     {
-        //
+        $transactions = Transactions::where('user_id', $id)->firstOrFail();
+        /*return view('/game');*/
+
+        return ($transactions);
     }
 
     /**
@@ -55,23 +58,46 @@ class TransactionsController extends Controller
      * @param  \App\Transactions  $transactions
      * @return \Illuminate\Http\Response
      */
-    public function edit(Transactions $transactions)
+    public function edit(Transactions $transaction)
     {
         //
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transactions  $transactions
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @param $credits
+     * @return mixed
+     *  Find the user's transaction data in the
+     * transactions table
      */
-    public function update(Request $request, Transactions $transactions)
+    public function update( $id, $credits)
     {
-        //
+        $transactions = Transactions::where('user_id', $id)->firstOrFail();
+        $transactions->credits = $credits;
+        $transactions->save();
+
+        return ($transactions);
     }
 
+
+    /**
+     * @param $id
+     * @return mixed
+     * Update the credits available for the user in
+     * the transactions table.  Add the new credits
+     * to the ytd total.
+     */
+    public function updatetotal( $id)
+    {
+        $transactions = Transactions::where('user_id', $id)->firstOrFail();
+        $transactions->credits = 100;
+        $newYTD = $transactions->ytd_credits;
+        $newYTD = $newYTD + 100;
+        $transactions->ytd_credits = $newYTD;
+        $transactions->save();
+
+        return ($transactions);
+    }
     /**
      * Remove the specified resource from storage.
      *

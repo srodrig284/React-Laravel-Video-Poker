@@ -32,7 +32,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
                         {{--{{ config('app.name' . 'Home', 'Laravel') }}--}}
-                        Video Poker Home
+                        <h3>Video Poker Home</h3>
                     </a>
                 </div>
 
@@ -46,12 +46,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('login') }}"><h3>Login</h3></a></li>
+                            <li><a href="{{ route('register') }}"><h3>Register</h3></a></li>
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <h3>{{ Auth::user()->name }} <span class="caret"></span></h3>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
