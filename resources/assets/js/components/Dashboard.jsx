@@ -47,7 +47,7 @@ class Dashboard extends Component {
                                 <h1>Welcome, { user.name }</h1>
                                 <h2> Account Overview:</h2>
                                 <h3>Coins available to play: {this.state.usercredits}</h3>
-                                <h3>Total Coins Given: {this.state.ytdcredits}</h3>
+                                <h3>YTD Coins: {this.state.ytdcredits}</h3>
                                 <br/><hr/>
                                 <h2>Choose your game!</h2>
                                 <p>

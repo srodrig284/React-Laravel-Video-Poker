@@ -29295,7 +29295,7 @@ var Dashboard = function (_Component) {
                                 _react2.default.createElement(
                                     'h3',
                                     null,
-                                    'Total Coins Given: ',
+                                    'YTD Coins: ',
                                     this.state.ytdcredits
                                 ),
                                 _react2.default.createElement('br', null),
